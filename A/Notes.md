@@ -11,11 +11,11 @@
 - A memory block to hold a value.
 - There are 2 types of variables that are created in Shell:
 	- **System variables** : Predefined variables by BASH, maanged by Shell/OS and they are Created in UPPERCASE.
-	- Ex - $BASH, $BASH_VERSION, $HOME, $PWD
+		- Ex - $BASH, $BASH_VERSION, $HOME, $PWD
 
 	- **User Defined (UDV) Variables**
-	- A-Z, a-z, 0-9, _
-	- A variable name should either start with an alphabet or _
+		- A-Z, a-z, 0-9, _
+		- A variable name should either start with an alphabet or _
 
 ## Read Input 
 - **Read command** - The read command allows you to prompt for input and store it in a variable. Shell allows to prompt for user input.
