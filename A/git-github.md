@@ -74,3 +74,21 @@
    16. git log: retrieves info of the commits. Author, email, date, commit message. And commit hash
    17. To open the current folder in VSCode use code . in the terminal. 
         - For Mac follow this: https://stackoverflow.com/questions/30065227/run-open-vscode-from-mac-terminal
+
+## Basic Git and commands
+- `cd 'path'` -> change directory
+- `cd ..` -> moves a level up
+	- use arrow keys to see history of previously use commands
+	- history -> gives a track of all commands you have used in the current session
+- `cd ./ tab key` -> gives the auto-completion of the file/directory
+- `ls` -> list all the files and directories
+- `mkdir 'directory name'` -> make directory
+- `touch 'file name.extension'` -> creates a file
+- `git clone 'url'` -> adds the local workspace in your machine
+- `git add <filename>` -> adds the file you target to add to git
+- `git add -A` -> adds all the file
+- `git commit -m 'message'` -> Stage changes and commit to git as a new node
+- `git push` -> push changes to git server
+- `git status` -> see the new tracks/ changes made in local workspace
+- `git pull` -> retrieve changes from the git server (updates your workspace with latest code)
+- `pwd` -> print where directory
