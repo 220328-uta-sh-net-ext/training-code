@@ -98,3 +98,10 @@ do
 done 
 ```
 Loops until end of input, i.e. ^d  (or ^c)
+
+
+
+## References 
+1. https://bash.cyberciti.biz/guide/Main_Page
+2. https://www.tutorialspoint.com/unix/shell_scripting.htm
+3. If you are video person : https://www.youtube.com/playlist?list=PLS1QulWo1RIYmaxcEqw5JhK3b-6rgdWO_
