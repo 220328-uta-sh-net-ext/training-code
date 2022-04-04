@@ -20,7 +20,7 @@
   - CLS gives a set of rules and regulation a .Net compliant language should follow. Ex all .Net compliant languages should be OOP languages, Array index should start from 0 etc...
 
 ## Technologies we'll be using during this training
-- .NET 6 and C#
+- .NET 6 SDK (Runtime, toolkit to devlop apps, .Net CLI) and C#
 - SQL (Sql Server)
 - ASP.NET Core for creating web applications
 - Azure Cloud Service for hosting
