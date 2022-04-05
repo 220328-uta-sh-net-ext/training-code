@@ -44,11 +44,11 @@
     - It's designed to unify the different types of devices that you may want to target, including PCs, tablets, phones, and even the Xbox.
 
 ## Components of .NET Implementation
-    - One or more runtime: Example, .NET Framework CLR, .NET 5 CLR
-        - CLR stands for *Common Language Runtime* and it's a runtime environment provided by .NET
-    - A class library, for example, .NET Framework Base Class Library, or .NET 5 Base Class Library.
-    - Optionally, we have one or more application frameworks, such as ASP.NET Core for web application development, Windows Forms, etc.
-    - Optionally, development tools. Some are shared among multiple implementations.
+- One or more runtime: Example, .NET Framework CLR, .NET 5 CLR
+    - CLR stands for *Common Language Runtime* and it's a runtime environment provided by .NET
+- A class library, for example, .NET Framework Base Class Library, or .NET 5 Base Class Library.
+- Optionally, we have one or more application frameworks, such as ASP.NET Core for web application development, Windows Forms, etc.
+- Optionally, development tools. Some are shared among multiple implementations.
 
 #### CLR? SDK?
 - CLR Stands for Common Language Runtime, and it's runtime environment. It is also know as main execution Engine and is used to run any .Net application.
