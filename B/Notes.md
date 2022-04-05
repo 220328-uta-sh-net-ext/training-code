@@ -78,11 +78,12 @@ ASP.NET: ASP.NET Core to match with .NET Core
 # [Basics of C#](https://docs.microsoft.com/en-gb/users/dotnet/collections/yz26f8y64n7k07?WT.mc_id=dotnet-35129-website) 
 ## Anatomy of C# program
 - namespace -> Types -> Type members
+- Namespaces are used to organize C#'s many classes and to control scope of class and methods in large programming project
     - Namespace
         - Types
                 - Members (Methods, variables, properties)
 - Types (Classes, Enums, Structs, Interface, Delegates)
-    -   All types in  C# are inherited directly or indirectly Sytem.Object
+    -   All types in  C# are inherited directly or indirectly **System.Object**
         - **[Value Types](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-types)** 
             - which stores the direct value, 
             - stored in memory Stack,
