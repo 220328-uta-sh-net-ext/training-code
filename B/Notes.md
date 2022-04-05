@@ -75,21 +75,47 @@ These are frameworks that extend .NET platform to provide additional functionali
 ASP.NET: ASP.NET Core to match with .NET Core 
 
 
-## [C#](https://docs.microsoft.com/en-gb/users/dotnet/collections/yz26f8y64n7k07?WT.mc_id=dotnet-35129-website) 
-### Anatomy of C# program
+# [Basics of C#](https://docs.microsoft.com/en-gb/users/dotnet/collections/yz26f8y64n7k07?WT.mc_id=dotnet-35129-website) 
+## Anatomy of C# program
 - namespace -> Types -> Type members
     - Namespace
         - Types
                 - Members (Methods, variables, properties)
 - Types (Classes, Enums, Structs, Interface, Delegates)
     -   All types in  C# are inherited directly or indirectly Sytem.Object
-        - **[Value Types](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-types)** - which has the direct value, stored in memory Stack, fast to access.
-            Structs, Enums. Predefined (int, long, short, byte, DateTime, char)
-        - **[Reference Types](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/reference-types)** - it stores the reference to that value, value is stored in heap, expensive retrieval process.
-            Classes, interface, Delegates. Predefined -> string, arrays, collections etc.
+        - **[Value Types](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-types)** 
+            - which stores the direct value, 
+            - stored in memory Stack,
+            - Stack is always faster to retrieve data than heap
+            - Every value type has a set of memory set aside for it to occupy (Ex: int can only store 32-bits while a double can store 64-bits) and stack memory is all about structure for efficiency and how data cannot be dynamically changing in size
+            - Ex Predefined (int, long, short, byte, DateTime, char)
+                - Structs - like a class but gets stored in the stack for memory retrieval efficiency
+                - Enums - defines a set of named integral constants
+        - **[Reference Types](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/reference-types)** 
+            - They are datatypes that are stored in the heap and reference variables that are stored in the stack
+            - Think of reference variables as having the address of a house since an address only holds the info on where the house is and not the actual house itself
+            - When you declare a variable of a reference type and not have it point to anything in the beginning, it will have a null value
+                - Null in the coding world means lack of value or there isn't any value at all
+            - Reference variables are stored in the stack while the actual object itself is stored in the heap
+            - retrieval a value from heap is an expensive process.
+            - Why the heap? since memory in the heap can be dynamically changing
+            - Ex Predefined -> string, arrays, collections etc, Classes, interface, Delegates.  
+## Conversion
+- C# is statically typed at compiled time. Meaning after a variable is declared, it cannot be declared again.
+- However, it is possible to change the variable type
 - **[Type Conversion](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/conversions)** : conversion of 1 type into another 
-    - Implicit type conversion : no need to type cast. Ex byte value can be placed in int. No data loss.
-    - Explicit type conversion : type cast it using `<datatype>.Parse(value)`, `Convert.<datatype>(value)`. You can have a data loss if its not fitting in the type.
+    - **Implicit type conversion** : 
+        - Generally, it is when you can convert the type without any data loss
+        - Mostly used with numerical datatypes
+        - No special syntax needed to write and compiler will do it for you
+        - no need to type cast manually/explicitly. 
+        - Ex byte value can be placed in int; converting an int into a double
+
+    - **Explicit type conversion** : 
+        - If there is a risk of losing information, you must perform a **Cast**
+        - Special syntax is needed to write to tell the compiler to do it anyway
+        - Casting is denoted with (datatype)
+        - type cast it using `<datatype>.Parse(value)`, `Convert.<datatype>(value)`. You can have a data loss if its not fitting in the type.
         - The `Parse` method returns the converted number; the `TryParse` method returns a boolean value that indicates whether the conversion succeeded, and returns the converted number in an `out` parameter.
 - **Boxing**- refers to conversion Value type to reference types.
 - **Unboxing**- refers to conversion of reference types to value types.
