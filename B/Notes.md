@@ -76,6 +76,9 @@ ASP.NET: ASP.NET Core to match with .NET Core
 
 
 # [Basics of C#](https://docs.microsoft.com/en-gb/users/dotnet/collections/yz26f8y64n7k07?WT.mc_id=dotnet-35129-website) 
+- C# is Case-Sensitive, Object-Oriented, Component Oriented language
+- C# has coding syntax resembling other programming languages like C, C++, Java. Not that they wanted to copy them but for ease of developers to adopt this programming language.
+- It is a type safe language. Type Safety is because of component of .Net known as **CTS** (Common Type System).
 ## Anatomy of C# program
 - namespace -> Types -> Type members
 - Namespaces are used to organize C#'s many classes and to control scope of class and methods in large programming project
