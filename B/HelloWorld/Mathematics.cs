@@ -26,11 +26,24 @@ namespace HelloWorld
         }
 
         public static void Add(){
+            input1:
             Console.Write("Please enter first number ");
+            var input1=Console.ReadLine();
             // user input is always in string format
-            double num1=Convert.ToDouble(Console.ReadLine());
+            double num1, num2;
+            bool input1Success = double.TryParse(input1, out num1);
+            while(!input1Success ){
+                    Console.WriteLine("Invalid number!! try again...");
+                    goto input1;
+            }
+            input2:
             Console.Write("Please enter second number ");
-            double num2=Convert.ToDouble(Console.ReadLine());
+            var input2 = Console.ReadLine();
+            bool input2Success = double.TryParse(input2, out num2);
+             while(!input2Success ){
+                    Console.WriteLine("Invalid number!! try again...");
+                    goto input2;
+            }            
             Console.WriteLine($"{num1} + {num2} = {num1+num2} ");
         }
     }
