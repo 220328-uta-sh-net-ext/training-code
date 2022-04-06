@@ -77,8 +77,10 @@ ASP.NET: ASP.NET Core to match with .NET Core
 
 # [Basics of C#](https://docs.microsoft.com/en-gb/users/dotnet/collections/yz26f8y64n7k07?WT.mc_id=dotnet-35129-website) 
 - C# is Case-Sensitive, Object-Oriented, Component Oriented language
+    - Object-oriented means everythign is based on objects and classes and the relationships between them
 - C# has coding syntax resembling other programming languages like C, C++, Java. Not that they wanted to copy them but for ease of developers to adopt this programming language.
 - It is a type safe language. Type Safety is because of component of .Net known as **CTS** (Common Type System).
+    - Type-safe meaning once you set a datatype you can't change the datatype (unless you use certain techniques to do it)
 ## Anatomy of C# program
 - namespace -> Types -> Type members
 - Namespaces are used to organize C#'s many classes and to control scope of class and methods in large programming project
@@ -124,8 +126,8 @@ ASP.NET: ASP.NET Core to match with .NET Core
 - **Boxing**- refers to conversion Value type to reference types.
 - **Unboxing**- refers to conversion of reference types to value types.
 
-- **[Expressions](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/)**
-  - An expression is a sequence of operators and operands.
+ ### [Expressions](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/)
+- An expression is a sequence of operators and operands.
     - Ex int c = a + b;
     ```
     [(6/2)+2*3-1]
@@ -134,10 +136,29 @@ ASP.NET: ASP.NET Core to match with .NET Core
     - 9 - 1
     - 8
     ```
- 
-- **[Recursion](https://www.codeproject.com/Articles/142292/Recursive-methods-in-Csharp)** - It is a process of repetitiion own its own. A recursive function is a function that calls itself.
-    - A function that calls another function is normal but when a function calls itself then that is a recursive function.
+## What is Object-Oriented programming?
+- It is a methodology we use to design our programs just using classes and objects
+- It makes it a lot easier to develop and maintain your project as it gets bigger
 
+### Classes
+- They are templates that are used to create objects and define the object's functions and current state (essentially what information they currently store)
+
+### Objects
+- It is any entity that has a state and behavior
+- They are made from classes and will copy whatever state and behavior the class has defined
+
+### Overall
+- Classes are blueprints and Objects is the actual object from the blueprint
+- Ex: A blueprint of a car, tells you how to make a car but it isn't the car itself (The Class) The multiple cars you make from same blueprint (The Objects of that Class)
+### Methods
+- A method is a member that implements the behaviour or action or computation that can be performed by an object or class. 
+    - static methods - they accessed through class 
+    - instance methods - they are accessed through instance of the class
+- 
+
+### [Recursion](https://www.codeproject.com/Articles/142292/Recursive-methods-in-Csharp) 
+- It is a process of repetitiion own its own. A recursive function is a function that calls itself.
+    - A function that calls another function is normal but when a function calls itself then that is a recursive function.
 ### Additional Resources
 - [.NET Documentation](https://docs.microsoft.com/en-us/dotnet/core/introduction)
 - [.NET Glossary](https://docs.microsoft.com/en-us/dotnet/standard/glossary)
