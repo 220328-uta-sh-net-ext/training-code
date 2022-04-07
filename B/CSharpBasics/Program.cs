@@ -14,4 +14,17 @@ Console.WriteLine($"{x} + {y} = {result}");*/
 
 // Arrays
 //Collection.Arrays_1D();
-Collection.Arrays_MultiDimensional();
+//Collection.Arrays_MultiDimensional();
+Collection.JaggedArrays();
+
+/*int[] a = {45,56,76,43,49}; // shorthand for declaring and initializing an array
+var result=Collection.Reverse(a);
+foreach (var item in a)
+{
+     Console.Write(item + " ");
+}
+Console.WriteLine();
+foreach (var item in result)
+{
+    Console.Write(item+ " ");
+}*/
