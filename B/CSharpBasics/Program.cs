@@ -15,10 +15,10 @@ Console.WriteLine($"{x} + {y} = {result}");*/
 // Arrays
 //Collection.Arrays_1D();
 //Collection.Arrays_MultiDimensional();
-Collection.JaggedArrays();
+//Collection.JaggedArrays();
 
-/*int[] a = {45,56,76,43,49}; // shorthand for declaring and initializing an array
-var result=Collection.Reverse(a);
+int[] a = {45,0,76,0,49}; // shorthand for declaring and initializing an array
+/*var result=Collection.Reverse(a);
 foreach (var item in a)
 {
      Console.Write(item + " ");
@@ -28,3 +28,5 @@ foreach (var item in result)
 {
     Console.Write(item+ " ");
 }*/
+
+Collection.MoveZeros(a);

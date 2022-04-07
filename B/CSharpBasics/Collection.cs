@@ -92,5 +92,29 @@ namespace CSharpBasics
             }
             return reversed;
         }
+        
+        public static void ReadArray(int[] anyArray){
+             foreach (var a in anyArray)
+            {
+                Console.Write(a + " ");
+            }
+        }
+        public static void MoveZeros(int[] y){
+            ReadArray(y);
+            
+            Console.WriteLine();
+            for (int i = 0; i < y.Length; i++)
+            {
+                if(y[i] == 0){
+                    for (int j = i; j < y.Length-1; j++)
+                    {
+                        int temp = y[j];
+                        y[j] = y[j+1];
+                        y[j+1]=temp;
+                    }
+                }
+            }
+            ReadArray(y);
+        }
     }
 }
