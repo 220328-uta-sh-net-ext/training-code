@@ -1,6 +1,6 @@
 namespace CSharpBasics
 {
-    public class Collection
+    public class CSharpArrays
     {
         public static void Arrays_1D()
         {

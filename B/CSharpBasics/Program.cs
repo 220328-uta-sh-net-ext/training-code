@@ -17,7 +17,7 @@ Console.WriteLine($"{x} + {y} = {result}");*/
 //Collection.Arrays_MultiDimensional();
 //Collection.JaggedArrays();
 
-int[] a = {45,0,76,0,49}; // shorthand for declaring and initializing an array
+//int[] a = {45,0,76,0,49}; // shorthand for declaring and initializing an array
 /*var result=Collection.Reverse(a);
 foreach (var item in a)
 {
@@ -29,4 +29,10 @@ foreach (var item in result)
     Console.Write(item+ " ");
 }*/
 
-Collection.MoveZeros(a);
+//CSharpArrays.MoveZeros(a);
+
+//CsharpCollections.NonGenerics();
+
+//CsharpCollections.GenericList();
+//CsharpCollections.GenericStack();
+CsharpCollections.GenericDictionary();
