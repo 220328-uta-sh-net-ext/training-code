@@ -66,4 +66,5 @@ Temperature.CheckTemperature(80);
 }
 catch(TemperatureException ex){
     Console.WriteLine(ex.Message);
+    //logging logic
 }
