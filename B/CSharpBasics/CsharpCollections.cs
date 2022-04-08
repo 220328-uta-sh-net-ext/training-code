@@ -78,5 +78,26 @@ namespace CSharpBasics
                 Console.WriteLine($"{e} - {employees[e]}");
             }
         }
+
+        public static void GenericLinkedList(){
+            LinkedList<int> list=new LinkedList<int>();
+
+            //add nodes to Linked list
+            list.AddLast(24);
+            list.AddLast(76);
+            list.AddLast(100);
+            list.AddLast(89);
+        
+            Console.WriteLine($"First - {list.First.Value}");
+            Console.WriteLine($"Last - {list.Last.Value}");
+            //list.Remove(list.First);
+            list.AddBefore(list.First,66);
+            foreach (var l in list)
+            {
+                Console.WriteLine(l);
+            }
+
+
+        }
     }
 }

@@ -35,4 +35,5 @@ foreach (var item in result)
 
 //CsharpCollections.GenericList();
 //CsharpCollections.GenericStack();
-CsharpCollections.GenericDictionary();
+//CsharpCollections.GenericDictionary();
+CsharpCollections.GenericLinkedList();
