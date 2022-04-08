@@ -154,11 +154,111 @@ ASP.NET: ASP.NET Core to match with .NET Core
 - A method is a member that implements the behaviour or action or computation that can be performed by an object or class. 
     - static methods - they accessed through class 
     - instance methods - they are accessed through instance of the class
-- 
 
-### [Recursion](https://www.codeproject.com/Articles/142292/Recursive-methods-in-Csharp) 
-- It is a process of repetitiion own its own. A recursive function is a function that calls itself.
-    - A function that calls another function is normal but when a function calls itself then that is a recursive function.
+### Arrays
+- Used to store a datatype and have fixed sizes
+- Zero-based index
+    - 0 is the starting position of the array
+- Other arrays you can make:
+    - Multidimensional arrays - int[,] ex = new int[4,2]; would create [ [0, 0], [0, 0], [0, 0], [0, 0] ]
+    - Jagged arrays - arrays inside of an array are different sizes [ [0, 0, 0], [0, 0], [0, 0, 0], [0, 0 , 0, 0] ]
+
+### [Collections](https://docs.microsoft.com/en-us/dotnet/standard/collections/)
+- Similar data can often be handled more efficiently when stored and manipulated as a collection. 
+- You can use arrays, non-generic or generics.
+- Arrays have fixed size and every element must have a value if no value is provided it contains the default.
+- Arrays cannot be grown or shrinked. This where collection solves the problem.
+- C# offers 2 categories of Collections:
+    - non-generics
+    - generics
+- **Non-generic** collections store items as Object, require casting. Performance concerns were arised due to this casting and also Garbage Collection.
+- **Generic collections** are type-safe at compile time. Because of this, generic collections typically offer better performance. 
+    - Generic collections accept a type parameter when they are constructed and do not require that you cast to and from.
+    - The "T" you see in documentation is where you put what data type that collection will hold
+- All collections provide methods for adding, removing, or finding items in the collection.
+- All collections can be **enumerated** by virtue of **Enumerator**.
+- An enumerator can be thought of as a movable pointer to any element in the collection.
+- Types of Generic Collections:
+    - Stack<T>
+        - LIFO - It is a Last-in, First-out list
+        - Major Operations 
+            - Push - Add element into stack
+            - Pop - Remove an element from TOP
+            - Peek - Retrieve the TOP element 
+    - Queue<T>
+        - FIFO - A first-in, first-out list
+        - Major Operations
+            - Enqueue - Add element into Queue
+            - Dequeue - Remove element from Queue
+            - Peek - Retrieve the TOP element 
+    - List<T> 
+        - Like any array which can grow and shrink dynamically.
+        - Items in the list can be accessed by index.
+        - It can accept null as a valid value for reference types and it also allows duplicate elements.
+        - List<T> class is not sorted by default and elements are accessed by zero-based index.
+        - Properties
+            - Capacity - Gets or sets the total number of elements the internal data structure can hold without resizing.
+            - Count - Gets the number of elements contained in the List<T>
+        - Methods:
+            - Add(T) - Adds an object to the end of the List<T>
+            - Clear() - Removes all elements from the List<T>
+            - Insert(index, T) - Inserts an element into the List<T> at the specified index
+            - Remove(T) -	Removes the first occurrence of a specific object from the List<T>
+            - RemoveAt(index) - Removes the element at the specified index of the List<T>
+            - Reverse() -	Reverses the order of the elements in the List<T> or a portion of it
+    - HashSet<T>
+        - It is an unordered collection of the unique elements. 
+        - It prevent duplicates from being inserted in the collection.
+    - Dictionary<Tkey,TValue> 
+        - It stores key/value pairs
+        - Keys must be Unique
+    - SortedList<TKey,TValue>
+        - It is a sorted list of key/value pairs 
+    - LinkedList<T> 
+        - It allows fast inserting and removing of elements. It implements a classic linked list.
+        - Each element is separately allocated.
+        - Properties:
+            - Count -	Gets the number of nodes actually contained in the LinkedList.
+            - First -	Gets the first node of the LinkedList.
+            - Last - Gets the last node of the LinkedList.
+        - Methods:
+            - AddFirst - Adds a new node or value at the start of the LinkedList.
+            - AddLast -	Adds a new node or value at the end of the LinkedList.
+            - Clear() -	Removes all nodes from the LinkedList.
+            - Contains(T) -	Determines whether a value is in the LinkedList.
+            - Remove(LinkedListNode) - Removes the specified node from the LinkedList.
+            - Remove(T) - Removes the first occurrence of the specified value from the LinkedList.
+            - RemoveFirst() - Removes the node at the start of the LinkedList.
+            - RemoveLast() - Removes the node at the end of the LinkedList.
+### Exceptions
+- An exception is an event that occurs during the execution of a program that distrupts the normal flow of instructions
+    - Horrible to encounter when presenting your program (When it is expected to work perfectly fine)
+    - Great when trying to find bugs in your program
+- They are not Errors!
+#### Errors
+- A serious problem that for the most part cannot be handled by the developer
+    -They are fatal to the program at runtime
+    - Ex: A stack overflow error and that usually occurs when your computer has run out of memory to store information
+- 3 types of errors
+    - Usage error - error in your program logic and can be solve by modifying/restructuring your code
+    - Program Error - run-time error that cannot be avoided even with a bug-free code (Ex: Your SDK is corrupt and can't compile or translate it to machine code properly)
+    - System Failures - run-time error that cannot be handled programmatically in a meaninful way (Ex: your ram hardware is faulty)
+#### Exception Handling
+- Using a try-catch block and optionally finally block
+- If you know the block of code you will run will have a risk of throwing an exception, you should put it in the try block
+- The catch block will then "catch" that exception and will run instead its block of code
+    - Once an exception occurs in the try block, the flow of control jumps to the first associated exception handler that is present anywhere in the call stack. In C#, the catch keyword is used to define an exception handler.
+    - If no exception handler for a given exception is present, the program stops executing with an error message.
+    - Don't catch an exception unless you can handle it and leave the application in a known state. 
+- Optionally, you can add a finally block that will run regardless if your code throws an exception or not
+    - Mostly used to clean up any resources you used in the try blcok
+#### Throwing Exception
+- You can throw an exception yourself in your code by using the throw keyword
+- Useful for enforcing certain rules/logic in your program
+#### Exception Heirarchy
+- Certain exceptions are more specific than other exceptions
+- General rule is the most specific exception should be the very first catch block and the least specific exception is at the very last catch block
+    - Why? Well if you made the least specific the first catch block then it will always run if any exception is thrown making your other catch blocks useless
 ### Additional Resources
 - [.NET Documentation](https://docs.microsoft.com/en-us/dotnet/core/introduction)
 - [.NET Glossary](https://docs.microsoft.com/en-us/dotnet/standard/glossary)
