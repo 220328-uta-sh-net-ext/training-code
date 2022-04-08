@@ -36,4 +36,34 @@ foreach (var item in result)
 //CsharpCollections.GenericList();
 //CsharpCollections.GenericStack();
 //CsharpCollections.GenericDictionary();
-CsharpCollections.GenericLinkedList();
+//CsharpCollections.GenericLinkedList();
+
+/*int numerator=0,denominator=0;
+n1:
+Console.Write("Please enter the numerator ");
+try{
+numerator = Convert.ToInt32(Console.ReadLine());
+}
+catch(OverflowException ex){
+    Console.WriteLine("Too big number "+ ex.Message);
+    goto n1;
+}
+catch(FormatException ex){
+    Console.WriteLine("Please use a correct integer as input. "+ ex.Message);
+}
+catch(Exception ex)
+{
+    Console.WriteLine(ex.Message);
+    goto n1;
+}
+Console.Write("Please enter the denominator ");
+denominator = Convert.ToInt32(Console.ReadLine());
+var result=ExceptionHandling.Divide(numerator, denominator);
+Console.WriteLine(result);*/
+
+try{
+Temperature.CheckTemperature(80);
+}
+catch(TemperatureException ex){
+    Console.WriteLine(ex.Message);
+}
