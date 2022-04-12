@@ -1,0 +1,23 @@
+Pencil
+	-  Behavior -> to write
+	- No. HB, 2B
+	- Brand
+------------------------------------------------------------------------------------
+Car -> Object
+	State : nouns
+		Make, model, color, chassis number -> static state
+		Speed, mileage - dynamic state
+	behavior : action/verb
+		Drive
+		Commute
+----------------------------------------------------------------------------------------------------------------------
+Employee -> Object
+	State: current values -> Noun -> Fields/variables/Properties/Constants
+		Static/fixed - FirstName, LastName, SSN, Gender, EmployeeId
+		Dynamic - wageRate, role, Salary, hours
+	Behavior: actions performed  -> Verbs -> Methods
+		PerformTasks/Work
+		Learning
+		GettingPaid
+		Meeting
+		Lunching/Snacking/Smoking/Drinking

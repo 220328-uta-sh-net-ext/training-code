@@ -61,10 +61,10 @@ denominator = Convert.ToInt32(Console.ReadLine());
 var result=ExceptionHandling.Divide(numerator, denominator);
 Console.WriteLine(result);*/
 
-try{
+/*try{
 Temperature.CheckTemperature(80);
 }
 catch(TemperatureException ex){
     Console.WriteLine(ex.Message);
     //logging logic
-}
+}*/
