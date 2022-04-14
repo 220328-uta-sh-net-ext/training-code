@@ -31,8 +31,9 @@
             Health = 55;
             _abilities = new List<Ability>()
             {
-                new Ability();
-            }
+                new Ability()
+            };
+        }
         public override string ToString()
         {
             return $"Name: {Name}\nLevel: {Level}\nAttack: {Attack}\nDefense: {Defense}\nHealth: {Health}";
