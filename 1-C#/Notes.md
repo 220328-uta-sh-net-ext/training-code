@@ -115,6 +115,52 @@
         - It can be static/Compile time polymorphism or dynamic/runtime polymorphism. 
         - Ex Method Overloading is an example of compile time polymorphism, which is method with same name behaves differently based on signatures (parameters). Method Overriding is an example of runtime polymorphism, which is re-defining the method of parent class into child class. 
      - remember all 4 pillars as **A PIE**
+
+# [Properties](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/properties)
+- Smart fields in C# which are used to expose a private variable outsid the class
+- You can use conditionals with your properties.
+- properties can be created in 3 ways:
+  - read-only - with only get block.
+  - write-only - with only set block.
+  - read-write property - with both get and set block. 
+
+## Method Overloading 
+  - Also known as static or compile time polymorphism
+  - Methods with same name in the containing class but with different **Signature**.
+  - Signatures can be different in 3 ways:
+    - Number of parameters.
+    - Datatype of parameters.
+    - Sequence of parameters.
+ 
+## Method Overriding
+- It is also known as dynamic/runtime polymorphism.
+- Redefining the method of base class in child class.
+- It is necessary to make a method overridable by using *abstract* or *virtual* keyword in base class
+- In child class use the keyword *override* to override these methods.
+
+## [Abstract class](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/abstract-and-sealed-classes-and-class-members) vs [Interface](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/interface)
+- An interface defines a contract. Any class or struct that implements that contract must provide an implementation of the members defined in the interface. 
+- Abstract class allows you to implement a spectrum of abstraction like full abstraction, partial abstraction etc....
+- Abstract class allows you to have all types of members. Like you can have data variables and assign values to it and can create methods with definition. But interface can only have methods, properties, events, indexers, which means interfaces cannot have variables or methods with implementation (except C# 8.0 or later version allow you to have static methods with implementation).
+- Abstract class and interface cannot be instantiated but meant to be implemented/inherited.
+- Abstract/Concrete class can implement one or more interfaces by which multiple inheritance is achieved. But class can only inherit from 1 class.
+- A class can inherit 1 class and one or more interfaces.    
+```
+class A{}
+
+abstract class C: IX, IY
+{}
+
+class B: A, IX, IY // multiple inheritance
+{
+
+}
+
+interface IX{}
+
+interface IY{}
+```
+
 # Non-access modifiers
 ## Abstract
 * Enables you to create incomplete implementation of whatever you applied it to and it must be implemented in a derived class

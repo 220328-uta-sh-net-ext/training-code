@@ -98,6 +98,11 @@ namespace UI
         {
             return $"Manager Id - {base.Id}\nManager Name - {base.FirstName} {base.LastName}\nAge - {base.age}\nAuthority - {authority}\nPlanet - {Employee.planet}";
         }
+        // Hiding the implementation of the method in base class
+        public new decimal CalculateSalary(string payRate, string taxes)
+        {
+            return 0.0M;
+        }
         /*public string GetDetails(string firstName, string lastName, string id, int age)
          {
              base.firstName = firstName;
