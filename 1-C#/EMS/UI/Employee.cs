@@ -15,7 +15,22 @@ namespace UI
     {
         // members -> variables, constants, methods, events, constructors etc......
         //variable => State of the object
-        protected string firstName = "Joe", lastName = "Dow", id = "101";
+        string firstName = "Joe", lastName = "Dow", id = "101";
+
+        public string FirstName
+        {
+            // properties allows to read values
+            get {
+                if (string.IsNullOrEmpty(firstName))
+                    throw new ArgumentNullException("firstname is blank or empty, please input a calid firstname");
+                else
+                    return firstName;
+            } 
+            set { firstName = value; }  // to enable writing
+        }
+        //auto-property -> which means there is no private variable declared but this would create it behind the scene
+        public string Password { get; set; } 
+        
         public const string planet = "Earth";
         protected int age;
 
@@ -32,7 +47,7 @@ namespace UI
     class Manager : Employee
     {
        public Authority authority;
-       public string GetDetails(string firstName, string lastName, string id, int age)
+       /*public string GetDetails(string firstName, string lastName, string id, int age)
         {
             base.firstName = firstName;
             base.lastName = lastName;
@@ -40,7 +55,7 @@ namespace UI
             base.id = id;
             authority = Authority.Hire;
            return $"Name - {firstName} {lastName}\nAge - {age}\nEmployee id - {id}";
-        }
+        }*/
     }
     
 }

@@ -19,9 +19,13 @@ emp.DoTask(firstName,lastName,id,hours);*/
 
 //Console.WriteLine($"Employee Id - {emp.id}\nEmployee Name - {emp.firstName} {emp.lastName}\nPlanet - {Employee.planet}");
 
-Manager mgr = new Manager();
+/*Manager mgr = new Manager();
 mgr.authority = Authority.Hire;
-Console.WriteLine(mgr.GetDetails(age:45,firstName:"David", lastName:"Fay",id:"303"));
+Console.WriteLine(mgr.GetDetails(age:45,firstName:"David", lastName:"Fay",id:"303"));*/
+
+emp.FirstName = "";
+Console.WriteLine(emp.FirstName);
+
 
 
 

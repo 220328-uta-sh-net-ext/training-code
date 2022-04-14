@@ -76,6 +76,45 @@
 * The final grouping mechanism in that it will group multiple projects as one application
 * They are the final packaging of your application
 
+# OOP Definition
+- Procedural Oriented languages - C, C++, BASIC, COBOL
+  - Focus on what do and more focuss on How to do
+  - The code scattered - variables, functions were loose and no structure.
+  - Data leak due to garbage, that means data is less secure.
+  - Resuability wasn't a great option in Procedural oriented language.
+
+ - In OOP the program is organized into classes and accessed via object.
+  - Programmer focus on what to do over how to do.
+  - Programming is more organized hence better readablity of the code
+  - Ex. OOP languages : C#, Java, C++, VB, TypeScript
+  - OOP is well suited for programs that are large, complex, and actively updated and maintained.
+  - Additional benifits are like code resuability, scalibility, efficiency
+## Structure of OOP
+- Structure comprises of building blocks of OOP
+  - **[Class](https://docs.microsoft.com/en-us/dotnet/csharp/fundamentals/tutorials/classes)**: Blueprint of user defined type which is mapped to real time entities. Ex: Pen can be created as class with attributes/properties - type (ball, ink), color (blue, black, red, green) , behavior (writing).
+  - **Object**: An object is a implementation of the class. It has been allocated memory. Whenever a class is instantiated the obj comes into the picture.
+    - `Pen pen1 = new Pen();`, `Pen pen2 = pen1`.
+    - Object has set of attributes/properties (static/dynamic)
+    - Behaviour/Operations 
+  
+  - **Pillars of OOP**
+    - [OOP](https://docs.microsoft.com/en-us/dotnet/csharp/fundamentals/tutorials/oop) is structured on 4 pillars of OOP as:
+      - **Encapsulation** - *Wrapping up of the data* (ex - methods encloses data field, class/Type encloses a method, namespace encapsulates the type) and *data hiding*, to provide protection from the outside world. We use Access modifiers to provide various levels of access.
+      - **Abstraction** - Showing only essential features of the program instead on un-necessary details. In C#, abstraction can be achieved by **abstract** classes and **interfaces**. Through abstraction a template is provided which is generally implemented by Team of Software Developers.
+      - **Inheritance** - Is a way to extend a type so that its properties and behaviours can be extended/branched further. Types of Inheritance:
+        - Single - level: A->B
+        - Multi - level: A->B->C
+        - Hierarichal level A->B,C,D
+        - Multiple inheritance - (A,B)->C
+        - Hybrid inheritance - Combination of more than one above types of inheritance.
+        - C# doesnot support multiple and hybrid inheritance.
+        -  Programmar achive reusability through inheritance
+      - **Polymorphism** 
+        - Poly - many, morphs - forms. 
+        - Ability to implement inherited properties or methods in different ways across multiple abstractions. 
+        - It can be static/Compile time polymorphism or dynamic/runtime polymorphism. 
+        - Ex Method Overloading is an example of compile time polymorphism, which is method with same name behaves differently based on signatures (parameters). Method Overriding is an example of runtime polymorphism, which is re-defining the method of parent class into child class. 
+     - remember all 4 pillars as **A PIE**
 # Non-access modifiers
 ## Abstract
 * Enables you to create incomplete implementation of whatever you applied it to and it must be implemented in a derived class
