@@ -17,14 +17,39 @@ var hours= float.Parse(Console.ReadLine());
 
 emp.DoTask(firstName,lastName,id,hours);*/
 
-//Console.WriteLine($"Employee Id - {emp.id}\nEmployee Name - {emp.firstName} {emp.lastName}\nPlanet - {Employee.planet}");
-
-/*Manager mgr = new Manager();
-mgr.authority = Authority.Hire;
+Manager mgr = new Manager();
+/*mgr.authority = Authority.Hire;
 Console.WriteLine(mgr.GetDetails(age:45,firstName:"David", lastName:"Fay",id:"303"));*/
 
-emp.FirstName = "";
-Console.WriteLine(emp.FirstName);
+/*emp.FirstName = "";
+Console.WriteLine(emp.FirstName);*/
+
+//method overloading
+emp.payRate = 55.60M;
+emp.hours = 8;
+emp.taxes = 0.3M * emp.payRate;
+Console.WriteLine($"Employee Id - {emp.Id}\nEmployee Name - {emp.FirstName} {emp.LastName}\nPlanet - {Employee.planet}");
+Console.WriteLine($"Salary = ${emp.CalculateSalary("100.00", "100")*20}/month");
+
+
+// call method overriding
+
+mgr.FirstName = "Steven";
+mgr.LastName = "Kelsey";
+mgr.Id = "Rev111";
+mgr.age = 40;
+mgr.authority = Authority.Delegate;
+
+mgr.payRate = 150.00M;
+mgr.hours = 8;
+mgr.healthCare = 155;
+mgr.taxes = 0.4M * mgr.payRate;
+mgr.bonus = 100;
+mgr.housing = 1000;
+mgr.paidVacation = 800;
+
+Console.WriteLine(mgr.ToString());
+Console.WriteLine($"Salary = ${mgr.CalculateSalary(120,0.3M*120)*20}/month");
 
 
 

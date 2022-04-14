@@ -17,6 +17,10 @@ namespace UI
         //variable => State of the object
         string firstName = "Joe", lastName = "Dow", id = "101";
 
+        public string Id { 
+            get { return id; }
+            set { id = value; }
+        }
         public string FirstName
         {
             // properties allows to read values
@@ -28,11 +32,46 @@ namespace UI
             } 
             set { firstName = value; }  // to enable writing
         }
+
+        public string LastName
+        {
+            // properties allows to read values
+            get
+            {
+                if (string.IsNullOrEmpty(lastName))
+                    throw new ArgumentNullException("firstname is blank or empty, please input a calid firstname");
+                else
+                    return lastName;
+            }
+            set { lastName = value; }  // to enable writing
+        }
         //auto-property -> which means there is no private variable declared but this would create it behind the scene
         public string Password { get; set; } 
         
         public const string planet = "Earth";
-        protected int age;
+        internal int age;
+
+        // Salary components of employees
+        internal decimal payRate, taxes, healthCare, bonus, reimbursements;
+        internal decimal hours, overtime;
+        public virtual decimal CalculateSalary() // method with no parameter
+        {
+            return payRate*hours + reimbursements + bonus - healthCare - taxes;
+        }
+
+        public decimal CalculateSalary(decimal payRate, decimal taxes) //method overload with  different number of parameter
+        {
+            return payRate*hours - taxes;
+        }
+
+        public decimal CalculateSalary(string payRate, string taxes)//method overload with different type of parameter
+        {
+            return decimal.Parse(payRate) * hours - decimal.Parse(taxes);
+        }
+        public decimal CalculateSalary(string payRate, decimal taxes) // method with different sequence of parameters
+        {
+            return decimal.Parse(payRate) * hours - taxes;
+        }
 
         //Methods=>Behaviour
         public void DoTask(string firstName, string lastName, string id, float hours)
@@ -47,15 +86,27 @@ namespace UI
     class Manager : Employee
     {
        public Authority authority;
-       /*public string GetDetails(string firstName, string lastName, string id, int age)
+
+       internal decimal housing, paidVacation;
+        // this is method overriding which means re-defining the method of base class in child class
+        public override decimal CalculateSalary()
         {
-            base.firstName = firstName;
-            base.lastName = lastName;
-            base.age = age;
-            base.id = id;
-            authority = Authority.Hire;
-           return $"Name - {firstName} {lastName}\nAge - {age}\nEmployee id - {id}";
-        }*/
+         return base.payRate*base.hours + base.bonus+ base.reimbursements - base.healthCare - base.taxes+ housing + paidVacation +base.overtime;
+        }
+
+        public override string ToString()
+        {
+            return $"Manager Id - {base.Id}\nManager Name - {base.FirstName} {base.LastName}\nAge - {base.age}\nAuthority - {authority}\nPlanet - {Employee.planet}";
+        }
+        /*public string GetDetails(string firstName, string lastName, string id, int age)
+         {
+             base.firstName = firstName;
+             base.lastName = lastName;
+             base.age = age;
+             base.id = id;
+             authority = Authority.Hire;
+            return $"Name - {firstName} {lastName}\nAge - {age}\nEmployee id - {id}";
+         }*/
     }
     
 }
