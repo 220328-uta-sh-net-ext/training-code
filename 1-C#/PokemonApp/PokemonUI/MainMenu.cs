@@ -8,6 +8,7 @@
         {
             Console.WriteLine("Welcome to Pokemon App");
             Console.WriteLine("What would you like to do?");
+            Console.WriteLine("Press <3> See All Pokemons");
             Console.WriteLine("Press <2> Search Pokemon");
             Console.WriteLine("Press <1> Add pokemon to your team");
             Console.WriteLine("Press <0> Exit");
@@ -25,6 +26,8 @@
                     return "AddPokemon";
                 case "2":
                     return "SearchPokemon";
+                case "3":
+                    return "GetAllPokemons";
                 default:
                     Console.WriteLine("Please input a valid response");
                     Console.WriteLine("Please press <enter> to continue");
