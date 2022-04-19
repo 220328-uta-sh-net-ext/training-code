@@ -9,7 +9,7 @@
 ## References
 - [TDD](https://en.wikipedia.org/wiki/Test-driven_development)
 - [Unit Testing](https://docs.microsoft.com/en-us/visualstudio/test/unit-test-basics?view=vs-2022)
-- [xUnit](https://xunit.net/docs/getting-started/netcore/cmdlines)
+- [xUnit](https://xunit.net/docs/getting-started/netcore/cmdline)
 - [Code Coverage basics](https://www.atlassian.com/continuous-delivery/software-testing/code-coverage)
 - [Code coverage](https://docs.microsoft.com/en-us/dotnet/core/testing/unit-testing-code-coverage?tabs=windows)
 - [Unit Testing Best practices](https://docs.microsoft.com/en-us/dotnet/core/testing/unit-testing-best-practices)
