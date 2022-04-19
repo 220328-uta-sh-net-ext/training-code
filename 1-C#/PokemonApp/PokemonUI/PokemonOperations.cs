@@ -8,8 +8,15 @@ namespace PokemonUI
         static Repository repository= new Repository();
 
         public static void GetAllPokemons() {
-            repository.GetAllPokemons();
+            var pokemons=repository.GetAllPokemons();
+            foreach (var poke in pokemons)
+            {
+                Console.WriteLine($"{poke.Name} {poke.Level}");
+            }
         }
+        /// <summary>
+        /// only for testing purpose to check if pokemon was added
+        /// </summary>
         public static void AddDummyPokemon()
         {
             Pokemon pokemon1 = new Pokemon() {

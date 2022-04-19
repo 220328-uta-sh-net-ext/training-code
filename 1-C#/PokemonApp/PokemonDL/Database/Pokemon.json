@@ -28,5 +28,20 @@
         "Accuracy": 100
       }
     ]
+  },
+  {
+    "Name": "Charmandar",
+    "Level": 2,
+    "Attack": 55,
+    "Defense": 55,
+    "Health": 55,
+    "Abilities": [
+      {
+        "Name": "Tackle",
+        "PP": 40,
+        "Power": 40,
+        "Accuracy": 80
+      }
+    ]
   }
 ]
