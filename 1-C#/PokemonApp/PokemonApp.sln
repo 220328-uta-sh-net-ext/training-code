@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32407.343
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokemonUI", "PokemonUI\PokemonUI.csproj", "{84C18E2B-2F4D-4AF6-A456-35090B8AADBE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PokemonUI", "PokemonUI\PokemonUI.csproj", "{84C18E2B-2F4D-4AF6-A456-35090B8AADBE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokemonModels", "PokemonModels\PokemonModels.csproj", "{3555A568-E8FC-4B0E-B6E3-BE3E8EB7B663}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PokemonModels", "PokemonModels\PokemonModels.csproj", "{3555A568-E8FC-4B0E-B6E3-BE3E8EB7B663}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokemonBL", "PokemonBL\PokemonBL.csproj", "{E5E6E526-E868-4622-99D7-3482BF7CAB62}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PokemonBL", "PokemonBL\PokemonBL.csproj", "{E5E6E526-E868-4622-99D7-3482BF7CAB62}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokemonDL", "PokemonDL\PokemonDL.csproj", "{F3BBDA62-5FE7-4770-8FC9-D952C52E4B0B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PokemonDL", "PokemonDL\PokemonDL.csproj", "{F3BBDA62-5FE7-4770-8FC9-D952C52E4B0B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokemonTest", "PokemonTest\PokemonTest.csproj", "{73A2ED23-C960-4E0A-866E-43CEF807FCD7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{F3BBDA62-5FE7-4770-8FC9-D952C52E4B0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F3BBDA62-5FE7-4770-8FC9-D952C52E4B0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F3BBDA62-5FE7-4770-8FC9-D952C52E4B0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73A2ED23-C960-4E0A-866E-43CEF807FCD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73A2ED23-C960-4E0A-866E-43CEF807FCD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73A2ED23-C960-4E0A-866E-43CEF807FCD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73A2ED23-C960-4E0A-866E-43CEF807FCD7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
