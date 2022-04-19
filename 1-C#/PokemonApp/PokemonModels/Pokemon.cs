@@ -24,11 +24,11 @@
         //Default constructor to add default values to the properties
         public Pokemon()
         {
-            Name = "Ditto";
-            Level = 1;
-            Attack = 55;
-            Defense = 55;
-            Health = 55;
+            Name = "?";
+            Level = 0;
+            Attack = 0;
+            Defense = 0;
+            Health = 0;
             _abilities = new List<Ability>()
             {
                 new Ability()

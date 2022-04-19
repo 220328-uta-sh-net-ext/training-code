@@ -9,8 +9,10 @@ namespace PokemonUI
 {
     internal class AddPokemonMenu : IMenu
     {
+        //static non-access modifier is needed to keep this variable consistent to all objects we create out of our AddPokeMenu
         private static Pokemon newPokemon = new Pokemon();
-        private IRepository _repository = new Repository();
+
+        private IRepository _repository = new Repository(); //UpCasting
         public void Display()
         {
             Console.WriteLine("Enter Pokemon Information");
@@ -30,6 +32,7 @@ namespace PokemonUI
                     return "MainMenu";
                 case "1":
                     _repository.AddPokemon(newPokemon);
+                    Console.WriteLine("----Pokemon Added----");
                     return "MainMenu";
                 case"2":
                     Console.Write("Please enter a level ");

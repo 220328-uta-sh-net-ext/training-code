@@ -11,10 +11,25 @@ namespace PokemonDL
         private string jsonString;
         public Pokemon AddPokemon(Pokemon poke)// Serialization
         {
-            var pokemons=GetAllPokemons();
+            var pokemons = GetAllPokemons();
             pokemons.Add(poke);
-            var pokemonString=JsonSerializer.Serialize<List<Pokemon>>(pokemons,new JsonSerializerOptions { WriteIndented=true});
-            File.WriteAllText(filePath+"Pokemon.json",pokemonString);
+            var pokemonString = JsonSerializer.Serialize<List<Pokemon>>(pokemons, new JsonSerializerOptions { WriteIndented = true });
+            try
+            {
+                File.WriteAllText(filePath + "Pokemon.json", pokemonString);
+            }
+            catch (DirectoryNotFoundException ex)
+            {
+                Console.WriteLine("Please check the path, " + ex.Message);
+            }
+            catch (FileNotFoundException ex)
+            {
+                Console.WriteLine("Please check the file name, " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
             return poke;
         }
 
@@ -24,21 +39,21 @@ namespace PokemonDL
             {
                 jsonString = File.ReadAllText(filePath + "Pokemon.json");
             }
-            catch(DirectoryNotFoundException ex)
+            catch (DirectoryNotFoundException ex)
             {
-                Console.WriteLine("Please check the path, "+ex.Message);
+                Console.WriteLine("Please check the path, " + ex.Message);
             }
-            catch(FileNotFoundException ex)
+            catch (FileNotFoundException ex)
             {
-                Console.WriteLine("Please check the file name, "+ex.Message);
+                Console.WriteLine("Please check the file name, " + ex.Message);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
-            if(!string.IsNullOrEmpty(jsonString))
+            if (!string.IsNullOrEmpty(jsonString))
                 return JsonSerializer.Deserialize<List<Pokemon>>(jsonString);
-           else
+            else
                 return null;
         }
     }

@@ -17,7 +17,6 @@ while (repeat)
             break;
         case "AddPokemon":
             menu = new AddPokemonMenu();
-            Console.WriteLine("--------Pokemon Added--------------");
             break;
         case "GetAllPokemons":
             Console.WriteLine("--------------Retreiving all pokemons---------------");
