@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\PokemonBL\PokemonBL.csproj" />
     <ProjectReference Include="..\PokemonDL\PokemonDL.csproj" />
   </ItemGroup>
 

@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using PokemonDL;
+using PokemonBL;
 using PokemonModels;
+
 namespace PokemonUI
 {
     internal class AddPokemonMenu : IMenu
@@ -12,7 +13,8 @@ namespace PokemonUI
         //static non-access modifier is needed to keep this variable consistent to all objects we create out of our AddPokeMenu
         private static Pokemon newPokemon = new Pokemon();
 
-        private IRepository _repository = new Repository(); //UpCasting
+        //private IRepository _repository = new Repository(); //UpCasting
+        private IPokemonLogic _repository = new PokemonLogic();
         public void Display()
         {
             Console.WriteLine("Enter Pokemon Information");
