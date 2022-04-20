@@ -23,9 +23,7 @@ namespace PokemonTest
 
         //Theories are tests which are only true for a particular set of data.
         [Theory]
-        [InlineData(2)]
         [InlineData(3)]
-        [InlineData(4)]
         [InlineData(5)]
         public void TestIsOdd(int value)
         {
