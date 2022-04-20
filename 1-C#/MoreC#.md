@@ -29,7 +29,7 @@
 * It is the percentage given to you on how much lines of your code is actually covered by unit testing
 * Ex: Lets say you have a total of 200 lines of code and your unit testins only covers 70 lines of code. That means you have 35% code coverage (Fancy math - 70/200*100 = 35%)
 
-# Logging
+# [Logging](https://en.wikipedia.org/wiki/Logging_(software))
 * The systematically way to record a series of events depending on what exactly you are trying to capture
 * Ex: Logging user events - you will record every single page they went through, every single customer they have added, every single orders they have made
 * The main purpose is for debugging potential bugs since the main problem with debugging is trying to re-create that bug again just to see what exactly did the user did to even get that bug
@@ -38,7 +38,7 @@
 ## Serilog
 * A library we will utilize to add logging functionality with our application
 * There are more libraries out there that can accomplish the same task such as NLog but we will stick with Serilog
-### Steps to start Serilog
+### [Steps to start Serilog](https://github.com/serilog/serilog/wiki/Getting-Started)
 1. Make sure you add the package from Nuget
 ```
 dotnet add package Serilog
@@ -46,6 +46,7 @@ dotnet add package Serilog.Sinks.File
 ```
 2. create a Logger using LoggerConfiguration class provided by Serilog
 3. Start logging!
+
 ## References
 - [TDD](https://en.wikipedia.org/wiki/Test-driven_development)
 - [Unit Testing](https://docs.microsoft.com/en-us/visualstudio/test/unit-test-basics?view=vs-2022)

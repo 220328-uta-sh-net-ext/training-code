@@ -33,8 +33,18 @@ namespace PokemonUI
                 case "0":
                     return "MainMenu";
                 case "1":
-                    _repository.AddPokemon(newPokemon);
-                    Console.WriteLine("----Pokemon Added----");
+                    try
+                    {
+                        Log.Information("Adding a pokemon - " + newPokemon.Name);
+                        _repository.AddPokemon(newPokemon);
+                        Log.Information("Pokemon added successfully");
+                    }
+                    catch(Exception ex)
+                    {
+                        Log.Warning("failed to add pokemon");
+                        Console.WriteLine(ex.Message);
+                       
+                    }
                     return "MainMenu";
                 case"2":
                     Console.Write("Please enter a level ");
