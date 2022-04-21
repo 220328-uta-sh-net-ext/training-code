@@ -61,7 +61,7 @@ dotnet add package Serilog.Sinks.File
 2. create a Logger using LoggerConfiguration class provided by Serilog
 3. Start logging!
 
-# LINQ
+# [LINQ](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries)
 * Language-Integrated Query
 * It is a query language that is very similar to our SQL but we can use it in C# or VB
 * So like any query langauge, it is incredibly useful for filtering/acquiring/aggregating data
