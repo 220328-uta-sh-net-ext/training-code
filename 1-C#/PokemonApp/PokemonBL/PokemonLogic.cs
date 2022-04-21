@@ -10,6 +10,7 @@ namespace PokemonBL
 {
     public class PokemonLogic : IPokemonLogic
     {
+        IRepository repo = new Repository();
         public Pokemon AddPokemon(Pokemon p)
         {
             Random random = new Random();
@@ -19,8 +20,7 @@ namespace PokemonBL
             p.Defense = random.Next(-5, 5);
             p.Health = random.Next(-5, 5);
 
-            //Validation process
-            IRepository repo = new Repository();
+            //Validation process            
             var pokemons=repo.GetAllPokemons();
             if (pokemons.Count<4)
             {
@@ -30,6 +30,23 @@ namespace PokemonBL
             {
                 throw new Exception("You cannot exceed to add more than 4 pokemons");
             }
+        }
+
+        public List<Pokemon> SearchPokemon(string name)
+        {
+            List<Pokemon> filteredPokemons = new List<Pokemon>();
+            
+            var pokemons=repo.GetAllPokemons();
+
+            foreach (var poke in pokemons)
+            {
+                if (poke.Name.Contains(name))
+                {
+                    filteredPokemons.Add(poke);
+                }
+            }
+            return filteredPokemons;
+
         }
     }
 }

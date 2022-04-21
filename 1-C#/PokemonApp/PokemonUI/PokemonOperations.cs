@@ -12,6 +12,7 @@ namespace PokemonUI
             foreach (var poke in pokemons)
             {
                 Console.WriteLine(poke.ToString());
+                Console.WriteLine("=======================");
             }
         }
         /// <summary>

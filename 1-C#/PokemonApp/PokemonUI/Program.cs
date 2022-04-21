@@ -21,7 +21,7 @@ while (repeat)
         case "SearchPokemon":
             //call SearchPokemon method
             Log.Debug("Displaying SearchPokemon menu to the user");
-            Console.WriteLine("SearchPokemon() Method implementation is in progress....");
+            menu = new SearchPokemonMenu();
             break;
         case "AddPokemon":
             Log.Debug("Displaying AddPokemon Menu to the user");

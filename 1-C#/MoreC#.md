@@ -1,4 +1,13 @@
+## SDLC
+- Phases of SDLC -> Requirement Analysis, Design, Development, Testing, Deployment, Maintainence 
+- Waterfall, Bing Bang Model, RAD, Spiral Model, Iterative, Agile (Scrum), TDD
+
 ## Testing 
+- Black-box, white-box testing
+- Performance Testing, Load Testing, Smoke testing, Integration Testing, Penetration Testing, Unit Testing.
+- **Unit Testing** is important component of developer testing which is heavily used in TDD.
+  - In.Net/.Net Core supports multiple frameworks for testing 
+  - MSTest, NUnit, xUnit.
 - Test-driven development (TDD) is a software development process relying on software requirements being converted to test cases before software is fully developed, and tracking all software development by repeatedly testing the software against all test cases. This is as opposed to software being developed first and test cases created later.
 - Mantra: Red, Green, Refactor
 - Structure: Arrange, Act, Assert
@@ -28,6 +37,11 @@
 ## Code Coverage
 * It is the percentage given to you on how much lines of your code is actually covered by unit testing
 * Ex: Lets say you have a total of 200 lines of code and your unit testins only covers 70 lines of code. That means you have 35% code coverage (Fancy math - 70/200*100 = 35%)
+### Generally Supported Code Coverage Formats
+- Supported code coverage report format types include all test coverage reports we've seen in the wild so far, including:
+    - Most of .xml format types (Cobertura XML, Jacoco XML, etc.)
+    - Most of .json format types (Erlang JSON, Elm JSON, etc.)
+    - Most of .txt format types (Lcov TXT, Gcov TXT, Golang Txt)
 
 # [Logging](https://en.wikipedia.org/wiki/Logging_(software))
 * The systematically way to record a series of events depending on what exactly you are trying to capture
@@ -46,6 +60,18 @@ dotnet add package Serilog.Sinks.File
 ```
 2. create a Logger using LoggerConfiguration class provided by Serilog
 3. Start logging!
+
+# LINQ
+* Language-Integrated Query
+* It is a query language that is very similar to our SQL but we can use it in C# or VB
+* So like any query langauge, it is incredibly useful for filtering/acquiring/aggregating data
+* Very useful documentation click [here](https://www.tutorialsteacher.com/linq)
+## Method syntax
+* It is more like C# in that you use methods to perform the queries
+* For simeple filtering, I would use method syntaxes
+## Query syntax
+* It is more like SQL in that you create a statement-like operation using keywords
+* I would use joins with query syntaxes since it is easier to understand
 
 ## References
 - [TDD](https://en.wikipedia.org/wiki/Test-driven_development)
