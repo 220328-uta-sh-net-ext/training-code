@@ -12,6 +12,7 @@
         private List<Ability> _abilities;
         public List<Ability> Abilities {
             get => _abilities;
+            
             //cannot set abilities to have more than 4
             set {
                 if (value.Count <= 4)
