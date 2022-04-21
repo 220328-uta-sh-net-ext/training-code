@@ -31,4 +31,8 @@ namespace PokemonBL
         List<Pokemon> SearchPokemon(string name);
 
     }
+    interface IPokemonSearch
+    {
+        List<Pokemon> SearchAll();
+    }
 }

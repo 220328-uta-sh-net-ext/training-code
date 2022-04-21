@@ -73,7 +73,7 @@ dotnet add package Serilog.Sinks.File
 * It is more like SQL in that you create a statement-like operation using keywords
 * I would use joins with query syntax since it is easier to understand
 
-# S.O.L.I.D Principles
+# [SOLID Principles](https://medium.com/backticks-tildes/the-s-o-l-i-d-principles-in-pictures-b34ce2f1e898)
 * They are five design principles intended to make software designs more understandable, flexible, and maintainable
     * Kinda like the OOP pillars, but it is just rules to follow to write better code
 ## Single Responsible Principle
@@ -82,9 +82,8 @@ dotnet add package Serilog.Sinks.File
 * Ex: Software Engineer class should just manage anything related to creating a program and shouldn't also have the responsiblity to manage financial forms. Instead, segragate the two class and create a Accountant class that will hold that responsiblity
 ## Open/Closed Principle
 * A class should be open for extensions but closed for modification
-* It just means you can add new funcitonality without changing existing code
-* A great way to do this is uing interfaces
-    * Such as us using dependency injection with interfaces
+* It just means you can add new functionality without changing existing code
+* A great way to do this is using interfaces
     * Or using Imenu interface and all our code we wrote in program.cs works just fine with any of our new C# classes
 ## Liskov Substitution Principle
 * Derived class should be substitutable for their base class implementation
@@ -98,14 +97,48 @@ dotnet add package Serilog.Sinks.File
 * If a class uses the design and implementation of another class, it raises the risk that change one class could break the other class
 * To fix, we must both let them depend on abstractions 
 
-# Design Pattern
+# [Design Patterns](https://sourcemaking.com/design_patterns)
 * They are reusable solution that will solve the problems that occurs pretty frequently while coding
 * Essentially, some people saw that problem keeps happening across multiple coders and decided to standardize a solution every time you come across to that problem to make your life easier
 * They are some of the best practice a programmer can do to solve common problems while designing your application
+- **History and evolution of design Patterns**
+  - The four authors of the book famously know as Gang of four are the ones who brought the concepts of design patterns in their book “Elements of reusable Object-Oriented software” . 
+  - Gang of Four has divided the book into two parts with first part explaining about the pros and cons of object oriented programming and the second part describes the evolution of 23 classic software design patterns.
+- **Types of Design Patterns**
+    - Gang of Four have categorised the design patterns in to 3 types based on different problems encountered in the real world applications. They are **Creational, Structural** and **Behavioural**. 
+      - **Creational design patterns**: These patterns deal with object creation and initialization. Creational pattern gives the program more flexibility in deciding which objects need to be created for a given case.
+        - Examples of Creational design patterns category : Singleton , Factory and Abstract Factory etc.
+      - **Structural design patterns** : This pattern deals with class and object composition. In simple words, This pattern focuses on decoupling interface, implementation of classes and its objects. 
+        - Examples of Structural design patterns category : Adapter,  Facade and Bridge etc.
+      - **Behavioural design patterns** : These patterns deal with communication between Classes and objects.
+        - Examples of Behavioural design patterns : Chain of Responsibility, Command and Interpreter etc.
+
 ## Singleton Pattern
-* This pattern revolves around creating one concurrent object of a class (So only one object exists while the application runs)
-* This singleton class provides a way to let other classes have direct access to the single object
-* Just think of a universal object that gives access to everyone
+- Singleton Pattern belongs to Creational type pattern which means creational pattern explain us the creation of objects in a manner suitable to a given situation.
+- This pattern revolves around creating one concurrent object of a class (So only one object exists while the application runs)
+- This singleton class provides a way to let other classes have direct access to the single object
+- Just think of a universal object that gives access to everyone
+- Singleton design pattern is used when we need to ensure that only one object of a particular class is Instantiated. 
+- That single instance created is responsible to coordinate actions across the application.
+- Why Singleton: Concurrent access to the resource is well managed by singleton design pattern.
+- As part of the Implementation guidelines we need to ensure that only one instance of the class exists by declaring all constructors of the class to be private.  Also, to control the singleton access we need to provide a static property that returns a single instance of the object.
+### Real world examples of Singleton : 
+- Exception/Information logging
+- Connection pool management 
+- File management
+- Device management such as printer spooling
+- Application Configuration management
+- Cache management
+- And Session based shopping cart are some of the real world usage of singleton design pattern
+### Static classes vs Singleton
+- Static is a keyword and Singleton is a design pattern
+- Static classes can contain only static members
+- Singleton is an object creational pattern with one instance of the class
+- Singleton can implement interfaces, inherit from other classes and it aligns with the OOPS concepts
+- Singleton object can be passed as a reference
+- Singleton supports object disposal
+- Singleton object is stored on heap
+- Singleton objects can be cloned
 ### Advantage
 * Provides a global point of access from multiple classes
 * It is easy to maintain since there is only one instance of that class
@@ -120,3 +153,6 @@ dotnet add package Serilog.Sinks.File
 - [Code coverage](https://docs.microsoft.com/en-us/dotnet/core/testing/unit-testing-code-coverage?tabs=windows)
 - [Unit Testing Best practices](https://docs.microsoft.com/en-us/dotnet/core/testing/unit-testing-best-practices)
 - [All about LINQ](https://www.tutorialsteacher.com/linq/why-linq) 
+- [Design Patterns](https://en.wikipedia.org/wiki/Design_Patterns)
+- [Design Patterns video series](https://www.youtube.com/playlist?list=PL6n9fhu94yhUbctIoxoVTrklN3LMwTCmd)
+- [Design Patterns](https://en.wikipedia.org/wiki/Design_Patterns))

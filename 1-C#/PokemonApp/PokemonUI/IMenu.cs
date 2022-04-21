@@ -23,5 +23,12 @@ namespace PokemonUI
         /// </summary>
         /// <returns>Return the menu that will change your screen</returns>
         string UserChoice();
+
+    }
+    interface IMoreMenu
+    {
+        void Exit();
+
+        void Continue();
     }
 }

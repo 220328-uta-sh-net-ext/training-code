@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PokemonBL
 {
-    public class PokemonLogic : IPokemonLogic
+    public class PokemonLogic : IPokemonLogic//, IPokemonSearch
     {
         IRepository repo = new Repository();
         public Pokemon AddPokemon(Pokemon p)
