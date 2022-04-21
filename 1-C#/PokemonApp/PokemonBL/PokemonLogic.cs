@@ -34,17 +34,23 @@ namespace PokemonBL
 
         public List<Pokemon> SearchPokemon(string name)
         {
-            List<Pokemon> filteredPokemons = new List<Pokemon>();
+            
             
             var pokemons=repo.GetAllPokemons();
+            /*var filteredPokemons=from p in pokemons               //Query Syntax
+                                    where p.Name.Contains(name)
+                                    select p;*/
 
+            var filteredPokemons = pokemons.Where(p => p.Name.Contains(name)).ToList(); // Method Syntax
+
+            /*List<Pokemon> filteredPokemons = new List<Pokemon>();
             foreach (var poke in pokemons)
             {
                 if (poke.Name.Contains(name))
                 {
                     filteredPokemons.Add(poke);
                 }
-            }
+            }*/
             return filteredPokemons;
 
         }

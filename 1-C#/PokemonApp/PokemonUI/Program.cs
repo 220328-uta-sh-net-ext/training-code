@@ -2,25 +2,27 @@
 global using Serilog;
 using PokemonUI;
 
-
+/*
 //basic LINQ
 // data source
 int[] num = new int[] { 45, 56, 67, 87, 99, 98, 100 };
 
 // create query
-var query=from n in num
-            where (n%2)==0
+var query = from n in num
+            where (n % 2) == 0 || (n % 3) == 0
             orderby n descending
             select n;
+
+//var results = num.Where(x => x % 2 == 0);
 
 //execute the query
 foreach (var q in query)
 {
     Console.WriteLine(q);
-}
+}*/
 
 //create and configure our logger
-/*Log.Logger = new LoggerConfiguration()
+Log.Logger = new LoggerConfiguration()
     .WriteTo.Console().MinimumLevel.Debug()
     .WriteTo.File("./Logs/user.txt").MinimumLevel.Debug().MinimumLevel.Information()// we want to save the ;ogs in this file
     .CreateLogger();
@@ -64,4 +66,4 @@ while (repeat)
             Console.ReadLine();
             break;
     }
-}*/
+}
