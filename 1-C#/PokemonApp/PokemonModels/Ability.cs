@@ -12,9 +12,7 @@ namespace PokemonModels
         private int _PP;
         public int PP
         {
-            get {
-                return _PP;
-            }
+            get => _PP;
             set
             {
                 if (value > 0)

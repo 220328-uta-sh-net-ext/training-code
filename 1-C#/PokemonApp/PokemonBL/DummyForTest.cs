@@ -16,10 +16,28 @@
             }
             return result;
         }
-
         public bool IsOdd(int n)
         {
             return (n % 2 != 0);
         }
+        /*//Anonymous methods - methods with no name, used for 1 time execution
+        var IsOddanonymous = delegate (int n) {
+            return (n % 2 == 0);
+        };
+
+        //Lambda expressions are shorthand notations to Anonymous methods
+        var IsOddLamdba = (int n) => n % 2 == 0;*/
+
+
+        /*double Add(int x, int y)
+        {
+            return x + y;
+        }
+
+        delegate (int x, int y){
+            return x+y;
+        }
+
+        (x,y) => x+y;*/
     }
 }

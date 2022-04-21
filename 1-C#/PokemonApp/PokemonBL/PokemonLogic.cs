@@ -54,5 +54,11 @@ namespace PokemonBL
             return filteredPokemons;
 
         }
+        /*Pokemon p = new Pokemon();
+        Pokemon CheckName(string p)
+        {   
+            p.Name.Contains(p);
+            return p;
+        }*/
     }
 }

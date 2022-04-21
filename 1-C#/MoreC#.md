@@ -80,3 +80,4 @@ dotnet add package Serilog.Sinks.File
 - [Code Coverage basics](https://www.atlassian.com/continuous-delivery/software-testing/code-coverage)
 - [Code coverage](https://docs.microsoft.com/en-us/dotnet/core/testing/unit-testing-code-coverage?tabs=windows)
 - [Unit Testing Best practices](https://docs.microsoft.com/en-us/dotnet/core/testing/unit-testing-best-practices)
+- [All about LINQ](https://www.tutorialsteacher.com/linq/why-linq)
