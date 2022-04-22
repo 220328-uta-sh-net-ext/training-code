@@ -155,4 +155,3 @@ dotnet add package Serilog.Sinks.File
 - [All about LINQ](https://www.tutorialsteacher.com/linq/why-linq) 
 - [Design Patterns](https://en.wikipedia.org/wiki/Design_Patterns)
 - [Design Patterns video series](https://www.youtube.com/playlist?list=PL6n9fhu94yhUbctIoxoVTrklN3LMwTCmd)
-- [Design Patterns](https://en.wikipedia.org/wiki/Design_Patterns))
