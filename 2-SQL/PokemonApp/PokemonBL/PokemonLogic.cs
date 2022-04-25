@@ -10,6 +10,7 @@ namespace PokemonBL
 {
     public class PokemonLogic : IPokemonLogic//, IPokemonSearch
     {
+        private const int MaxPokemons = 4000;
         IRepository repo = new Repository();
         public Pokemon AddPokemon(Pokemon p)
         {
@@ -20,9 +21,9 @@ namespace PokemonBL
             p.Defense = random.Next(-5, 5);
             p.Health = random.Next(-5, 5);
 
-            //Validation process            
+            //Validation process
             var pokemons=repo.GetAllPokemons();
-            if (pokemons.Count<4)
+            if (pokemons.Count< MaxPokemons)
             {
                 return repo.AddPokemon(p);
             }
@@ -34,8 +35,8 @@ namespace PokemonBL
 
         public List<Pokemon> SearchPokemon(string name)
         {
-            
-            
+
+
             var pokemons=repo.GetAllPokemons();
             /*var filteredPokemons=from p in pokemons               //Query Syntax
                                     where p.Name.Contains(name)
@@ -56,7 +57,7 @@ namespace PokemonBL
         }
         /*Pokemon p = new Pokemon();
         Pokemon CheckName(string p)
-        {   
+        {
             p.Name.Contains(p);
             return p;
         }*/
