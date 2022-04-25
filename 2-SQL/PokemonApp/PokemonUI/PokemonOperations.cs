@@ -5,7 +5,7 @@ namespace PokemonUI
 {
     internal class PokemonOperations
     {
-        static Repository repository= new Repository();
+        static IRepository repository= new SqlRepository();
 
         public static void GetAllPokemons() {
             var pokemons=repository.GetAllPokemons();
