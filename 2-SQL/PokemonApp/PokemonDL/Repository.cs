@@ -7,7 +7,7 @@ namespace PokemonDL
 {
     public class Repository : IRepository
     {
-        private string filePath = "../PokemonDL/Database/";
+        private string filePath = "../../../../PokemonDL/Database/";
         private string jsonString;
         public Pokemon AddPokemon(Pokemon poke)// Serialization
         {

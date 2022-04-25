@@ -24,7 +24,7 @@ foreach (var q in query)
 }*/
 
 //create and configure our logger
-/*Log.Logger = new LoggerConfiguration()
+Log.Logger = new LoggerConfiguration()
     .WriteTo.Console().MinimumLevel.Debug()
     .WriteTo.File("./Logs/user.txt").MinimumLevel.Debug().MinimumLevel.Information()// we want to save the ;ogs in this file
     .CreateLogger();
@@ -68,4 +68,4 @@ while (repeat)
             Console.ReadLine();
             break;
     }
-}*/
+}
