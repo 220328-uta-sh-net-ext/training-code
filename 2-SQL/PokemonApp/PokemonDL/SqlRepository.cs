@@ -17,17 +17,25 @@ namespace PokemonDL
 
         public List<Pokemon> GetAllPokemons()
         {
-            string commandString = "SELECT FirstName FROM SalesLT.Customer";
+            string commandString = "SELECT * FROM Pokemon";
 
             using SqlConnection connection = new(connectionString);
             using SqlCommand command = new(commandString, connection);
             connection.Open();
             using SqlDataReader reader = command.ExecuteReader();
 
+            // TODO: leaving out the abilities for now
             var pokemons = new List<Pokemon>();
             while (reader.Read())
             {
-                pokemons.Add(new Pokemon { Name = reader.GetString(0) });
+                pokemons.Add(new Pokemon
+                {
+                    Name = reader.GetString(0),
+                    Level = reader.GetInt32(2),
+                    Attack = reader.GetInt32(3),
+                    Defense = reader.GetInt32(4),
+                    Health = reader.GetInt32(5)
+                });
             }
             return pokemons;
         }

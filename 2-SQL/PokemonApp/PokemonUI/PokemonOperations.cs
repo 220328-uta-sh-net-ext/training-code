@@ -11,7 +11,7 @@ namespace PokemonUI
             var pokemons=repository.GetAllPokemons();
             foreach (var poke in pokemons)
             {
-                Console.WriteLine(poke.ToString());
+                Console.WriteLine(poke);
                 Console.WriteLine("=======================");
             }
         }

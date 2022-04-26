@@ -23,5 +23,7 @@ namespace PokemonDL
         /// </summary>
         /// <returns>Returns a collection of pokemon as Generic List</returns>
         List<Pokemon> GetAllPokemons();
+
+        //Ability GetAbility(string name);
     }
 }
