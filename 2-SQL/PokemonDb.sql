@@ -124,3 +124,7 @@ SELECT p.*
 FROM Pokemon AS p
     INNER JOIN PokemonAbility AS pa ON pa.Pokemon = p.Name
 WHERE pa.Ability = 'Tackle';
+
+-- common problem:
+-- your .net object model has a ton of references between different things.
+--  for example, in .the .net code, every pokemon is assumed to have its list of abilites present.
