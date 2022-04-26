@@ -1,0 +1,28 @@
+as we get closer to the deadline, become more willing to sacrifice good design/architecture for the sake of just getting the required functionality working. if you can't show the basic functions, the great design isn't much use to anybody. the main thing is to be as intentional about it as you can - understand that you're compromising now, understand how you're compromising - ideally, explain it in a code comment - and be ready to write it better in the next project. perfectionism or missing the forest for the trees can be a big challenge for some people. keep that deadline in mind and prioritize the required functionality.
+if you're struggling and behind, here's what i suggest. focus on these, in order, as fully working features from the UI all the way to the DB:
+showing the list of existing customers (or, looking them up by name, either way).
+creating a new customer.
+placing an order, where the order details are hard-coded in C# and not based on user input.
+placing an order based on user input.
+the other requirements.
+i'll talk tomorrow about the structure / expectations of the presentations on wednesday. but in short, they'll be 5 minute presentations of the functionality of your code as you talk about what you implemented and what tools you used. most of the time will be live demo of your app.
+
+
+
+
+for presentations tomorrow, which begin first thing in the morning.
+during the presentation you'll speak as if you've made a real product, or at least a prototype of one, that you can use to showcase your abilities as a developer. imagine you are presenting your work to an interviewer, or to higher-ups in your company, so that they can decide to task you with making something similar instead of someone else. your audience is technical, so you don't need to explain the basics of programming, but they aren't familiar with the specific technologies you've learned and used.
+you'll have 5 minutes. you should begin by giving your name, and then your introduction should cover two key things: (1) the business value of your product, who it is for, what they can use your product for. (2) what technologies you used to implement the product, including what each technology is being used for. (C#/.NET, Azure SQL DB, T-SQL, ADO.NET)
+most of the time will be spent on your demo. you'll share your screen in zoom for this part. (be sure whatever window you use for the app's interface doesn't have a really small font size or something.) there's plenty of functionality to show - use the project requirements as a guide. you don't need to show everything, but you should show a representative demonstration of the most important features, and just verbally tell us about the others. plan & practice a "path" through your app that efficiently shows different features in sequence.
+don't call out missing features or bugs in your product during your presentation - try to hide them, pass over them. at the very end of your presentation you can drop the pretense a little and mention them if you want. if there are large critical parts of functionality missing, then you can orient your presentation around what you plan to implement given some more time, how you would do it, how the techs would work together, etc. convince your audience that you're a competent software developer in spite of flaws in what you have to show.
+there may be questions from us at the end - drop the pretense entirely here and answer honestly about e.g. bugs and missing things.
+be sure to practice. the difference between a practiced and un-practiced presentation is obvious. and try to keep energy/enthusiasm and confidence in your voice.
+good luck.
+
+
+
+oh, and you don't have to show any code in the presentation, but if you can work it in, there's nothing wrong with it. same goes for something like powerpoint slides.
+
+
+
+and when it's your turn, you should be ready to go... not "oh i forgot to start the IDE, oh where is my folder, etc." also, if your app runs a little slow, consider using dotnet run or "start without debugging" in VS, instead of the VS debugger.
