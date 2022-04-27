@@ -58,16 +58,76 @@ SELECT TrackId FROM InvoiceLine;
 -- plan for them is the same, or different.
 
 -- 1. which artists did not make any albums at all?
+SELECT Artist.*
+FROM Artist LEFT JOIN Album ON Artist.ArtistID = Album.ArtistID
+WHERE Album.AlbumID IS NULL;
+
+SELECT ArtistId FROM Artist
+EXCEPT
+SELECT ArtistId FROM Album;
+
+SELECT ArtistId, Artist.Name
+FROM Artist
+WHERE ArtistId NOT IN (
+    SELECT ArtistId FROM Album
+);
 
 -- 2. which artists did not record any tracks of the Latin genre?
+SELECT *
+FROM Artist
+WHERE ArtistId NOT IN ( -- all the artists who wrote such an album
+	SELECT ArtistId FROM Album WHERE AlbumId IN ( -- all the albums with a latin song
+		SELECT AlbumId
+		FROM Track           -- all the genres named latin
+		WHERE GenreId IN (SELECT GenreId FROM Genre WHERE Name = 'Latin')
+	)
+);
+
+-- join + set-op version
+SELECT * FROM Artist
+EXCEPT
+SELECT ar.*
+FROM Artist AS ar
+	INNER JOIN Album AS al ON ar.ArtistId = al.ArtistId
+	INNER JOIN Track AS t ON al.AlbumId = t.AlbumId
+	INNER JOIN Genre AS g ON t.GenreId = g.GenreId
+WHERE g.Name = 'Latin';
 
 -- 3. which video track has the longest length? (use media type table)
+SELECT * FROM Track WHERE Milliseconds = (
+	SELECT MAX(t.Milliseconds)
+	FROM Track AS t
+		INNER JOIN MediaType AS mt ON mt.MediaTypeId = t.MediaTypeId
+	WHERE mt.Name LIKE '%video%');
+
+SELECT * FROM Track WHERE Milliseconds >= ALL (
+	SELECT t.Milliseconds
+	FROM Track AS t
+		INNER JOIN MediaType AS mt ON mt.MediaTypeId = t.MediaTypeId
+	WHERE mt.Name LIKE '%video%'); -- not exactly right
 
 -- 4. find the names of the customers who live in the same city as the
 --    boss employee (the one who reports to nobody)
 
 -- 5. how many audio tracks were bought by German customers, and what was
 --    the total price paid for them?
+SELECT SUM(il.UnitPrice * il.Quantity) AS TotalPricePaid
+FROM Track AS t
+	INNER JOIN MediaType AS mt ON mt.MediaTypeId = t.MediaTypeId
+	INNER JOIN InvoiceLine AS il ON il.TrackId = t.TrackId
+	INNER JOIN Invoice AS i ON i.InvoiceId = il.InvoiceId
+	INNER JOIN Customer AS c ON c.CustomerId = i.CustomerId
+WHERE mt.Name LIKE '%audio%' AND c.Country = 'Germany'
+GROUP BY t.TrackId;
+
+SELECT SUM(il.UnitPrice * il.Quantity) AS TotalPricePaid
+FROM Track AS t
+	INNER JOIN MediaType AS mt ON mt.MediaTypeId = t.MediaTypeId
+	INNER JOIN InvoiceLine AS il ON il.TrackId = t.TrackId
+	INNER JOIN Invoice AS i ON i.InvoiceId = il.InvoiceId
+	INNER JOIN Customer AS c ON c.CustomerId = i.CustomerId
+WHERE mt.Name LIKE '%audio%' AND c.Country = 'Germany'
+GROUP BY t.TrackId;
 
 -- 6. list the names and countries of the customers supported by an employee
 --    who was hired younger than 35.
