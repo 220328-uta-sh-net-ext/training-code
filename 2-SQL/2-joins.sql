@@ -96,3 +96,5 @@ ORDER BY COUNT(*) DESC;
 -- 7. show the top three best-selling artists.
 
 -- 8. which customers have the same initials as at least one other customer?
+SELECT SUBSTRING(FirstName, 1, 1) + SUBSTRING(LastName, 1, 1), FirstName, LastName
+FROM Customer;
