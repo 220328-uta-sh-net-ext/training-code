@@ -64,16 +64,34 @@ WHERE Genre.Name = 'Rock';
 -- join exercises (Chinook database)
 
 -- 1. show all invoices of customers from brazil (mailing address not billing)
+SELECT i.*
+FROM Customer AS c INNER JOIN Invoice AS i ON i.CustomerId = c.CustomerId
+WHERE c.Country = 'Brazil';
 
 -- 2. show all invoices together with the name of the sales agent of each one
+SELECT e.FirstName, e.LastName, i.*
+FROM Invoice AS i
+	INNER JOIN Customer AS c ON i.CustomerId = c.CustomerId
+	LEFT JOIN Employee AS e ON c.SupportRepId = e.EmployeeId;
 
 -- 3. show all playlists ordered by the total number of tracks they have
+SELECT p.*, COUNT(*) AS NumberOfTracks
+FROM Playlist AS p LEFT JOIN PlaylistTrack AS pt ON p.PlaylistId = pt.PlaylistId
+GROUP BY p.PlaylistId, p.Name
+ORDER BY COUNT(*);
 
 -- 4. which sales agent made the most in sales in 2009?
 
 -- 5. how many customers are assigned to each sales agent?
 
 -- 6. which track was purchased the most since 2010?
+SELECT TOP(1) t.TrackId, t.Name, COUNT(*) AS TimesPurchased
+FROM Track AS t
+	LEFT JOIN InvoiceLine AS il ON t.TrackId = il.TrackId
+	INNER JOIN Invoice AS i ON i.InvoiceId = il.InvoiceId
+WHERE YEAR(i.InvoiceDate) >= 2010
+GROUP BY t.TrackId, t.Name
+ORDER BY COUNT(*) DESC;
 
 -- 7. show the top three best-selling artists.
 
