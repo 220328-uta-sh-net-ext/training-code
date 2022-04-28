@@ -13,6 +13,8 @@ CREATE TABLE Type (
 -- a PRIMARY KEY could be two columns at once, instead of one column.
 -- e.g. (City, State) together, in a table about cities in the US.
 
+SELECT * FROM Pokemon;
+
 CREATE TABLE City
 (
     Name NVARCHAR(50) NOT NULL,
