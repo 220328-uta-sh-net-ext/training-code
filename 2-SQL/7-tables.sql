@@ -138,7 +138,26 @@ SELECT * FROM ChatApp.Person;
 
 
 
+-- public class Table
+-- {
+--     private List<string> rows = new List<string>();
+--     private HashSet<string> valueIndex = new HashSet<string>();
 
+--     public void Insert(string data)
+--     {
+--         rows.Add(data);
+--         valueIndex.Add(data);
+--     }
+
+--     public bool FindValue(string value)
+--     {
+--         return valueIndex.Contains(value);
+--     }
+--     public bool FindSubstring(string value)
+--     {
+--         return rows.Any(s => s.Contains(value));
+--     }
+-- }
 
 -- indexes
 -- data structures that we can have sql server maintain during writes

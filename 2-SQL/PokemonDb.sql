@@ -42,8 +42,16 @@ CREATE TABLE Pokemon (
     Level INT NOT NULL,
     Attack INT NOT NULL,
     Defense INT NOT NULL,
-    Health INT NOT NULL
+    Health INT NOT NULL,
+    INDEX IX_Type NONCLUSTERED ON Type
 );
+
+-- if the Type FK had ON DELETE CASCADE, then...
+--   if i delete Lightning type, automatically, all LIghtning pokemon will also be deleted
+
+-- Posts
+-- Comments
+--     FK -> PostId
 
 -- "referential integrity": SQL enforces that every FK value does point to an existing PK value
 
@@ -68,7 +76,10 @@ CREATE TABLE PokemonAbility (
     PRIMARY KEY (Pokemon, Ability)
 );
 
+SELECT * FROM Pokemon WHERE Type = 'Normal';
+
 --ALTER TABLE Pokemon ADD PRIMARY KEY (Name);
+CREATE INDEX IX_Pokemon_Type ON Pokemon (Type);
 
 INSERT INTO Type (Name) VALUES
     ('Normal'),
