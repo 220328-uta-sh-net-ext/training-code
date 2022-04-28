@@ -11,11 +11,20 @@ namespace PokemonDL
      * traditionally it was all under "System.Data" namespace somewhere. these days, we get those
      * assemblies via NuGet.
      */
+    /// <summary>
+    /// describe the classe
+    /// </summary>
+    /// <remarks>
+    /// more detailed explanations
+    /// </remarks>
     public class SqlRepository : IRepository
     {
         private const string connectionStringFilePath = "../../../../PokemonDL/connection-string.txt";
         private readonly string connectionString;
 
+        /// <summary>
+        /// summary
+        /// </summary>
         public SqlRepository()
         {
             connectionString = File.ReadAllText(connectionStringFilePath);
@@ -130,6 +139,11 @@ namespace PokemonDL
             return poke;
         }
 
+        /// <summary>
+        /// asdfasdf
+        /// </summary>
+        /// <param name="poke">the pokemon model to add</param>
+        /// <returns>the added pokemon</returns>
         public Pokemon AddPokemonUnsafe(Pokemon poke)
         {
             string commandString = "INSERT INTO Pokemon (Name, Type, Level, Attack, Defense, Health) " +
