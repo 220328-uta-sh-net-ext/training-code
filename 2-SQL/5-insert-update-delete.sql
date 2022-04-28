@@ -78,11 +78,50 @@ WHERE GenreId = 100;
 -- exercises
 
 -- 1. insert two new records into the employee table.
+SELECT * FROM Employee;
+DECLARE @maxid INT;
+SELECT @maxid = MAX(EmployeeId) FROM Employee;
+INSERT INTO Employee (LastName, FirstName) VALUES
+    ('a', 'b'),
+    ('c', 'd');
 
 -- 2. insert two new records into the tracks table.
 
 -- 3. update customer Aaron Mitchell's name to Robert Walter
+UPDATE Customer
+SET FirstName = 'Robert', LastName = 'Walter'
+WHERE FirstName = 'Aaron' AND LastName = 'Mitchell';
 
 -- 4. delete one of the employees you inserted.
 
 -- 5. delete customer Robert Walter.
+SELECT *
+FROM Invoice INNER JOIN Customer ON Customer.CustomerId = Invoice.CustomerId
+WHERE FirstName = 'Robert' AND LastName = 'Walter'
+
+DELETE FROM Customer
+WHERE FirstName = 'Robert' AND LastName = 'Walter';
+
+
+
+DELETE FROM InvoiceLine
+WHERE InvoiceId IN (
+	SELECT InvoiceId
+	FROM Invoice
+	WHERE CustomerId = (
+		SELECT CustomerId FROM Customer WHERE FirstName = 'Robert' AND LastName = 'Walter'
+	)
+);
+
+DELETE FROM Invoice
+WHERE CustomerId = (
+	SELECT CustomerId FROM Customer WHERE FirstName = 'Robert' AND LastName = 'Walter'
+);
+
+DELETE FROM Customer
+WHERE FirstName = 'Robert' AND LastName = 'Walter';
+
+-- typical thing to do instead of DELETE
+-- have a "Active" BIT column on your tables, default 1
+-- anytime you think about deleting, instead, just set Active = 0
+-- all queries and joins with that table needs to filter for active = 1.
