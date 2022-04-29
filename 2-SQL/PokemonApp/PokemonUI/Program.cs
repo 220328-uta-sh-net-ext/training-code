@@ -9,6 +9,9 @@ Log.Logger = new LoggerConfiguration()
     .WriteTo.File("./Logs/user.txt").MinimumLevel.Debug().MinimumLevel.Information()// we want to save the ;ogs in this file
     .CreateLogger();
 
+// other approaches to this besides "gitignored file"...
+//  - command-line arguments (in this file with top-level statements, invisible "args" variable
+//  - environment variab
 string connectionStringFilePath = "../../../../PokemonDL/connection-string.txt";
 string connectionString = File.ReadAllText(connectionStringFilePath);
 
