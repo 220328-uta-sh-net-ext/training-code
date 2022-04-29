@@ -1,50 +1,49 @@
 ﻿using PokemonDL;
 using PokemonModels;
 
-namespace PokemonUI
+namespace PokemonUI;
+
+class PokemonOperations
 {
-    class PokemonOperations
+    readonly IRepository repository;
+
+    public PokemonOperations(IRepository repository)
     {
-        readonly IRepository repository;
+        this.repository = repository;
+    }
 
-        public PokemonOperations(IRepository repository)
+    public void GetAllPokemons()
+    {
+        List<Pokemon>? pokemons = repository.GetAllPokemons();
+        foreach (Pokemon? poke in pokemons)
         {
-            this.repository = repository;
+            Console.WriteLine(poke);
+            Console.WriteLine("=======================");
         }
-
-        public void GetAllPokemons()
+    }
+    /// <summary>
+    /// only for testing purpose to check if pokemon was added
+    /// </summary>
+    public void AddDummyPokemon()
+    {
+        var pokemon1 = new Pokemon()
         {
-            List<Pokemon>? pokemons = repository.GetAllPokemons();
-            foreach (Pokemon? poke in pokemons)
-            {
-                Console.WriteLine(poke);
-                Console.WriteLine("=======================");
-            }
-        }
-        /// <summary>
-        /// only for testing purpose to check if pokemon was added
-        /// </summary>
-        public void AddDummyPokemon()
-        {
-            Pokemon pokemon1 = new Pokemon()
-            {
-                Name = "Pikachu",
-                Level = 4,
-                Attack = 40,
-                Defense = 45,
-                Health = 50,
-                Abilities = new List<Ability>() {
-                    new Ability()
-                    {
-                        Name = "ThunderBolt",
-                        Accuracy = 100,
-                        Power = 90,
-                        PP = 15
-                    }
+            Name = "Pikachu",
+            Level = 4,
+            Attack = 40,
+            Defense = 45,
+            Health = 50,
+            Abilities = new List<Ability>() {
+                new Ability()
+                {
+                    Name = "ThunderBolt",
+                    Accuracy = 100,
+                    Power = 90,
+                    PP = 15
                 }
-            };
+            }
+        };
 
-            repository.AddPokemon(pokemon1);
-        }
+        repository.AddPokemon(pokemon1);
     }
 }
