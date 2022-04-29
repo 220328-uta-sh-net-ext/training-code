@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using PokemonBL;
+﻿using PokemonBL;
 using PokemonModels;
 
 namespace PokemonUI
@@ -44,18 +39,18 @@ namespace PokemonUI
                         logic.AddPokemon(newPokemon);
                         Log.Information("Pokemon added successfully");
                     }
-                    catch(Exception ex)
+                    catch (Exception ex)
                     {
                         Log.Warning("failed to add pokemon");
                         Console.WriteLine(ex.Message);
-                       
+
                     }
                     return "MainMenu";
-                case"2":
+                case "2":
                     Console.Write("Please enter a level ");
                     newPokemon.Level = Convert.ToInt32(Console.ReadLine());
                     return "AddPokemon";
-                case"3":
+                case "3":
                     Console.Write("Please enter a name! ");
                     newPokemon.Name = Console.ReadLine();
                     return "AddPokemon";

@@ -1,10 +1,5 @@
 ﻿using PokemonDL;
 using PokemonModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PokemonBL
 {
@@ -28,8 +23,8 @@ namespace PokemonBL
             p.Health = random.Next(-5, 5);
 
             //Validation process
-            var pokemons=repo.GetAllPokemons();
-            if (pokemons.Count< MaxPokemons)
+            var pokemons = repo.GetAllPokemons();
+            if (pokemons.Count < MaxPokemons)
             {
                 return repo.AddPokemon(p);
             }
@@ -43,7 +38,7 @@ namespace PokemonBL
         {
 
 
-            var pokemons=repo.GetAllPokemons();
+            var pokemons = repo.GetAllPokemons();
             /*var filteredPokemons=from p in pokemons               //Query Syntax
                                     where p.Name.Contains(name)
                                     select p;*/

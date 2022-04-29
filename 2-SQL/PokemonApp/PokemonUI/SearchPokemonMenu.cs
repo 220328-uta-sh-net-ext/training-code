@@ -1,9 +1,4 @@
 ﻿using PokemonBL;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PokemonUI
 {
@@ -35,7 +30,7 @@ namespace PokemonUI
                     // Logic to display results
                     Console.Write("Please enter the name ");
                     string name = Console.ReadLine();
-                    var results=logic.SearchPokemon(name);
+                    var results = logic.SearchPokemon(name);
                     if (results.Count() > 0)
                     {
                         foreach (var r in results)

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PokemonUI
+﻿namespace PokemonUI
 {
     /*
      Interface are one of the best way to implement abstraction

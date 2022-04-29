@@ -12,8 +12,9 @@ namespace PokemonUI
             this.repository = repository;
         }
 
-        public void GetAllPokemons() {
-            var pokemons=repository.GetAllPokemons();
+        public void GetAllPokemons()
+        {
+            var pokemons = repository.GetAllPokemons();
             foreach (var poke in pokemons)
             {
                 Console.WriteLine(poke);
@@ -25,13 +26,14 @@ namespace PokemonUI
         /// </summary>
         public void AddDummyPokemon()
         {
-            Pokemon pokemon1 = new Pokemon() {
+            Pokemon pokemon1 = new Pokemon()
+            {
                 Name = "Pikachu",
                 Level = 4,
                 Attack = 40,
                 Defense = 45,
                 Health = 50,
-                Abilities = new List<Ability>() { 
+                Abilities = new List<Ability>() {
                     new Ability()
                     {
                         Name = "ThunderBolt",
@@ -41,7 +43,7 @@ namespace PokemonUI
                     }
                 }
             };
-            
+
             repository.AddPokemon(pokemon1);
         }
     }

@@ -16,7 +16,7 @@ namespace PokemonTest
             Ability ability = new Ability();
             int validPP = 10;
             //Act
-            ability.PP=validPP;
+            ability.PP = validPP;
             //Assert
             Assert.NotNull(ability.PP);//checks that the property is not null meaning we did set data in this property
             Assert.Equal(validPP, ability.PP); //checks if the property does indeed hold the same value as what we set it as
@@ -29,11 +29,11 @@ namespace PokemonTest
         public void PPShouldSetValidData(int p_invalidData)
         {
             //Arrange
-            Ability ab=new Ability();
+            Ability ab = new Ability();
 
             //Assert
             Assert.Throws<System.Exception>(
-                ()=>ab.PP=p_invalidData
+                () => ab.PP = p_invalidData
                 );
         }
     }

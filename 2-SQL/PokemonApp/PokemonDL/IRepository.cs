@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using PokemonModels;
+﻿using PokemonModels;
+using System.Collections.Generic;
 
 namespace PokemonDL
 {

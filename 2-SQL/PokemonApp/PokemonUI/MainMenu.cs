@@ -16,7 +16,7 @@
 
         public string UserChoice()
         {
-           string userInput = Console.ReadLine();
+            string userInput = Console.ReadLine();
 
             switch (userInput)
             {

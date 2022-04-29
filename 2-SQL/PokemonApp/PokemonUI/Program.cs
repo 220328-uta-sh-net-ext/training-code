@@ -45,7 +45,7 @@ while (repeat)
             break;
         case "MainMenu":
             Log.Debug("Displaying Main menu to the user");
-            menu=new MainMenu();
+            menu = new MainMenu();
             break;
         case "Exit":
             Log.Debug("Exiting the application");
