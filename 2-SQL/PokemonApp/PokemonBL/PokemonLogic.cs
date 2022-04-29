@@ -11,7 +11,13 @@ namespace PokemonBL
     public class PokemonLogic : IPokemonLogic//, IPokemonSearch
     {
         private const int MaxPokemons = 4000;
-        IRepository repo = new SqlRepository();
+        private readonly IRepository repo;
+
+        public PokemonLogic(IRepository repo)
+        {
+            this.repo = repo;
+        }
+
         public Pokemon AddPokemon(Pokemon p)
         {
             Random random = new Random();

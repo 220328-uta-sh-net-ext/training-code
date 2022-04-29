@@ -13,8 +13,13 @@ namespace PokemonUI
         //static non-access modifier is needed to keep this variable consistent to all objects we create out of our AddPokeMenu
         private static Pokemon newPokemon = new Pokemon();
 
-        //private IRepository _repository = new Repository(); //UpCasting
-        private IPokemonLogic _repository = new PokemonLogic();
+        private readonly IPokemonLogic logic;
+
+        public AddPokemonMenu(IPokemonLogic logic)
+        {
+            this.logic = logic;
+        }
+
         public void Display()
         {
             Console.WriteLine("Enter Pokemon Information");
@@ -36,7 +41,7 @@ namespace PokemonUI
                     try
                     {
                         Log.Information("Adding a pokemon - " + newPokemon.Name);
-                        _repository.AddPokemon(newPokemon);
+                        logic.AddPokemon(newPokemon);
                         Log.Information("Pokemon added successfully");
                     }
                     catch(Exception ex)

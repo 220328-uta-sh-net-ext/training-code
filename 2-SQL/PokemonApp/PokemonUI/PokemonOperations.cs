@@ -5,9 +5,14 @@ namespace PokemonUI
 {
     internal class PokemonOperations
     {
-        static IRepository repository= new SqlRepository();
+        private readonly IRepository repository;
 
-        public static void GetAllPokemons() {
+        public PokemonOperations(IRepository repository)
+        {
+            this.repository = repository;
+        }
+
+        public void GetAllPokemons() {
             var pokemons=repository.GetAllPokemons();
             foreach (var poke in pokemons)
             {
@@ -18,7 +23,7 @@ namespace PokemonUI
         /// <summary>
         /// only for testing purpose to check if pokemon was added
         /// </summary>
-        public static void AddDummyPokemon()
+        public void AddDummyPokemon()
         {
             Pokemon pokemon1 = new Pokemon() {
                 Name = "Pikachu",

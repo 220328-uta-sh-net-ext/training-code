@@ -25,9 +25,9 @@ namespace PokemonDL
         /// <summary>
         /// summary
         /// </summary>
-        public SqlRepository()
+        public SqlRepository(string connectionString)
         {
-            connectionString = File.ReadAllText(connectionStringFilePath);
+            this.connectionString = connectionString;
         }
 
         // specifically when SELECT statements and result sets are involved,

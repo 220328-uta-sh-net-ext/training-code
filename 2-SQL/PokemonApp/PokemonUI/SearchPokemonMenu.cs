@@ -9,7 +9,13 @@ namespace PokemonUI
 {
     internal class SearchPokemonMenu : IMenu
     {
-        IPokemonLogic repo = new PokemonLogic();
+        private readonly IPokemonLogic logic;
+
+        public SearchPokemonMenu(IPokemonLogic logic)
+        {
+            this.logic = logic;
+        }
+
         public void Display()
         {
             Console.WriteLine("Please select an option to filter the pokemon database");
@@ -29,7 +35,7 @@ namespace PokemonUI
                     // Logic to display results
                     Console.Write("Please enter the name ");
                     string name = Console.ReadLine();
-                    var results=repo.SearchPokemon(name);
+                    var results=logic.SearchPokemon(name);
                     if (results.Count() > 0)
                     {
                         foreach (var r in results)

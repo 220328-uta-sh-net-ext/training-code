@@ -1,33 +1,20 @@
-﻿// See https://aka.ms/new-console-template for more information
-global using Serilog;
+﻿global using Serilog;
+using PokemonBL;
+using PokemonDL;
 using PokemonUI;
-
-
-
-/*
-//basic LINQ
-// data source
-int[] num = new int[] { 45, 56, 67, 87, 99, 98, 100 };
-
-// create query
-var query = from n in num
-            where (n % 2) == 0 || (n % 3) == 0
-            orderby n descending
-            select n;
-
-//var results = num.Where(x => x % 2 == 0);
-
-//execute the query
-foreach (var q in query)
-{
-    Console.WriteLine(q);
-}*/
 
 //create and configure our logger
 Log.Logger = new LoggerConfiguration()
     .WriteTo.Console().MinimumLevel.Debug()
     .WriteTo.File("./Logs/user.txt").MinimumLevel.Debug().MinimumLevel.Information()// we want to save the ;ogs in this file
     .CreateLogger();
+
+string connectionStringFilePath = "../../../../PokemonDL/connection-string.txt";
+string connectionString = File.ReadAllText(connectionStringFilePath);
+
+IRepository repository = new SqlRepository(connectionString);
+IPokemonLogic logic = new PokemonLogic(repository);
+PokemonOperations operations = new(repository);
 
 bool repeat = true;
 IMenu menu = new MainMenu();
@@ -42,16 +29,16 @@ while (repeat)
         case "SearchPokemon":
             //call SearchPokemon method
             Log.Debug("Displaying SearchPokemon menu to the user");
-            menu = new SearchPokemonMenu();
+            menu = new SearchPokemonMenu(logic);
             break;
         case "AddPokemon":
             Log.Debug("Displaying AddPokemon Menu to the user");
-            menu = new AddPokemonMenu();
+            menu = new AddPokemonMenu(logic);
             break;
         case "GetAllPokemons":
             Log.Debug("Displaying all pokemons to the user");
             Console.WriteLine("--------------Retreiving all pokemons---------------");
-            PokemonOperations.GetAllPokemons();
+            operations.GetAllPokemons();
             break;
         case "MainMenu":
             Log.Debug("Displaying Main menu to the user");
