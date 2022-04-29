@@ -20,7 +20,9 @@ namespace PokemonUI
 
         public string UserChoice()
         {
-            string userInput = Console.ReadLine();
+            // Console.ReadLine returns null if redirecting from a file and the file ends
+            if (Console.ReadLine() is not string userInput)
+                throw new InvalidDataException("end of input");
 
             switch (userInput)
             {
@@ -29,7 +31,8 @@ namespace PokemonUI
                 case "1":
                     // Logic to display results
                     Console.Write("Please enter the name ");
-                    string name = Console.ReadLine();
+                    if (Console.ReadLine() is not string name)
+                        throw new InvalidDataException("end of input");
                     var results = logic.SearchPokemon(name);
                     if (results.Count() > 0)
                     {

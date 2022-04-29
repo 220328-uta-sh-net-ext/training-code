@@ -18,7 +18,6 @@ namespace PokemonTest
             //Act
             ability.PP = validPP;
             //Assert
-            Assert.NotNull(ability.PP);//checks that the property is not null meaning we did set data in this property
             Assert.Equal(validPP, ability.PP); //checks if the property does indeed hold the same value as what we set it as
         }
 

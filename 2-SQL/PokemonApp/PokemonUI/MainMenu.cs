@@ -16,7 +16,9 @@
 
         public string UserChoice()
         {
-            string userInput = Console.ReadLine();
+            // Console.ReadLine returns null if redirecting from a file and the file ends
+            if (Console.ReadLine() is not string userInput)
+                throw new InvalidDataException("end of input");
 
             switch (userInput)
             {

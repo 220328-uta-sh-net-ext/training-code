@@ -27,7 +27,9 @@ namespace PokemonUI
 
         public string UserChoice()
         {
-            string userInput = Console.ReadLine();
+            // Console.ReadLine returns null if redirecting from a file and the file ends
+            if (Console.ReadLine() is not string userInput)
+                throw new InvalidDataException("end of input");
             switch (userInput)
             {
                 case "0":
@@ -52,7 +54,10 @@ namespace PokemonUI
                     return "AddPokemon";
                 case "3":
                     Console.Write("Please enter a name! ");
-                    newPokemon.Name = Console.ReadLine();
+                    if (Console.ReadLine() is string input)
+                        newPokemon.Name = input;
+                    else
+                        throw new InvalidDataException("end of input");
                     return "AddPokemon";
                 /// Add more cases for any other attributes of pokemon
                 default:
