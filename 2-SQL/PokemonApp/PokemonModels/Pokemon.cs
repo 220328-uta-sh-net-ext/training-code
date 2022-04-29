@@ -25,7 +25,7 @@
         //}
 
         //Abilities -> Name, Power, Accuracy
-        private List<Ability> _abilities;
+        List<Ability> _abilities;
         public List<Ability> Abilities
         {
             get => _abilities;

@@ -7,13 +7,13 @@ namespace PokemonDL
 {
     public class Repository : IRepository
     {
-        private string filePath = "../../../../PokemonDL/Database/";
-        private string jsonString;
+        readonly string filePath = "../../../../PokemonDL/Database/";
+        string? jsonString;
         public Pokemon AddPokemon(Pokemon poke)// Serialization
         {
-            var pokemons = GetAllPokemons();
+            List<Pokemon>? pokemons = GetAllPokemons();
             pokemons.Add(poke);
-            var pokemonString = JsonSerializer.Serialize<List<Pokemon>>(pokemons, new JsonSerializerOptions { WriteIndented = true });
+            string? pokemonString = JsonSerializer.Serialize<List<Pokemon>>(pokemons, new JsonSerializerOptions { WriteIndented = true });
             try
             {
                 File.WriteAllText(filePath + "Pokemon.json", pokemonString);
@@ -52,9 +52,8 @@ namespace PokemonDL
                 Console.WriteLine(ex.Message);
             }
             if (!string.IsNullOrEmpty(jsonString))
-                return JsonSerializer.Deserialize<List<Pokemon>>(jsonString);
-            else
-                return null;
+                return JsonSerializer.Deserialize<List<Pokemon>>(jsonString)!;
+            throw new InvalidDataException("json data missing or invalid");
         }
     }
 }

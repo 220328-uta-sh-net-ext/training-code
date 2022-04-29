@@ -1,7 +1,5 @@
 ﻿namespace PokemonUI
 {
-    /*MainMenu class implements IMenu interface but since it is a class it needs to 
-     give actual implementation details to the respective methods*/
     class MainMenu : IMenu
     {
         public void Display()

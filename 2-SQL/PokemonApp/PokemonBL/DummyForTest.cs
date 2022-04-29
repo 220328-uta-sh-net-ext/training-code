@@ -10,7 +10,7 @@
         public double Add(params double[] nums)//params keyword allows to pass any number of inputs as parameters
         {
             double result = 0;
-            foreach (var n in nums)
+            foreach (double n in nums)
             {
                 result += n;
             }

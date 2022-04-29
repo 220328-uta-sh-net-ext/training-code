@@ -18,8 +18,8 @@ namespace PokemonDL
     /// </remarks>
     public class SqlRepository : IRepository
     {
-        private const string connectionStringFilePath = "../../../../PokemonDL/connection-string.txt";
-        private readonly string connectionString;
+        const string connectionStringFilePath = "../../../../PokemonDL/connection-string.txt";
+        readonly string connectionString;
 
         /// <summary>
         /// summary
@@ -66,7 +66,7 @@ namespace PokemonDL
             using IDataReader reader = command.ExecuteReader();
 
             // TODO: leaving out the abilities for now
-            var pokemons = new List<Pokemon>();
+            List<Pokemon>? pokemons = new List<Pokemon>();
             // reader.Read advances the "cursor" to the next row
             // and returns true if it's not at the end of the data.
             while (reader.Read())
@@ -103,7 +103,7 @@ namespace PokemonDL
             connection.Close();
 
             // TODO: leaving out the abilities for now
-            var pokemons = new List<Pokemon>();
+            List<Pokemon>? pokemons = new List<Pokemon>();
             DataColumn levelColumn = dataSet.Tables[0].Columns[2];
             foreach (DataRow row in dataSet.Tables[0].Rows)
             {

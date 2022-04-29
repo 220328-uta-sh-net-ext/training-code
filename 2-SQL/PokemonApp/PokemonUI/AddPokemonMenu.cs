@@ -3,12 +3,12 @@ using PokemonModels;
 
 namespace PokemonUI
 {
-    internal class AddPokemonMenu : IMenu
+    class AddPokemonMenu : IMenu
     {
         //static non-access modifier is needed to keep this variable consistent to all objects we create out of our AddPokeMenu
-        private static Pokemon newPokemon = new Pokemon();
+        static Pokemon newPokemon = new Pokemon();
 
-        private readonly IPokemonLogic logic;
+        readonly IPokemonLogic logic;
 
         public AddPokemonMenu(IPokemonLogic logic)
         {

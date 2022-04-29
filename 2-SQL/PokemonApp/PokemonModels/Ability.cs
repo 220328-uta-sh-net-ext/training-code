@@ -3,7 +3,8 @@
     public class Ability
     {
         public string Name { get; set; }
-        private int _PP;
+
+        int _PP;
         public int PP
         {
             get => _PP;
@@ -15,6 +16,7 @@
                     throw new Exception("You cannot set PP lowwr that 0!");
             }
         }
+
         public int Power { get; set; }
         public int Accuracy { get; set; }
 

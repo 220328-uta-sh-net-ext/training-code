@@ -1,10 +1,5 @@
 ﻿namespace PokemonUI
 {
-    /*
-     Interface are one of the best way to implement abstraction
-     Every method is inplicitly abstract meaning you don't have to define your method
-     Every method in interface is by default public so don't use public as a keyword
-     */
     public interface IMenu
     {
         /// <summary>

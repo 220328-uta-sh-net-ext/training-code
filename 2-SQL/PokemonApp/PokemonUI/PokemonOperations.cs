@@ -3,9 +3,9 @@ using PokemonModels;
 
 namespace PokemonUI
 {
-    internal class PokemonOperations
+    class PokemonOperations
     {
-        private readonly IRepository repository;
+        readonly IRepository repository;
 
         public PokemonOperations(IRepository repository)
         {
@@ -14,8 +14,8 @@ namespace PokemonUI
 
         public void GetAllPokemons()
         {
-            var pokemons = repository.GetAllPokemons();
-            foreach (var poke in pokemons)
+            List<Pokemon>? pokemons = repository.GetAllPokemons();
+            foreach (Pokemon? poke in pokemons)
             {
                 Console.WriteLine(poke);
                 Console.WriteLine("=======================");

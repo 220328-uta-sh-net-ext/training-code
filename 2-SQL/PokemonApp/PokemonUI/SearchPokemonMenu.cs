@@ -2,9 +2,9 @@
 
 namespace PokemonUI
 {
-    internal class SearchPokemonMenu : IMenu
+    class SearchPokemonMenu : IMenu
     {
-        private readonly IPokemonLogic logic;
+        readonly IPokemonLogic logic;
 
         public SearchPokemonMenu(IPokemonLogic logic)
         {
@@ -33,10 +33,10 @@ namespace PokemonUI
                     Console.Write("Please enter the name ");
                     if (Console.ReadLine() is not string name)
                         throw new InvalidDataException("end of input");
-                    var results = logic.SearchPokemon(name);
+                    List<PokemonModels.Pokemon>? results = logic.SearchPokemon(name);
                     if (results.Count() > 0)
                     {
-                        foreach (var r in results)
+                        foreach (PokemonModels.Pokemon? r in results)
                         {
                             Console.WriteLine("=================");
                             Console.WriteLine(r.ToString());

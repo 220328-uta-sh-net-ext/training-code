@@ -3,10 +3,10 @@ using PokemonModels;
 
 namespace PokemonBL
 {
-    public class PokemonLogic : IPokemonLogic//, IPokemonSearch
+    public class PokemonLogic : IPokemonLogic
     {
-        private const int MaxPokemons = 4000;
-        private readonly IRepository repo;
+        const int MaxPokemons = 4000;
+        readonly IRepository repo;
 
         public PokemonLogic(IRepository repo)
         {
@@ -23,7 +23,7 @@ namespace PokemonBL
             p.Health = random.Next(-5, 5);
 
             //Validation process
-            var pokemons = repo.GetAllPokemons();
+            List<Pokemon>? pokemons = repo.GetAllPokemons();
             if (pokemons.Count < MaxPokemons)
             {
                 return repo.AddPokemon(p);
@@ -38,12 +38,12 @@ namespace PokemonBL
         {
 
 
-            var pokemons = repo.GetAllPokemons();
+            List<Pokemon>? pokemons = repo.GetAllPokemons();
             /*var filteredPokemons=from p in pokemons               //Query Syntax
                                     where p.Name.Contains(name)
                                     select p;*/
 
-            var filteredPokemons = pokemons.Where(p => p.Name.Contains(name)).ToList(); // Method Syntax
+            List<Pokemon>? filteredPokemons = pokemons.Where(p => p.Name.Contains(name)).ToList(); // Method Syntax
 
             /*List<Pokemon> filteredPokemons = new List<Pokemon>();
             foreach (var poke in pokemons)
