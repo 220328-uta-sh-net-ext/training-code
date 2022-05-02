@@ -39,7 +39,7 @@
 - C# 
 - Xunit or NUnit
 - SQLServer DB 
-- EF Core 
+- ADO.Net
 - Serilog or Nlog (or any other logging frameworks) 
 
  
