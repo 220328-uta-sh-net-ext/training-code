@@ -105,14 +105,14 @@
             * It gives other potential actions the user can take after doing one action
             * Ex: GetAllPokemon would then give the user potential actions to take such as AddPokemon
 * Client-Server
-    * Client app will evolve separately from the server from the server app without any dependencies on each other
+    * Client app will evolve separately from the server  app without any dependencies on each other
     * Same concept of when we change our DL from the file system to database without breaking the other projects
     * Decoupling the services from each other (Matters the most when we do MSA (microservices design pattern))
     * Same concept of one service being change shouldn't break a different service
 * Layered System
     * Constraining the interactions of your components to the ones in the next Layer
     * The service should only have access to components it is dependent on
-    * Ex: The BL can only access the DL and the UI can only access BL and not DL
+    * Ex: The request sent from the client can pass through many intermeditaries like router, firewall etc... wach layer doesn't know anything about any layer other than immediate layer.
 * Stateless
     * Server isn't responsible for storing client state
     * It will just treat every http request as new or completely different even if it came from the same client or even doing the same http request (refreshing the page)
@@ -166,7 +166,7 @@
 
 ## Domain Name System (DNS)
 * It is essentially a directory of names and ip address
-* It translates a pretty loorking name of a website (www.google.com) into some numerical ip address ranging from (0.0.0.0 - 255.255.255.255) for locating the right server and to process the http request
+* It translates a pretty looking name of a website (www.google.com) into some numerical ip address ranging from (0.0.0.0 - 255.255.255.255) for locating the right server and to process the http request
 * Main reason is the same reason why you save people's phone number in contact in a form of a name instead of just their phone number
     * It is easier to remember!
 
@@ -174,17 +174,18 @@
 * Describes what action the client wants the server to perform on a given resource  
     * What is a resource? Anything the server is providing counts as a resource
 * Common Verb
-    * Get - Used to retrieve data from the server
-    * Post - Used to submit data to the server
-    * Put - Used to update/replace data on the server
+    * Get - Used to retrieve resource from the server
+    * Post - Used to submit resource to the server
+    * Put - Used to update/replace resource on the server
+    * Delete - used to remove a resource from the server
 
 ## HTTP status code
 * Gives the result of the HTTP request
-* 1XX - informational
-* 2XX - Success
-* 3XX - Redirection
-* 4XX - Client error
-* 5XX - Server error
+    * 1XX - informational
+    * 2XX - Success
+    * 3XX - Redirection
+    * 4XX - Client error
+    * 5XX - Server error
 
 # [ASP.NET](https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-6.0&tabs=visual-studio)
 * Another framework included in our .NET 6 that specializes in creating web application in either C# or VB
