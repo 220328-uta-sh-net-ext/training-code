@@ -125,7 +125,7 @@
     * Allows client functionality to be extended by downloading and executing code in a form of applets.
     * Outdated at this point (think of how in the past to play a game, the game has a loading process well that loading process is your computer downloading the scripts to run the game)
     
-# [HTTP/HTTPS](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview)
+# [HTTP/HTTPS](https://www.tutorialspoint.com/http/index.htm)
 * Hyper Text Transfer Protocol (Secured)
 * The protocol that both computers have to follow in order to understand/communicate with each other and work together to display a nice looking website in your browser, register an account, login, etc.
 
@@ -138,6 +138,10 @@
 
 ## HTTP Request and Response
 - Request 
+    * It is essentially what the client sents 
+    * It will tell what HTTP verb the request will be all about (either GET, POST, PUT, etc.)
+    * It will tell what kind of actual data the client is trying to sent (in a JSON format)
+    * It has a bunch of other useful metadata things you don't need to know like ip addresses, urls, etc. things that might be useful for debugging purposes
     - Request Header
         - Method: Http Method (GET, POST, PUT, DELETE)
         - PATH: Url
@@ -148,6 +152,10 @@
     - Request Body
         - If you want to send any data as a part o the request you put in here, optional
 - Response
+    * It is essentailly what the server sends back to the client
+    * It will give a **status code** if it was successful or not
+    * More metadata stuff for debugging purposes
+    * What kind of data the server is trying to sent to the client (in a JSON format)
     - Response Header
         - Version of Protocol
         - Status code : 100s, 200s, 300s, 400s, 500s
@@ -177,21 +185,6 @@
 * 3XX - Redirection
 * 4XX - Client error
 * 5XX - Server error
-
-# Moar HTTP
-* You don't have to memorize it for QC but it will make HTTP as a whole makes more sense as I explain other topics
-
-## HTTP Request
-* It is essentially what the client sents 
-* It will tell what HTTP verb the request will be all about (either GET, POST, PUT, etc.)
-* It will tell what kind of actual data the client is trying to sent (in a JSON format)
-* It has a bunch of other useful metadata things you don't need to know like ip addresses, urls, etc. things that might be useful for debugging purposes
-
-## HTTP Response
-* It is essentailly what the server sends back to the client
-* It will give a **status code** if it was successful or not
-* More metadata stuff for debugging purposes
-* What kind of data the server is trying to sent to the client (in a JSON format)
 
 # [ASP.NET](https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-6.0&tabs=visual-studio)
 * Another framework included in our .NET 6 that specializes in creating web application in either C# or VB
@@ -252,17 +245,19 @@
 * Really useful debugging tool for our api
 
 # Some good reads:
-1. soa:
+1. SOA:
     - https://www.ibm.com/cloud/learn/soa
     - https://martinfowler.com/bliki/ServiceOrientedAmbiguity.html
-2. REST conceptual:
+2. HTTP:
+    - https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP
+3. REST conceptual:
     - https://martinfowler.com/articles/richardsonMaturityModel.html
-3. REST implementation in ASP.NET Core:
+4. REST implementation in ASP.NET Core:
     - https://docs.microsoft.com/en-us/aspnet/core/web-api
     - https://docs.microsoft.com/en-us/azure/architecture/best-practices/api-design
     - https://docs.microsoft.com/en-us/azure/architecture/best-practices/api-implementation
-4. SOAP vs REST:
+5. SOAP vs REST:
     - https://octoperf.com/blog/2018/03/26/soap-vs-rest/
-5. Swagger implementation with ASP.NET Core:
+6. Swagger implementation with ASP.NET Core:
     - https://docs.microsoft.com/en-us/aspnet/core/tutorials/getting-started-with-swashbuckle
 
