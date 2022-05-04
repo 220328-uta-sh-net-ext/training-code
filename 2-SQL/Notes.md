@@ -13,7 +13,7 @@
 * With most databases, they are organized into tables and each table will have a row and a column
     * Think of a Microsoft Excel sheet
     * Data is the actual intersection between a row and column 
-## Rational Database Management System (RDBMS)
+## Relational Database Management System (RDBMS)
 * A more advance form of a database with an even fancier name.
 * So instead of just storing data like a database, it gives "relationships" between data
     * Look at Multiplicity section to showcase "relationship" between data

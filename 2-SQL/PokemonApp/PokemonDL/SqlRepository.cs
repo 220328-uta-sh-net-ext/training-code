@@ -96,9 +96,19 @@ public class SqlRepository : IRepository
         using SqlCommand command = new(commandString, connection);
         IDataAdapter adapter = new SqlDataAdapter(command);
         DataSet dataSet = new();
-        connection.Open();
-        adapter.Fill(dataSet); // this sends the query. DataAdapter uses a DataReader to read.
-        connection.Close();
+        try
+        {
+            connection.Open();
+            adapter.Fill(dataSet); // this sends the query. DataAdapter uses a DataReader to read.}
+        }
+        catch (SqlException ex)
+        {
+            System.Console.WriteLine(ex.Message);
+        }
+        finally
+        {
+            connection.Close();
+        }
 
         // TODO: leaving out the abilities for now
         var pokemons = new List<Pokemon>();
