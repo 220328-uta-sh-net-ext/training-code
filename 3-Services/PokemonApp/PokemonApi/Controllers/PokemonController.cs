@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PokemonModels;
+using PokemonBL;
 
 namespace PokemonApi.Controllers
 {
@@ -11,6 +12,13 @@ namespace PokemonApi.Controllers
     // 
     public class PokemonController : ControllerBase// Controller base class has the logic to interact with HTTP and communication with client
     {
+        private IPokemonLogic _pokeBL;
+
+        public PokemonController(IPokemonLogic _pokeBL)//Constructor dependency
+        {
+            this._pokeBL = _pokeBL;
+        }
+
         private static List<Pokemon> _pokemons = new List<Pokemon> { 
             new Pokemon{ Name="Pikachu", Attack = 50, Defense = 50, Health = 50, Level = 1},
             new Pokemon{ Name="Ditto", Attack = 48, Defense = 48, Health = 48, Level = 1}
@@ -20,7 +28,8 @@ namespace PokemonApi.Controllers
         [ProducesResponseType(200, Type=typeof(List<Pokemon>))]
         public ActionResult<List<Pokemon>> Get()
         {
-            return Ok(_pokemons);
+              var pokemons=_pokeBL.SearchAll();
+              return Ok(pokemons);
         }
 
         [HttpGet("name")]
@@ -28,8 +37,8 @@ namespace PokemonApi.Controllers
         [ProducesResponseType(404)]
         public ActionResult<Pokemon> Get(string name)
         {
-            var poke = _pokemons.Find(x => x.Name.Contains(name));
-            if (poke == null)
+            var poke = _pokeBL.SearchPokemon(name);
+            if (poke.Count<=0)
                 return NotFound($"Pokemon {name} you are looking for is not in the database");
             return Ok(poke);
         }
@@ -40,7 +49,7 @@ namespace PokemonApi.Controllers
         {
             if (poke == null)
                 return BadRequest("Invalid pokemon, please try again with valid values");
-            _pokemons.Add(poke);
+            _pokeBL.AddPokemon(poke);
             return CreatedAtAction("Get",poke);
         }
         [HttpPut]

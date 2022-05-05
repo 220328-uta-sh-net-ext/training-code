@@ -34,6 +34,11 @@ public class PokemonLogic : IPokemonLogic
         }
     }
 
+    public List<Pokemon> SearchAll()
+    {
+        return repo.GetAllPokemons();
+    }
+
     public List<Pokemon> SearchPokemon(string name)
     {
         List<Pokemon>? pokemons = repo.GetAllPokemons();

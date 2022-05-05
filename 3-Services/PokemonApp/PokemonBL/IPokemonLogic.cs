@@ -7,7 +7,7 @@ namespace PokemonBL;
 /// What kind of processing? That all depends on the type of functionality you will be doing
 /// It can also hold any computation logic like calculating average, max or min values etc....
 /// </summary>
-public interface IPokemonLogic
+public interface IPokemonLogic:IPokemonSearch
 {
     /// <summary>
     /// Add pokemon to the database
@@ -26,7 +26,7 @@ public interface IPokemonLogic
     List<Pokemon> SearchPokemon(string name);
 
 }
-interface IPokemonSearch
+public interface IPokemonSearch
 {
     List<Pokemon> SearchAll();
 }

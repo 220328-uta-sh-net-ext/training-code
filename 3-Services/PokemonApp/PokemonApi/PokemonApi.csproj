@@ -14,6 +14,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\PokemonBL\PokemonBL.csproj" />
+    <ProjectReference Include="..\PokemonDL\PokemonDL.csproj" />
     <ProjectReference Include="..\PokemonModels\PokemonModels.csproj" />
   </ItemGroup>
 
