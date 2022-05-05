@@ -2,6 +2,7 @@
 using PokemonModels;
 using System.Collections.Generic;
 using System.Data;
+using System.Threading.Tasks;
 
 namespace PokemonDL;
 
@@ -45,7 +46,7 @@ public class SqlRepository : IRepository
 
     // it's also possible to modify the DataSet and then treat those changes
     // as inserts, updates, and deletes to push to the database.
-    public List<Pokemon> GetAllPokemonsConnected()
+    public async Task<List<Pokemon>> GetAllPokemonsConnected()
     {
         string commandString = "SELECT * FROM Pokemon;";
 
@@ -56,19 +57,19 @@ public class SqlRepository : IRepository
         using SqlConnection connection = new(connectionString);
         // the command (SqlCommand): encapsulates some SQL commands to send.
         //  it supports using SqlParameters for protecting from SQL injection.
-        using IDbCommand command = new SqlCommand(commandString, connection);
-        connection.Open();
+        using SqlCommand command = new SqlCommand(commandString, connection);
+        await connection.OpenAsync();
         // the data reader (SqlDataReader): represents a response to a SqlCommand
         // having 1 or more result sets (because of 1 or more SELECT statements).
         // the data reader provides each row of the data immediately as it's
         // received over the network.
-        using IDataReader reader = command.ExecuteReader();
+        using SqlDataReader reader = await command.ExecuteReaderAsync();
 
         // TODO: leaving out the abilities for now
         var pokemons = new List<Pokemon>();
         // reader.Read advances the "cursor" to the next row
         // and returns true if it's not at the end of the data.
-        while (reader.Read())
+        while (await reader.ReadAsync())
         {
             // different ways to access the data in the current row
             // - reader[columnName]
@@ -168,5 +169,44 @@ public class SqlRepository : IRepository
         command.ExecuteNonQuery();
 
         return poke;
+    }
+
+    public async Task<List<Pokemon>> GetAllPokemonsAsync()
+    {
+        string commandString = "SELECT * FROM Pokemon;";
+
+        using SqlConnection connection = new(connectionString);
+        using SqlCommand command = new(commandString, connection);
+        IDataAdapter adapter = new SqlDataAdapter(command);
+        DataSet dataSet = new();
+        try
+        {
+            await connection.OpenAsync();
+            adapter.Fill(dataSet); // this sends the query. DataAdapter uses a DataReader to read.}
+        }
+        catch (SqlException ex)
+        {
+            System.Console.WriteLine(ex.Message);
+        }
+        finally
+        {
+            connection.Close();
+        }
+
+        // TODO: leaving out the abilities for now
+        var pokemons = new List<Pokemon>();
+        DataColumn levelColumn = dataSet.Tables[0].Columns[2];
+        foreach (DataRow row in dataSet.Tables[0].Rows)
+        {
+            pokemons.Add(new Pokemon
+            {
+                Name = (string)row[0],
+                Level = (int)row[levelColumn],
+                Attack = (int)row["Attack"],
+                Defense = (int)row[4],
+                Health = (int)row[5]
+            });
+        }
+        return pokemons;
     }
 }

@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
+using System.Threading.Tasks;
+
 namespace PokemonDL;
 
 public class Repository : IRepository
@@ -54,5 +56,10 @@ public class Repository : IRepository
         if (!string.IsNullOrEmpty(jsonString))
             return JsonSerializer.Deserialize<List<Pokemon>>(jsonString)!;
         throw new InvalidDataException("json data missing or invalid");
+    }
+
+    public Task<List<Pokemon>> GetAllPokemonsAsync()
+    {
+        throw new NotImplementedException();
     }
 }

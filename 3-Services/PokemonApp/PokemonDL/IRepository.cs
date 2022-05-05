@@ -1,5 +1,6 @@
 ﻿using PokemonModels;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace PokemonDL;
 
@@ -23,6 +24,7 @@ public interface IRepository
     /// </summary>
     /// <returns>Returns a collection of pokemon as Generic List</returns>
     List<Pokemon> GetAllPokemons();
+    Task<List<Pokemon>> GetAllPokemonsAsync();
 
     //Ability GetAbility(string name);
 }
