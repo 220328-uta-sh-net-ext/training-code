@@ -7,6 +7,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+//app here refers to the pipeline middleware
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

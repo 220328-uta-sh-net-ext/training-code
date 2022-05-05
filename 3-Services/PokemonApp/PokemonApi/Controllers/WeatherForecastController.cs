@@ -2,14 +2,14 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace PokemonApi.Controllers
 {
-    [ApiController]
+    [ApiController] //decorator/attribute : its like processing the before the class or method
     [Route("[controller]")]
-    public class WeatherForecastController : ControllerBase
+    public class WeatherForecastController : ControllerBase// Controller base class has the logic to interact with HTTP and communication with client
     {
         private static readonly string[] Summaries = new[]
         {
         "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
+        };
 
         private readonly ILogger<WeatherForecastController> _logger;
 
