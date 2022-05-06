@@ -4,6 +4,7 @@
 * good Git practices
 * CI with compile, automated tests, static analysis
 * CD to cloud service (like Azure App Service)
+* [optional] Have a Console App consuming the Api using HttpClient
 
 ### functionality
 * server-side validation
@@ -16,7 +17,7 @@
 * project layout given here is only a suggestion. the general idea of
   separation of concerns is a requirement.
 * Use ADO.Net for middleware either with connected or disconnected approach
-* use an Azure SQL DB in third normal form; include a database diagram
+* use an Azure SQL DB in third normal form; include a database diagram and the script to generate Db and tables.
 * don't use public fields
 * define and use at least one interface
 

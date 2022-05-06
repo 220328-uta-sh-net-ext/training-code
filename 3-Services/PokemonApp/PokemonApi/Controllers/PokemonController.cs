@@ -27,6 +27,8 @@ namespace PokemonApi.Controllers
             new Pokemon{ Name="Pikachu", Attack = 50, Defense = 50, Health = 50, Level = 1},
             new Pokemon{ Name="Ditto", Attack = 48, Defense = 48, Health = 48, Level = 1}
              };
+
+        
         //Action Methods : ways to access or manipulate the resources, it uses the HTTP Verbs/methods (GET, PUT, POST, DELETE, PATCH, HEAD etc....)
         [HttpGet]//http method
         [ProducesResponseType(200, Type=typeof(List<Pokemon>))]
