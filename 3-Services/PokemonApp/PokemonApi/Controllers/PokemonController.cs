@@ -28,14 +28,21 @@ namespace PokemonApi.Controllers
         [ProducesResponseType(200, Type=typeof(List<Pokemon>))]
         public ActionResult<List<Pokemon>> Get()
         {
-              var pokemons=_pokeBL.SearchAll();
+            List<Pokemon> pokemons = new List<Pokemon>();
+            try
+            {
+                pokemons = _pokeBL.SearchAll();
+            }
+            catch(Exception ex) {
+                return BadRequest(ex.Message);
+            }
               return Ok(pokemons);
         }
 
         [HttpGet("name")]
         [ProducesResponseType(200, Type = typeof(Pokemon))]
         [ProducesResponseType(404)]
-        public ActionResult<Pokemon> Get(string name)
+        public ActionResult<Pokemon> Get(string name)// primitive type so model binder will look for these values as querystring
         {
             var poke = _pokeBL.SearchPokemon(name);
             if (poke.Count<=0)
@@ -45,7 +52,7 @@ namespace PokemonApi.Controllers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public ActionResult Post([FromBody] Pokemon poke)
+        public ActionResult Post([FromBody] Pokemon poke)// Complex tyoe so model binder will look for these values from request body
         {
             if (poke == null)
                 return BadRequest("Invalid pokemon, please try again with valid values");
@@ -53,18 +60,26 @@ namespace PokemonApi.Controllers
             return CreatedAtAction("Get",poke);
         }
         [HttpPut]
-        public ActionResult Put([FromBody] Pokemon poke, string name)
+        public ActionResult Put([FromQuery]Pokemon poke, [FromBody]string name) //non-Default
         {
             if (name == null)
                 return BadRequest("Cannot modify pokemon without name");
-            var pokemon = _pokemons.Find(x => x.Name.Contains(name));
-            if (pokemon == null)
-                return NotFound("Pokemon not found");
-            pokemon.Name = poke.Name;
-            pokemon.Attack = poke.Attack;
-            pokemon.Level = poke.Level;
-            pokemon.Defense = poke.Defense;
-            pokemon.Health = poke.Health;
+            try
+            {
+                var pokemon = _pokemons.Find(x => x.Name.Contains(name));
+                if (pokemon == null)
+                    return NotFound("Pokemon not found");
+                pokemon.Name = poke.Name;
+                pokemon.Attack = poke.Attack;
+                pokemon.Level = poke.Level;
+                pokemon.Defense = poke.Defense;
+                pokemon.Health = poke.Health;
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            
             return Created("Get",poke);
         }
 

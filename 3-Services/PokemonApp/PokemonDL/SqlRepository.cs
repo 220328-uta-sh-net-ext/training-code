@@ -3,6 +3,7 @@ using PokemonModels;
 using System.Collections.Generic;
 using System.Data;
 using System.Threading.Tasks;
+using System;
 
 namespace PokemonDL;
 
@@ -104,7 +105,11 @@ public class SqlRepository : IRepository
         }
         catch (SqlException ex)
         {
-            System.Console.WriteLine(ex.Message);
+            throw;//rethrow the exception
+        }
+        catch(Exception ex)
+        {
+            throw;
         }
         finally
         {

@@ -7,10 +7,12 @@ string connectionStringFilePath = "../../../../training-code/3-Services/PokemonA
 string connectionString = File.ReadAllText(connectionStringFilePath);
 
 var builder = WebApplication.CreateBuilder(args);
-
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers(options =>
+    options.RespectBrowserAcceptHeader = true
+    )
+    .AddXmlSerializerFormatters();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -20,7 +22,7 @@ builder.Services.AddScoped<IPokemonLogic, PokemonLogic>();
 
 //app here refers to the pipeline middleware
 var app = builder.Build();
-
+app.Logger.LogInformation("App Started");
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

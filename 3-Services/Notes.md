@@ -202,6 +202,11 @@
 
 ## Model Binding
 * It is a way to bind data (JSON objects) coming from HTTP request to be automatically mapped into a C# model
+* Whenever an Action method expects a parameter value, model binder comes into the picture
+* Model Binder looks for those values in different ways:
+    * QueryString -> Primitive types
+    * Request Body -> Complex Types
+    
 * Remember how HTTP transfers information via JSON files? Well ASP.NET can automatically map that JSON object into a C# object
     * So instead of manually mapping it like our DL, it does it for us
     * Just need to know the fancy name that does that operation which is model binding
