@@ -8,11 +8,11 @@ string connectionString = File.ReadAllText(connectionStringFilePath);
 
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
-
+builder.Services.AddMemoryCache();
 builder.Services.AddControllers(options =>
     options.RespectBrowserAcceptHeader = true
     )
-    .AddXmlSerializerFormatters();
+    .AddXmlSerializerFormatters();//adding xml formatter 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

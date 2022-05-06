@@ -28,5 +28,5 @@ public interface IPokemonLogic:IPokemonSearch
 }
 public interface IPokemonSearch
 {
-    List<Pokemon> SearchAll();
+    Task<List<Pokemon>> SearchAll();
 }

@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using PokemonModels;
 using PokemonBL;
+using Microsoft.Extensions.Caching.Memory;
+using Microsoft.Data.SqlClient;
 
 namespace PokemonApi.Controllers
 {
@@ -13,10 +15,12 @@ namespace PokemonApi.Controllers
     public class PokemonController : ControllerBase// Controller base class has the logic to interact with HTTP and communication with client
     {
         private IPokemonLogic _pokeBL;
+        private IMemoryCache memoryCache;
 
-        public PokemonController(IPokemonLogic _pokeBL)//Constructor dependency
+        public PokemonController(IPokemonLogic _pokeBL, IMemoryCache memoryCache)//Constructor dependency
         {
             this._pokeBL = _pokeBL;
+            this.memoryCache = memoryCache;
         }
 
         private static List<Pokemon> _pokemons = new List<Pokemon> { 
@@ -26,17 +30,25 @@ namespace PokemonApi.Controllers
         //Action Methods : ways to access or manipulate the resources, it uses the HTTP Verbs/methods (GET, PUT, POST, DELETE, PATCH, HEAD etc....)
         [HttpGet]//http method
         [ProducesResponseType(200, Type=typeof(List<Pokemon>))]
-        public ActionResult<List<Pokemon>> Get()
+        public async Task<ActionResult<List<Pokemon>>> Get()
         {
             List<Pokemon> pokemons = new List<Pokemon>();
             try
             {
-                pokemons = _pokeBL.SearchAll();
+                if (!memoryCache.TryGetValue("pokeList", out pokemons))
+                {
+                    pokemons = await _pokeBL.SearchAll();
+                    memoryCache.Set("pokeList", pokemons, new TimeSpan(0,1,0));
+                }
+            }
+            catch(SqlException ex)
+            {
+                return NotFound(ex.Message);
             }
             catch(Exception ex) {
                 return BadRequest(ex.Message);
             }
-              return Ok(pokemons);
+            return Ok(pokemons);
         }
 
         [HttpGet("name")]
