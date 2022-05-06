@@ -250,6 +250,15 @@
     * It can check what http request the client needs to give to make it work and so on
 * Really useful debugging tool for our api
 
+## Reporting on Delegates, anonymous methods, lambda expression and LINQ
+- help links (feel free to do self research)   
+    - [Delegates](https://www.tutorialsteacher.com/csharp/csharp-delegates): 
+        - Group A - Blake, Daniel, Emeka, Jermaine, Jamaal
+        - Group B - Brice, Edith, Marcos, Gabriel, Rahelly
+    - [Linq](https://www.tutorialsteacher.com/linq)
+        - Group C - Leo, Kevin, Randy, Vlad
+        - Group D - Steve, Sean Osman, James, Harsh
+
 # Some good reads:
 1. SOA:
     - https://www.ibm.com/cloud/learn/soa
@@ -259,6 +268,7 @@
 3. REST conceptual:
     - https://martinfowler.com/articles/richardsonMaturityModel.html
 4. REST implementation in ASP.NET Core:
+    - Basic for QC and Quiz: https://www.tutorialsteacher.com/webapi
     - https://docs.microsoft.com/en-us/aspnet/core/web-api
     - https://docs.microsoft.com/en-us/azure/architecture/best-practices/api-design
     - https://docs.microsoft.com/en-us/azure/architecture/best-practices/api-implementation
