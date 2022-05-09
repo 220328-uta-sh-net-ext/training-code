@@ -241,6 +241,22 @@
 ### Result
 * Will perform some code after or before the execution of giving a view or IActionResult
 
+## Security of Web API
+* [JWT](https://jwt.io/introduction): 
+    * Secure way of trnsmitting information between 2 parties in a secure way using JSON object.
+    * JSON Structure
+        * Header
+        * Payload
+        * Signature
+* [IDaaS](https://www.okta.com/identity-101/idaas/#:~:text=Identity%20as%20a%20Service%2C%20or,technology%20is%20easy%20to%20understand.)
+* Identity as a Service, or IDaaS is cloud-based authentication built and operated by a third-party provider. 
+* IDaaS companies supply cloud-based authentication or identity management to enterprises who subscribe. 
+* It means some feature is being delivered or served to a company through a remote connection from a third-party provider, as opposed to a feature being managed on site and by in-house personnel alone. 
+* Its like sign on with Google, facebook, linkedIn they all are Identity providers.
+* The goal of an Identity Service is to ensure users are who they claim to be, and to give them the right kinds of access to software applications, files, or other resources at the right times.
+* Vendors helping you to achieve it Eg [okta](https://www.okta.com/), [auth0](https://auth0.com/) etc...
+
+
 ## OpenAPI (Swagger)
 * Just the fancy technical term for Swagger
 * Swagger is a tool pre-built in our ASP.NET project with the sole purpose of checking if our rest api is definitely working
@@ -257,7 +273,7 @@
         - Group B - Brice, Edith, Marcos, Gabriel, Rahelly
     - [Linq](https://www.tutorialsteacher.com/linq)
         - Group C - Leo, Kevin, Randy, Vlad
-        - Group D - Steve, Sean Osman, James, Harsh
+        - Group D - Steve, Sean Osman, James, Harsh 
 
 # Some good reads:
 1. SOA:
@@ -276,4 +292,6 @@
     - https://octoperf.com/blog/2018/03/26/soap-vs-rest/
 6. Swagger implementation with ASP.NET Core:
     - https://docs.microsoft.com/en-us/aspnet/core/tutorials/getting-started-with-swashbuckle
-
+7. More on security:
+    - [OWASP top 10](https://owasp.org/www-project-top-ten/):The OWASP Top 10 is a standard awareness document for developers and web application security. It represents a broad consensus about the most critical security risks to web applications.
+    - [Role based access to .Net 6 apps](https://jasonwatmore.com/post/2022/02/26/net-6-boilerplate-api-tutorial-with-email-sign-up-verification-authentication-forgot-password)
