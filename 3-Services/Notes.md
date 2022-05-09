@@ -268,7 +268,7 @@
 
 ## Reporting on Delegates, anonymous methods, lambda expression and LINQ
 - help links (feel free to do self research)   
-    - [Delegates](https://www.tutorialsteacher.com/csharp/csharp-delegates): 
+    - [Delegates, anonymous methods and lamdba](https://www.tutorialsteacher.com/csharp/csharp-delegates): 
         - Group A - Blake, Daniel, Emeka, Jermaine, Jamaal
         - Group B - Brice, Edith, Marcos, Gabriel, Rahelly
     - [Linq](https://www.tutorialsteacher.com/linq)
