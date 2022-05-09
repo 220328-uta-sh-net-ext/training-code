@@ -222,7 +222,7 @@
     * It is the middleman between the asp.net app and the client
     * It also handled http responses and routes that information back to the client
 
-## Filters
+## [Filters](https://code-maze.com/action-filters-aspnetcore/)
 * They are used to create your own custom logic (your own code) if a certain event has happened
     * Applies to most filters but not all
 ### Authorization
@@ -243,8 +243,8 @@
 
 ## Security of Web API
 * [JWT](https://jwt.io/introduction): 
-    * Secure way of trnsmitting information between 2 parties in a secure way using JSON object.
-    * JSON Structure
+    * Secure way of transmitting information between 2 parties in a secure way using JSON object.
+    * JWt Structure
         * Header
         * Payload
         * Signature
@@ -292,6 +292,8 @@
     - https://octoperf.com/blog/2018/03/26/soap-vs-rest/
 6. Swagger implementation with ASP.NET Core:
     - https://docs.microsoft.com/en-us/aspnet/core/tutorials/getting-started-with-swashbuckle
-7. More on security:
-    - [OWASP top 10](https://owasp.org/www-project-top-ten/):The OWASP Top 10 is a standard awareness document for developers and web application security. It represents a broad consensus about the most critical security risks to web applications.
+7. Filters in Asp.Net:
+    - https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/filters?view=aspnetcore-6.0
+8. More on security:
+    - [OWASP top 10](https://www.hacksplaining.com/owasp):The OWASP Top 10 is a standard awareness document for developers and web application security. It represents a broad consensus about the most critical security risks to web applications.
     - [Role based access to .Net 6 apps](https://jasonwatmore.com/post/2022/02/26/net-6-boilerplate-api-tutorial-with-email-sign-up-verification-authentication-forgot-password)

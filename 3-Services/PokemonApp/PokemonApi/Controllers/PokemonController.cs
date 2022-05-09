@@ -4,6 +4,7 @@ using PokemonModels;
 using PokemonBL;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Data.SqlClient;
+using Microsoft.AspNetCore.Authorization;
 
 namespace PokemonApi.Controllers
 {
@@ -11,7 +12,6 @@ namespace PokemonApi.Controllers
     [Route("api/[controller]")]
     //anything in the [] is known as decorator/attribute : its like processing the before the class or method
     [ApiController]
-    // 
     public class PokemonController : ControllerBase// Controller base class has the logic to interact with HTTP and communication with client
     {
         private IPokemonLogic _pokeBL;
@@ -30,6 +30,7 @@ namespace PokemonApi.Controllers
 
         
         //Action Methods : ways to access or manipulate the resources, it uses the HTTP Verbs/methods (GET, PUT, POST, DELETE, PATCH, HEAD etc....)
+        [Authorize]
         [HttpGet]//http method
         [ProducesResponseType(200, Type=typeof(List<Pokemon>))]
         public async Task<ActionResult<List<Pokemon>>> Get()
@@ -56,6 +57,7 @@ namespace PokemonApi.Controllers
         [HttpGet("name")]
         [ProducesResponseType(200, Type = typeof(Pokemon))]
         [ProducesResponseType(404)]
+        
         public ActionResult<Pokemon> Get(string name)// primitive type so model binder will look for these values as querystring
         {
             var poke = _pokeBL.SearchPokemon(name);
@@ -66,7 +68,7 @@ namespace PokemonApi.Controllers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public ActionResult Post([FromBody] Pokemon poke)// Complex tyoe so model binder will look for these values from request body
+        public ActionResult Post([FromBody] Pokemon poke)// Complex type so model binder will look for these values from request body
         {
             if (poke == null)
                 return BadRequest("Invalid pokemon, please try again with valid values");
