@@ -34,7 +34,13 @@ public class PokemonLogic : IPokemonLogic
         }
     }
 
-    public async Task<List<Pokemon>> SearchAll()
+
+    public List<Pokemon> SearchAll()
+    {
+        return repo.GetAllPokemons();
+    }
+
+    public async Task<List<Pokemon>> SearchAllAsync()
     {
         return await repo.GetAllPokemonsAsync();
     }

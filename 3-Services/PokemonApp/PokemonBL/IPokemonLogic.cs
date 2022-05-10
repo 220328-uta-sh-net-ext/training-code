@@ -32,5 +32,6 @@ public interface IPokemonSearch
     /// This method returns all the pokemons from the database on Azure Sql. This is an asynchronus method so use await keyword 
     /// </summary>
     /// <returns>List<Pokemons></returns>
-    Task<List<Pokemon>> SearchAll();
+    Task<List<Pokemon>> SearchAllAsync();
+    List<Pokemon> SearchAll();
 }

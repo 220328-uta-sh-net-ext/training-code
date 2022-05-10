@@ -13,7 +13,7 @@ string connectionString = File.ReadAllText(connectionStringFilePath);
 var builder = WebApplication.CreateBuilder(args);
 
 //to access the appSettings.json file JWT token info we will use thi variable
-var Config=builder.Configuration;
+ConfigurationManager Config=builder.Configuration;
 
 // Add services to the container.
 //boiler plate code to configure security with JWT 
@@ -31,8 +31,8 @@ builder.Services.AddAuthentication(options => {
         ValidAudience = Config["JWT:Audience"],
         IssuerSigningKey = new SymmetricSecurityKey(key),
         ValidateLifetime = true,
-        ValidateIssuer = true,
-        ValidateAudience = true
+        ValidateIssuer = false,
+        ValidateAudience = false
     };
 });
 builder.Services.AddMemoryCache();

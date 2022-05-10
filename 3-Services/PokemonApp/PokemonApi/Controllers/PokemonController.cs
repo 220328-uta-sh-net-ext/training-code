@@ -5,6 +5,7 @@ using PokemonBL;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Data.SqlClient;
 using Microsoft.AspNetCore.Authorization;
+using PokemonApi.Repository;
 
 namespace PokemonApi.Controllers
 {
@@ -14,13 +15,15 @@ namespace PokemonApi.Controllers
     [ApiController]
     public class PokemonController : ControllerBase// Controller base class has the logic to interact with HTTP and communication with client
     {
+        private readonly IJWTManagerRepository repository;
         private IPokemonLogic _pokeBL;
         private IMemoryCache memoryCache;
 
-        public PokemonController(IPokemonLogic _pokeBL, IMemoryCache memoryCache)//Constructor dependency
+        public PokemonController(IPokemonLogic _pokeBL, IMemoryCache memoryCache, IJWTManagerRepository repository)//Constructor dependency
         {
             this._pokeBL = _pokeBL;
             this.memoryCache = memoryCache;
+            this.repository = repository;
         }
 
         private static List<Pokemon> _pokemons = new List<Pokemon> { 
@@ -33,14 +36,14 @@ namespace PokemonApi.Controllers
         [Authorize]
         [HttpGet]//http method
         [ProducesResponseType(200, Type=typeof(List<Pokemon>))]
-        public async Task<ActionResult<List<Pokemon>>> Get()
+        public ActionResult<List<Pokemon>> Get()
         {
             List<Pokemon> pokemons = new List<Pokemon>();
             try
             {
                 if (!memoryCache.TryGetValue("pokeList", out pokemons))
                 {
-                    pokemons = await _pokeBL.SearchAll();
+                    pokemons = _pokeBL.SearchAll();
                     memoryCache.Set("pokeList", pokemons, new TimeSpan(0,1,0));
                 }
             }
