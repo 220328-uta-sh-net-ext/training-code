@@ -21,7 +21,7 @@
     * This is when you finally deploy your app to the appropriate market
     * After deployment, you maintain the application to make sure there are no interruptions from the daily use of your end-users
 
-# Agile
+# [Agile](https://agilemanifesto.org/?msclkid=852558d1d0a511ec84907b0d2472293d)
 * It is more of a concept that an actual methodology
 * It is all about creating a working software than spending your time creating extensive documentation that may or may not be what your client wants (Looks good on paper but vastly different in the real world app)
 * You consistently communicate with the client and stakeholders about what they want in the project (little to no documentation)
@@ -32,7 +32,7 @@
 * Regular sessions of meetings (stand ups)
 * Constant adjustment to a dynamic development environment (You have to be flexible)
 
-# Scrum
+# [Scrum](https://www.scrum.org/resources/what-is-scrum)
 * Implementation of Agile concept
 * It is a framework that helps teams work together
 * It encourages collaboration and helping each other to solve problems one person might have during a **sprint**
@@ -107,7 +107,7 @@
 * Involved bundling an application together with all the configuration files, libraries, and dependencies required
     * Basically get everything the application needs to run it
 * When creating a container, the allocation of resoruces is dynamic
-    * Meaning it will use as much resrouces the container needs to run the application
+    * Meaning it will use as much resources the container needs to run the application
     * Ex: If running your app requires 1 gb of ram then it will just need that 1 gb of ram and will either increase or decrease that required depending on the workload
 
 ## What is Virtualization? (VM)
@@ -128,8 +128,8 @@
 ## Pros
 * Responsive deployement and scaling
     * Docker containers can run on most things (physical or virtual machine, data center, cloud providers, etc.)
-    * You can scal eup or tear down application as business dictates (based on demand)
-* Run more worklods on the same hardware
+    * You can scale up or tear down application as business dictates (based on demand)
+* Run more workloads on the same hardware
     * Since containers is very lightweight unlike virtual machines, you can do other stuff while docker is running
 
 ## Docker artifacts/Terminology
