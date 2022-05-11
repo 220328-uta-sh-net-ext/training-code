@@ -163,6 +163,8 @@ All the smells in this group contribute to excessive coupling between classes or
 - CI-based analysis refers to the configuration of SonarCloud so that it performs analysis as part of your regular continuous integration (CI) process, in other words, your build process.
 
 # References 
-## https://docs.sonarcloud.io/
-## https://owasp.org/www-community/controls/Static_Code_Analysis
-## https://refactoring.guru/refactoring/what-is-refactoring
+ https://docs.sonarcloud.io/
+ <br>
+ https://owasp.org/www-community/controls/Static_Code_Analysis
+ <br>
+ https://refactoring.guru/refactoring/what-is-refactoring
