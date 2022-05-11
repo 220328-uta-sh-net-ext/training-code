@@ -1,0 +1,16 @@
+﻿Build started...
+1>------ Build started: Project: Action, Configuration: Debug Any CPU ------
+2>------ Build started: Project: Delegate3, Configuration: Debug Any CPU ------
+3>------ Build started: Project: Func, Configuration: Debug Any CPU ------
+4>------ Build started: Project: Delegate2, Configuration: Debug Any CPU ------
+5>------ Build started: Project: Delegates, Configuration: Debug Any CPU ------
+1>Action -> C:\Revature\dotnet-training-220328\Daniel-Oszczapinski\Training practise\Week-3\DelegateApplication\Action\bin\Debug\net6.0\Action.dll
+2>C:\Revature\dotnet-training-220328\Daniel-Oszczapinski\Training practise\Week-3\DelegateApplication\Delegate3\ThirdExample.cs(45,17,45,38): warning CS8601: Possible null reference assignment.
+2>C:\Revature\dotnet-training-220328\Daniel-Oszczapinski\Training practise\Week-3\DelegateApplication\Delegate3\ThirdExample.cs(46,17,46,36): warning CS8601: Possible null reference assignment.
+2>C:\Revature\dotnet-training-220328\Daniel-Oszczapinski\Training practise\Week-3\DelegateApplication\Delegate3\ThirdExample.cs(47,17,47,21): warning CS8602: Dereference of a possibly null reference.
+4>Delegate2 -> C:\Revature\dotnet-training-220328\Daniel-Oszczapinski\Training practise\Week-3\DelegateApplication\Delegate2\bin\Debug\net6.0\Delegate2.dll
+3>Func -> C:\Revature\dotnet-training-220328\Daniel-Oszczapinski\Training practise\Week-3\DelegateApplication\Func\bin\Debug\net6.0\Func.dll
+2>Delegate3 -> C:\Revature\dotnet-training-220328\Daniel-Oszczapinski\Training practise\Week-3\DelegateApplication\Delegate3\bin\Debug\net6.0\Delegate3.dll
+2>Done building project "Delegate3.csproj".
+5>Delegates -> C:\Revature\dotnet-training-220328\Daniel-Oszczapinski\Training practise\Week-3\DelegateApplication\Delegates\bin\Debug\net6.0\Delegates.dll
+========== Build: 5 succeeded, 0 failed, 2 up-to-date, 0 skipped ==========
