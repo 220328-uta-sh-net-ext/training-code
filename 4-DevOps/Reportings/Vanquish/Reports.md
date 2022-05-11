@@ -1,16 +1,58 @@
+# <strong>VANQUISH REPORT</strong>
+
+# Static Code Analysis
+
+Static Code Analysis is usually performed as part of a Code Review (also known as white-box testing) and is carried out at the implementation phase of a Security Development Lifecycle (SDL) to highlight possible vulnerabilities within ‘static’ (non-running) source code by using techniques such as Taint Analysis and Data Flow Analysis.
+
+## Techniques
+There are various techniques to analyze static source code for potential vulnerabilities that maybe combined into one solution. These techniques are often derived from compiler technologies and are as follows.
+
+### Data Flow Analysis
+Data flow analysis is used to collect run-time (dynamic) information about data in software while it is in a static state.
+
+There are three common terms used in data flow analysis, **basic block (the code), Control Flow Analysis (the flow of data) and Control Flow Path (the path the data takes)**
+
+## Taint Analysis
+They are attempts to identify variables that have been ‘tainted’ with user controllable input and traces them to possible vulnerable functions also known as a ‘sink’.
+
+## Lexical Analysis
+Converts source code syntax into ‘tokens’ of information in an attempt to abstract the source code and make it easier to manipulate.
+
+## Strengths and Weaknesses of Static Code Analysis
+
+**Strengths:** 
+
+  1. Scales well (Can be run on lots of software, and can be repeatedly (like in nightly builds))
+
+  2. For things that such tools can automatically find with high confidence, such as buffer overflows, SQL Injection Flaws, etc, they are great.
+
+**Weaknesses**
+
+  1. Many types of security vulnerabilities are very difficult to find automatically, such as authentication problems, access control issues, insecure use of cryptography, etc.
+
+  2. Other weaknesses include high numbers of false positives.
+
+  3. Frequently can’t find configuration issues, since they are not represented in the code.
+
+  4. Difficult to ‘prove’ that an identified security issue is an actual vulnerability.
+
+
+
+Source: https://owasp.org/www-community/controls/Static_Code_Analysis
+
 
 # <strong>Benefits of Clean Code</strong>
-1. Clean code is obvious for other programmers
-2. Clean code doesn't contain duplication
-3. Clean code contains a minimal number of classes and other moving parts
-4. Clean code passes all tests
-5. Clean code is easier and cheaper to maintain
+1. Is obvious for other programmers
+2. Doesn't contain duplication
+3. Contains a minimal number of classes and other moving parts
+4. Passes all tests
+5. Easier and cheaper to maintain
 
 
 # <strong>Technical Debt</strong>
 <strong>Describes what results when development teams take actions to expedite the delivery of a piece of functionality or a project which later needs to be refactored</strong>
 
-# Reasons for technical debt
+## Reasons for technical debt
 * <strong>Business Pressure:</strong> Sometimes business circumstances might force you to roll out features before they’re completely finished. In this case, patches and kludges will appear in the code to hide the unfinished parts of the project.
 * <strong>Lack of understanding of the consequences of technical debt:</strong> Sometimes your employer might not understand that technical debt has “interest” insofar as it slows down the pace of development as debt accumulates. This can make it too difficult to dedicate the team’s time to refactoring because management doesn’t see the value of it.
 * <strong>Failing to combat the strict coherence of components:</strong> This is when the project resembles a monolith rather than the product of individual modules. In this case, any changes to one part of the project will affect others. Team development is made more difficult because it’s difficult to isolate the work of individual members.
@@ -21,12 +63,6 @@
 * <strong>Delayed refactoring:</strong> The project’s requirements are constantly changing and at some point it may become obvious that parts of the code are obsolete, have become cumbersome, and must be redesigned to meet new requirements. On the other hand, the project’s programmers are writing new code every day that works with the obsolete parts. Therefore, the longer refactoring is delayed, the more dependent code will have to be reworked in the future.
 * <strong>Lack of compliance monitoring:</strong> This happens when everyone working on the project writes code as they see fit (i.e. the same way they wrote the last project).
 * <strong>Incompetence:</strong> This is when the developer just doesn’t know how to write decent code.
-
-# <strong>Refactoring</strong>
-# Refactoring Checklist
-- The code should become cleaner.
-- New functionality should not be created
-- All existing tests must pass after refactoring
 
 
 # <strong>Code Smells</strong>
@@ -65,3 +101,52 @@ All the smells in this group contribute to excessive coupling between classes or
     * Message Chains
 
 
+# Sonar 
+## What is SonarCloud
+- SonarCloud is a cloud-based code analysis service designed to detect code quality issues.
+- continuously ensuring the maintainability, reliability and security of your code.
+- supports 25 different programming languages (Java, JavaScript, TypeScript, Python, C# and C/C++)
+
+## What Does SonarCloud Do
+- SonarCloud uses state-of-the-art techniques in static code analysis to find problems, and potential problems.
+- **state-of-the-art** - The level of development reached at any particular time
+- helps to find error in early stages that will ultimately increase the overall quality of your production code. 
+
+##  DevOps platform
+- GitHub
+- Bitbucket Cloud
+- Azure DevOps
+- GitLab
+
+## What Does SonarCloud Detect
+- Issues
+- Security Hotspots
+	
+## Types of Issues
+- Code Smells
+- Bugs: errors in the code that can prevent the program from operating as intended. They affect code reliability.
+- Vulnerabilities: problems in the code that could be exploited by a bad actor to compromise the security of the application.
+
+## Security Hotspots
+- Security hotspots are areas of the code that may cause security issues and therefore need to be reviewed. 
+- By separating hotspots from issues, SonarCloud maintains the accuracy of its issue detection while still providing developers with useful warnings under the less strict 	   criteria of the hotspot.
+
+## Where SonarCloud Fits In
+- In the Editor
+- In the Pull Request
+- In the Codebase
+
+- Code analysis at the editor and pull request level helps to find problems occured while merging codes.
+- To find these types of problems, SonarCloud needs to analyze the entire codebase as a single unit and (in the case of some languages) also analyze the results of compiling the code. 
+
+## To do this SonarCloud offers two approaches: 
+- Automatic analysis  
+- CI-based Analysis
+
+## Automatic analysis:
+-  SonarCloud detects problems every time that a pull request is merged and analyzes the new state of the code in your repository. 
+- It only works with GitHub.
+- it does not work with compiled languages such as Java and C/C++.
+
+## CI-based Analysis
+- CI-based analysis refers to the configuration of SonarCloud so that it performs analysis as part of your regular continuous integration (CI) process, in other words, your build process.
