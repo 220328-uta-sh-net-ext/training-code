@@ -236,5 +236,8 @@
 - into keyword
 	- Allows nested queries
 	- Can form a group
+	
+##Reference
+	- https://www.tutorialsteacher.com/linq/what-is-linq
 LinQNotes.md
 11 KB
