@@ -1,0 +1,62 @@
+[
+  {
+    "Name": "Ditto",
+    "Level": 1,
+    "Attack": 50,
+    "Defense": 51,
+    "Health": 52,
+    "Abilities": [
+      {
+        "Name": "Tackle",
+        "PP": 40,
+        "Power": 40,
+        "Accuracy": 80
+      }
+    ]
+  },
+  {
+    "Name": "Pikachu",
+    "Level": 4,
+    "Attack": 40,
+    "Defense": 45,
+    "Health": 50,
+    "Abilities": [
+      {
+        "Name": "ThunderBolt",
+        "PP": 15,
+        "Power": 90,
+        "Accuracy": 100
+      }
+    ]
+  },
+  {
+    "Name": "Charmandar",
+    "Level": 2,
+    "Attack": 55,
+    "Defense": 55,
+    "Health": 55,
+    "Abilities": [
+      {
+        "Name": "Tackle",
+        "PP": 40,
+        "Power": 40,
+        "Accuracy": 80
+      }
+    ]
+  },
+  {
+    "Name": "Snorlax",
+    "Level": 15,
+    "Attack": 55,
+    "Defense": 55,
+    "Health": 55,
+    "Abilities": [
+      {
+        "Name": "Tackle",
+        "PP": 40,
+        "Power": 40,
+        "Accuracy": 80
+      }
+    ]
+  }
+]
