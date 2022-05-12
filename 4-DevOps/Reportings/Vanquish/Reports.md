@@ -135,7 +135,7 @@ Converts source code syntax into ‘tokens’ of information in an attempt to ab
         * In code you see a series of calls resembling $a->b()->c()->d()
 
 
-# Sonar 
+# Sonar Cloud
 ## What is SonarCloud
 - SonarCloud is a cloud-based code analysis service designed to detect code quality issues.
 - continuously ensuring the maintainability, reliability and security of your code.
