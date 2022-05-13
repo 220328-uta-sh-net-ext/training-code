@@ -1,0 +1,21 @@
+Working-dir
+- ConsoleApp
+	- .csproj
+	- Program.cs
+	- obj
+		- Debug
+		- Release
+			- ConsoleApp.dll
+
+
+
+Windows 						Linux
+C:\ 					     /
+	Program files				bin  (libraries)
+	Revature					boot (boot any app)
+		project                                                          dev (devices)
+						etc (editable text config)
+						home (users without admin priv)   ~$
+						root (only root user with all priv)   #
+ 						lib (softwares)
+						proc (request process)
