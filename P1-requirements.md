@@ -2,8 +2,11 @@
 
 ## common requirements
 * good Git practices
-* CI with compile, automated tests, static analysis
-* CD to cloud service (like Azure App Service)
+* ~~CI with compile, automated tests, static analysis~~
+* ~~CD to cloud service (like Azure App Service)~~
+* Have you app containerized using a Dockerfile. make sure you have your image ready and pushed on docker hub.
+* Deploy your app on Azure App service (either code or docker container mode).
+* try to have swagger working in your deployed app.
 * [optional] Have a Console App consuming the Api using HttpClient
 
 ### functionality
