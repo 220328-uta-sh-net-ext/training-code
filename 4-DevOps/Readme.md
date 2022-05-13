@@ -99,11 +99,13 @@
     * Sharing resources when you are part of a community
     * Ex: Universities, only their students have access to their cloud services
 
-# Docker
+# [Docker](https://docs.docker.com/get-started/overview/)
 * It is a way of packaging our application that has a bunch of dependencies that we had to install (SDK, external packages, etc.) into one single package that we can send to multiple computers and have it run flawlessly without the need of any installation process or setup process
-* It is a containerization ecosystem (more on this on the later notes)
+* It is a containerization ecosystem which helps to build and ship the package(application) for deployment and it can run in any machine. 
+* It works the very same way it works in a developer machine.
 
 ## What is Containerization?
+* II is an solated environment for running an application.
 * Involved bundling an application together with all the configuration files, libraries, and dependencies required
     * Basically get everything the application needs to run it
 * When creating a container, the allocation of resoruces is dynamic
@@ -112,12 +114,23 @@
 
 ## What is Virtualization? (VM)
 * It is a creation of a virtual machine that simulates a real computer with an operating system
-* Ex: Macbook needs to create a windows virtual machine in their computer to be able to run windows only operated application
-* When you create virtual machine, the allocation of resource is static
-    * Meaning once you start a virtual machine, you have to specify how much gbs of ram needed and will not dynamically change depending on the workload
-    * So it is like taking a piece of your computer's resource and will keep that piece until you close down the VM
-    * Ex: We have 16 gb of ram in my computer, I stated the VM to use 8 gb of ram then my computer will only have 8 gb of ram and the VM will only have 8 gb of ram and that will not change until I close the VM
-
+* Ex: Macbook needs to create a windows virtual machine in their computer to be able to run windows only operated application.
+* Machine uses Hypervisor to manage these virtual machine.
+* Hypervisor is a fancy term to manage the different Virtulal machines. Ex: VirtualBox, VMware, Hyper-V(windows-only).
+* Cons:
+    * When you create virtual machine, the allocation of resource is static
+        * Meaning once you start a virtual machine, you have to specify how much gbs of ram needed and will not dynamically change depending on the workload
+        * So it is like taking a piece of your computer's resource and will keep that piece until you close down the VM
+        * Ex: We have 16 gb of ram in my computer, I stated the VM to use 8 gb of ram then my computer will only have 8 gb of ram and the VM will only have 8 gb of ram and that will not change until I close the VM
+    * Needs full blown OS (licensing and update is a troublesome)
+    * Slow to start
+## Containers over VM
+* Allowing running multiple apps in isolation
+* lightweight
+* No need of full blown OS but use OS of the host
+* Start quickly in seconds
+* Needs less hardware resources 
+ 
 # What is the purpose of Docker?
 * It allows developers to work in standardized environments using Containers
     * Meaning they can work with whatever development environment (Java, .NET, Ruby, etc.) they want with whatever OS (Windows, Linux, Mac, etc.) they want and still be able to give their application to everyone (as long as they have a docker engine)
@@ -131,12 +144,15 @@
     * You can scale up or tear down application as business dictates (based on demand)
 * Run more workloads on the same hardware
     * Since containers is very lightweight unlike virtual machines, you can do other stuff while docker is running
-
+# Docker Architecture
+* Works in Client Server architecture
+* ![Docker Architecture](https://docs.docker.com/engine/images/architecture.svg)
 ## Docker artifacts/Terminology
 * Docker Images
-    * They are standalone package that includes everything for the application to run such as the code itself, dependencies, configuration, etc.
+    * They are standalone package that includes everything for the application to run such as the code itself, dependencies, configuration, runtime (.net), third party libraries, environment variables etc.
     * They are immutable file and represents an application and its virtual environment at a specific point in time
         * Immutable meaning you cannot change it thats why we have to create a new image everytime we update the application
+    * images are **LAYERED** - every image has some base image, adding new layers on top of it
 * Docker Container
     * An image cannot run on its own. It needs a docker container to run the image
     * In other words, Containers are the runnable instance of a docker image
@@ -167,6 +183,45 @@
 * Run
     * It will execute the CLI commands you specify in the run command
     * Essentially, if you need to run something in the terminal (like dotnet build), you use the run instructions
+    * `run, cmd, entrypoint`
+        * `entrypoint` defaults to /bin/sh -c , default parameters cannot be overridden when docker cli containers run with cli parameters.
+        * `cmd` is passed to the entrypoint, sets default parameters that can be overridden from the docker cli when a container is running
+            * cmd is more useful for debugging since you can replace with with the final arg to container run
+        * `run` mainly used to build images and install apps an packages. Builds a new layer over an exisiting image by committing the results.
+    * docker image must have an ENTRYPOINT or CMD Declaration for a container to start 
+## [Docker CLI Commands](https://docs.docker.com/engine/reference/commandline/cli/)
+* `docker run <image-name>`
+    * this starts a new container from the given image (downloading that image if necessary)
+    * "-it" options after "run" we need when the CMD is some shell like bash,
+        to attach the container's input to the current terminal's input.
+* `docker pull <image-name>`
+    * just downloads the image (or updates, if there's some new version)
+* `docker build <dir>`
+    * `<dir>` should be the directory with the Dockerfile.
+    * usually we `cd` to that directory beforehand anyway, so `<dir>` is "."
+    * use `"-t <image+tag>"` to tag the image like "ConsoleApp:1.0".
+* `docker container ls`
+    * show all running containers
+* `docker container ls -a`
+    *show all running/stopped containers
+* `docker container prune`
+    * remove all stopped containers
+* `docker run --rm <image-name>`
+    * run container, and clean it up as soon as it has stopped
+* `docker rm <container-id>`
+    * clean up stopped container
+* `docker rm -f <container-id>`
+    * stop and clean up container
+* `docker images ls`
+    * show all images downloaded
+* `docker logs <container-id>`
+    * look at console output of a container
+* `docker run -d <image-name>`
+    * detach container from current terminal (run in background)
+* `docker run -it <image-name>`
+    * attach both input and output of current terminal to container (for running shell like /bin/bash)
+* `docker exec <container-id> <command>`
+    * run an additional command inside running container to look around/debug
 
 # DevOps
 * It is a culture that you follow in which you continuously develop your application and continuously deploy it
