@@ -22,7 +22,6 @@ Saas (software-as-a-service), Paas (platform-as-a-service), and Iaas (infrastruc
 
 ## What is Saas?
 Software-as-a-service is a service that offers on-demand pay per use of application software to users. Unlike licensed bought programs. This service is platform independent, and you don’t need to install the software on your PC. The cloud runs a single instance of the software and makes it available for multiple end-users. This makes cloud computing cheap. All the computing resources responsible for delivering SaaS are entirely managed by the provider. This service is accessible via a web browser or lightweight client applications. 
-Software-as-a-service is a service that offers on-demand pay per use of application software to users. Unlike licensed bought programs. This service is platform independent, and you don’t need to install the software on your PC. The cloud runs a single instance of the software and makes it available for multiple end-users. This makes cloud computing cheap. All the computing resources responsible for delivering SaaS are entirely managed by the provider. This service is accessible via a web browser or lightweight client applications.
 <br>
 <br>
 Who uses SaaS? End Customers
