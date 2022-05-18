@@ -50,6 +50,7 @@ jobs:
       # uses: docker/build-push-action@e551b19e49efd4e98792db7592c17c09b89db8d8
       uses: docker/build-push-action@v3.0.0
       with:
+        context: ${{env.WORKING_DIRECTORY}}
         # Path to the Dockerfile
         file: ${{env.WORKING_DIRECTORY}}/PokemonApi/Dockerfile
         # Push is a shorthand for --output=type=registry
