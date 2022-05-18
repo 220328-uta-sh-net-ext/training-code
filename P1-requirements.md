@@ -89,7 +89,7 @@
 - ADO.Net
 - Asp.Net Core Web Api
 - Azure App Service
-- Azure Pipelines
+- ~~Azure Pipelines~~
 - Serilog or Nlog (or any other logging frameworks) 
 
  
