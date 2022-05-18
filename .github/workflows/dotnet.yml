@@ -1,0 +1,26 @@
+name: .NET
+
+on: # my trigger events
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch: # manually trigger the workflow
+
+jobs:
+  build:
+    # We select which OS our VM's or runners to be
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3 # providing the runner with our source code
+    - name: Setup .NET # we are downloading and installing .NET SDK
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: 6.0.x
+    - name: Restore dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build --no-restore
+    - name: Test
+      run: dotnet test --no-build --verbosity normal
