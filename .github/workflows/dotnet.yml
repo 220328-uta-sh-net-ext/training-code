@@ -7,6 +7,9 @@ on: # my trigger events
     branches: [ main ]
   workflow_dispatch: # manually trigger the workflow
 
+env:
+  WORKING_DIRECTORY: 4-DevOps/PokemonApp
+
 jobs:
   build:
     # We select which OS our VM's or runners to be
@@ -19,8 +22,8 @@ jobs:
       with:
         dotnet-version: 6.0.x
     - name: Restore dependencies
-      run: dotnet restore 4-DevOps/PokemonApp/PokemonApi
+      run: dotnet restore ${{env.WORKING_DIRECTORY}}/PokemonApi
     - name: Build
-      run: dotnet build --no-restore 4-DevOps/PokemonApp/PokemonApi
+      run: dotnet build --no-restore ${{env.WORKING_DIRECTORY}}/PokemonApi
     - name: Test
-      run: dotnet test --no-build --verbosity normal 4-DevOps/PokemonApp/PokemonApi
+      run: dotnet test --no-build --verbosity normal ${{env.WORKING_DIRECTORY}}
