@@ -55,5 +55,5 @@ jobs:
         # Push is a shorthand for --output=type=registry
         push: true
         # List of tags
-        tags: ${{secrets.DOCKERHUB_USERNAME}}/pokemonapp:${{github.sha}}
+        tags: sminseonong/pokemonapp:${{github.sha}}
 
