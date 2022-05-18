@@ -11,22 +11,56 @@ env:
   WORKING_DIRECTORY: 4-DevOps/PokemonApp
 
 jobs:
-#   build:
-#     # We select which OS our VM's or runners to be
-#     runs-on: ubuntu-latest
+  ci:
+    # We select which OS our VM's or runners to be
+    runs-on: windows-latest
 
-#     steps:
-#     - uses: actions/checkout@v3 # providing the runner with our source code
-#     - name: Setup .NET # we are downloading and installing .NET SDK
-#       uses: actions/setup-dotnet@v2
-#       with:
-#         dotnet-version: 6.0.x
-#     - name: Restore dependencies
-#       run: dotnet restore ${{env.WORKING_DIRECTORY}}/PokemonApi
-#     - name: Build
-#       run: dotnet build --no-restore ${{env.WORKING_DIRECTORY}}/PokemonApi
-#     - name: Test
-#       run: dotnet test --no-build --verbosity normal ${{env.WORKING_DIRECTORY}}
+    steps:
+    - name: Set up JDK 11 #downloading JDK for sonarcloud
+      uses: actions/setup-java@v1
+      with:
+        java-version: 1.11
+        
+    - uses: actions/checkout@v3 # providing the runner with our source code
+    
+    - name: Cache SonarCloud packages
+      uses: actions/cache@v1
+      with:
+        path: ~\sonar\cache
+        key: ${{ runner.os }}-sonar
+        restore-keys: ${{ runner.os }}-sonar
+    - name: Cache SonarCloud scanner
+      id: cache-sonar-scanner
+      uses: actions/cache@v1
+      with:
+        path: .\.sonar\scanner
+        key: ${{ runner.os }}-sonar-scanner
+        restore-keys: ${{ runner.os }}-sonar-scanner
+    - name: Install SonarCloud scanner
+      if: steps.cache-sonar-scanner.outputs.cache-hit != 'true'
+      shell: powershell
+      run: |
+        New-Item -Path .\.sonar\scanner -ItemType Directory
+        dotnet tool update dotnet-sonarscanner --tool-path .\.sonar\scanner
+    
+    - name: Setup .NET # we are downloading and installing .NET SDK
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: 6.0.x
+    - name: Restore dependencies
+      run: dotnet restore ${{env.WORKING_DIRECTORY}}/PokemonApi
+    - name: Test
+      run: dotnet test --verbosity normal ${{env.WORKING_DIRECTORY}}
+      
+    - name: Build and analyze
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      shell: powershell
+      run: |
+        .\.sonar\scanner\dotnet-sonarscanner begin /k:"220328-uta-sh-net-ext_training-code" /o:"220328-uta-sh-net-ext" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
+        dotnet build ${{env.WORKING_DIRECTORY}}
+        .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
   
   docker-image-build:
     runs-on: ubuntu-latest
