@@ -50,7 +50,7 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore ${{env.WORKING_DIRECTORY}}/PokemonApi
     - name: Test
-      run: dotnet test --verbosity normal ${{env.WORKING_DIRECTORY}}
+      run: dotnet test --verbosity normal ${{env.WORKING_DIRECTORY}} --logger trx --collect:"XPlat Code Coverage" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=opencover
       
     - name: Build and analyze
       env:
@@ -58,12 +58,13 @@ jobs:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       shell: powershell
       run: |
-        .\.sonar\scanner\dotnet-sonarscanner begin /k:"220328-uta-sh-net-ext_training-code" /o:"220328-uta-sh-net-ext" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
+        .\.sonar\scanner\dotnet-sonarscanner begin /k:"220328-uta-sh-net-ext_training-code" /o:"220328-uta-sh-net-ext" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.cs.opencover.reportsPaths="**/TestResults/**/coverage.opencover.xml" -d:sonar.cs.vstest.reportsPaths="**/TestResults/*.trx"
         dotnet build ${{env.WORKING_DIRECTORY}}
         .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
   
   docker-image-build:
     runs-on: ubuntu-latest
+    needs: ci
     
     steps:
     - uses: actions/checkout@v3 # providing the runner with our source code
