@@ -11,22 +11,22 @@ env:
   WORKING_DIRECTORY: 4-DevOps/PokemonApp
 
 jobs:
-  build:
-    # We select which OS our VM's or runners to be
-    runs-on: ubuntu-latest
+#   build:
+#     # We select which OS our VM's or runners to be
+#     runs-on: ubuntu-latest
 
-    steps:
-    - uses: actions/checkout@v3 # providing the runner with our source code
-    - name: Setup .NET # we are downloading and installing .NET SDK
-      uses: actions/setup-dotnet@v2
-      with:
-        dotnet-version: 6.0.x
-    - name: Restore dependencies
-      run: dotnet restore ${{env.WORKING_DIRECTORY}}/PokemonApi
-    - name: Build
-      run: dotnet build --no-restore ${{env.WORKING_DIRECTORY}}/PokemonApi
-    - name: Test
-      run: dotnet test --no-build --verbosity normal ${{env.WORKING_DIRECTORY}}
+#     steps:
+#     - uses: actions/checkout@v3 # providing the runner with our source code
+#     - name: Setup .NET # we are downloading and installing .NET SDK
+#       uses: actions/setup-dotnet@v2
+#       with:
+#         dotnet-version: 6.0.x
+#     - name: Restore dependencies
+#       run: dotnet restore ${{env.WORKING_DIRECTORY}}/PokemonApi
+#     - name: Build
+#       run: dotnet build --no-restore ${{env.WORKING_DIRECTORY}}/PokemonApi
+#     - name: Test
+#       run: dotnet test --no-build --verbosity normal ${{env.WORKING_DIRECTORY}}
   
   docker-image-build:
     runs-on: ubuntu-latest
@@ -57,4 +57,19 @@ jobs:
         push: true
         # List of tags
         tags: sminseonong/pokemonapp:${{github.sha}}
+        
+  deploy:
+    runs-on: ubuntu-latest
+    needs: docker-image-build
+
+    steps:
+    - name: Azure WebApp
+      uses: Azure/webapps-deploy@v2
+      with:
+        # Name of the Azure Web App
+        app-name: pokemonapi2
+        # Applies to Web Apps(Windows and Linux) and Web App Containers(linux). Multi container scenario not supported. Publish profile (*.publishsettings) file contents with Web Deploy secrets
+        publish-profile: ${{secrets.AZURE_PUBLISH_PROFILE}}
+        # Applies to Web App Containers only: Specify the fully qualified container image(s) name. For example, 'myregistry.azurecr.io/nginx:latest' or 'python:3.7.2-alpine/'. For multi-container scenario multiple container image names can be provided (multi-line separated)
+        images: sminseonong/pokemonapp:${{github.sha}}
 
