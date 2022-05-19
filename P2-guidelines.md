@@ -60,15 +60,9 @@ pulling their own weight.
 - You will have your own team but there are many scenarios when a team figures out a new tech stack and they share the knowledge and now everyone has that tech stack and that will all benefit you guys since coming P3 you all work together. 
 
 # Technologies used
-- ASP.NET core, 
-- Entity Framework, 
-- Docker, 
-- Git,
+- ASP.NET core, Entity Framework, 
+- Docker, Github Actions, Git,
 - C#, Sql
-- Angular, 
-- TypeScript, 
-- Node.js, 
-- Karma, 
-- Jasmine, 
-- Protractor, 
+- Angular, TypeScript, Node.js, 
+- Karma, Jasmine, Protractor, 
 - HTML, CSS, JavaScript
