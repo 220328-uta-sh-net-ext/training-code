@@ -13,8 +13,6 @@ is put side by side with the original art. The user can then download it, upload
 the pokemon sprite next to their drawing, or blind. A 1 on 1 feature could be added where a person attempts to draw a pokemon within a set period of time.
 Once done, the other person gets the image and can try and guess what pokemon it is that the other person drew up. 
 
-## Flowchart 
-    - if any (optional)
 ## Tech Stack (feel free to add more)
 - Backend
     - C#
