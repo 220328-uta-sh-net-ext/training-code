@@ -1,14 +1,27 @@
-# Project Name
-## Team Name
-    - name 1
-    - .
-    - .
-    - name n
-## Project Synopsis
+# Digital Green Thumb - website
+## Amplifire
+- Harsh Tamakuwala
+- Marcos Fonseca
+- Gabriel Garcia
+- Jamaal Fisher
 
-## Flowchart 
-    - if any (optional)
-## Tech Stack (feel free to add more)
+## Project Synopsis
+- Overview
+    - This website will help to turn a botany novice into a knowledgeable gardener. Users will be able to search plants and gain insight on how to properly grow, maintain, and harvest their garden ideas through researched soil pH types, climate zones, watering, and sunlight arrangements.
+    
+- Requirements
+    - Shows the list all plants with favourite button
+    - click on the plant to see details
+    - login/register 
+    - Search plant
+    - Menu
+        - my profile - display and edit the personal details
+        - My plant - add/remove plant to/from my plants (recently user have)
+        - Favourite - can add/remove to/from favourite
+        - soil type plants - will show the list of plant according to the soil type
+        - log out
+
+## Tech Stack 
 - Backend
     - C#
     - Sql
@@ -32,7 +45,6 @@
     - JavaScript
     - Angular
     - TypeScript
-- external api
-    -  ...
+
 
 
