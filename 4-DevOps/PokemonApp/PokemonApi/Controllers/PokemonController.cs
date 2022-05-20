@@ -33,7 +33,7 @@ namespace PokemonApi.Controllers
 
         
         //Action Methods : ways to access or manipulate the resources, it uses the HTTP Verbs/methods (GET, PUT, POST, DELETE, PATCH, HEAD etc....)
-        [Authorize]
+     //   [Authorize]
         [HttpGet]//http method
         [ProducesResponseType(200, Type=typeof(List<Pokemon>))]
         public ActionResult<List<Pokemon>> Get()
