@@ -36,7 +36,7 @@
     - Angular
     - TypeScript
 - external api
-    - spoonacular API
+    - spoonacular API - https://spoonacular.com/food-api/docs
 
 
 ## Functionality
