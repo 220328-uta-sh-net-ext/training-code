@@ -64,4 +64,3 @@ function fetchPokemon(){
         document.getElementById("pokeResults").appendChild(caption);
     })
 }
-
