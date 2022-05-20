@@ -36,4 +36,13 @@ function getPokemon(){
 // this function will disply the pokemon to the page
 function displayPokemon(poke){
     document.getElementById("pokeImage").setAttribute("src", poke.sprites.front_default);
+     let list = document.getElementById("abilities");
+    list.innerHTML="";
+    poke.abilities.forEach((item) => {
+        let li = document.createElement("li");
+        li.innerText = item.ability.name;
+        
+        list.appendChild(li);
+      });
+   
 }
