@@ -26,7 +26,23 @@ function greeting(name){
 }
 
 function Input(greeting){
-    debugger;
+    debugger; // to enable debugging 
     var name=prompt('Please enter your name ');
     greeting(name);
+}
+
+
+function CreateObjects(){
+    let dog = {
+        color:"Beige",
+        size : "40",
+        sound: ()=>console.log("Woof woof"),
+        details: function(){
+            console.log("This dog is of "+this.color +" color and is "+this.size+ " lbs")
+        }
+    }
+    console.log(dog);
+    dog.size=100;
+    dog.sound();
+    dog.details();
 }

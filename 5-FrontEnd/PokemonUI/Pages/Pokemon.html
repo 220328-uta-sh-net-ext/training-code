@@ -8,11 +8,27 @@
 </head>
 <body>
     <header>
+        <img src="../Images/microsoft.png" width="40" height="40">
         <a href="../Pages/Home.html">Home</a>
         <a href="../Pages/Pokemon.html">Search Pokemon</a>
         <a href="../Pages/Users.html">User</a>
     </header>
-    <h1>Pokemons</h1>
+    <div>
+        <h1>Pokemons Search</h1>
+        <form>
+            <label for="pokemonName">Pokemon name:</label>
+            <input id="pokemonName" type="search">
+        </form>
+        <button onclick="getPokemon()">Search</button>
+        
+        <div id="pokeResults">
+            <img id="pokeImage" src="">
+            <ul id="abilities">
+           
+            </ul>
+        </div>
+    </div>
+    <script src="../JS/Pokemon.js"></script>
     <footer>&copy; batch 220828-uta-dotnet-ext</footer>
 </body>
 </body>
