@@ -25,15 +25,6 @@ namespace PokemonApi.Controllers
             this.memoryCache = memoryCache;
             this.repository = repository;
         }
-
-        private static List<Pokemon> _pokemons = new List<Pokemon> { 
-            new Pokemon{ Name="Pikachu", Attack = 50, Defense = 50, Health = 50, Level = 1},
-            new Pokemon{ Name="Ditto", Attack = 48, Defense = 48, Health = 48, Level = 1}
-             };
-
-        
-        //Action Methods : ways to access or manipulate the resources, it uses the HTTP Verbs/methods (GET, PUT, POST, DELETE, PATCH, HEAD etc....)
-     //   [Authorize]
         [HttpGet]//http method
         [ProducesResponseType(200, Type=typeof(List<Pokemon>))]
         public ActionResult<List<Pokemon>> Get()
@@ -59,12 +50,11 @@ namespace PokemonApi.Controllers
 
         [HttpGet("name")]
         [ProducesResponseType(200, Type = typeof(Pokemon))]
-        [ProducesResponseType(404)]
-        
-        public ActionResult<Pokemon> Get(string name)// primitive type so model binder will look for these values as querystring
+        [ProducesResponseType(404)]        
+        public ActionResult<Pokemon> Get([FromQuery]string name)// primitive type so model binder will look for these values as querystring
         {
             var poke = _pokeBL.SearchPokemon(name);
-            if (poke.Count<=0)
+            if (poke==null)
                 return NotFound($"Pokemon {name} you are looking for is not in the database");
             return Ok(poke);
         }
@@ -79,13 +69,13 @@ namespace PokemonApi.Controllers
             return CreatedAtAction("Get",poke);
         }
         [HttpPut]
-        public ActionResult Put([FromQuery]Pokemon poke, [FromBody]string name) //non-Default
+        public ActionResult Put([FromBody]Pokemon poke, [FromQuery]string name) //non-Default
         {
             if (name == null)
                 return BadRequest("Cannot modify pokemon without name");
             try
             {
-                var pokemon = _pokemons.Find(x => x.Name.Contains(name));
+                var pokemon = _pokeBL.SearchPokemon(name);
                 if (pokemon == null)
                     return NotFound("Pokemon not found");
                 pokemon.Name = poke.Name;
@@ -93,6 +83,7 @@ namespace PokemonApi.Controllers
                 pokemon.Level = poke.Level;
                 pokemon.Defense = poke.Defense;
                 pokemon.Health = poke.Health;
+                _pokeBL.Update(pokemon);
             }
             catch(Exception ex)
             {
@@ -103,17 +94,16 @@ namespace PokemonApi.Controllers
         }
 
         [HttpDelete]
-        public ActionResult Delete(string name)
+        public ActionResult Delete(int id)
         {
-            if (name == null)
+            if (id == null)
                 return BadRequest("Cannot modify pokemon without name");
-            var pokemon = _pokemons.Find(x => x.Name.Contains(name));
+            var pokemon = _pokeBL.SearchPokemonById(id);
             if (pokemon == null)
                 return NotFound("Pokemon not found");
-            _pokemons.Remove(pokemon);
-            return Ok($"Pokemon {name} Deleted");
+            _pokeBL.Remove(id);
+            return Ok();
         }
-
 
     }
 }

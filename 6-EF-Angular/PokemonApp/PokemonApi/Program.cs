@@ -47,8 +47,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<PokemonDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("PokemonDb")));
-//builder.Services.AddDbContext<PokemonDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("PokemonDb")));
-//builder.Services.AddScoped<IRepository>(repo=>new SqlRepository(Config.GetConnectionString("RestaurantDb")));
+builder.Services.AddScoped<IRepository, EFRepository>();
 builder.Services.AddScoped<IPokemonLogic, PokemonLogic>();
 builder.Services.AddSingleton<IJWTManagerRepository, JWTManagerRepository>();
 

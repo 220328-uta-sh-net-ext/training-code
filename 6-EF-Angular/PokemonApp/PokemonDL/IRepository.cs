@@ -25,6 +25,8 @@ public interface IRepository
     /// <returns>Returns a collection of pokemon as Generic List</returns>
     List<Pokemon> GetAllPokemons();
     Task<List<Pokemon>> GetAllPokemonsAsync();
-
-    //Ability GetAbility(string name);
+    Pokemon GetPokemonByName(string name);
+    Pokemon GetPokemonById(int id);
+    Pokemon Update(Pokemon pokemon);
+    void DeletePokemon(int id);
 }

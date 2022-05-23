@@ -34,6 +34,10 @@ public class PokemonLogic : IPokemonLogic
         }
     }
 
+    public void Remove(int id)
+    {
+        repo.DeletePokemon(id);
+    }
 
     public List<Pokemon> SearchAll()
     {
@@ -45,30 +49,22 @@ public class PokemonLogic : IPokemonLogic
         return await repo.GetAllPokemonsAsync();
     }
 
-    public List<Pokemon> SearchPokemon(string name)
+    public Pokemon SearchPokemon(string name)
     {
-        List<Pokemon>? pokemons = repo.GetAllPokemons();
-        /*var filteredPokemons=from p in pokemons               //Query Syntax
-                                where p.Name.Contains(name)
-                                select p;*/
-
-        var filteredPokemons = pokemons.Where(p => p.Name.Contains(name)).ToList(); // Method Syntax
-
-        /*List<Pokemon> filteredPokemons = new List<Pokemon>();
-        foreach (var poke in pokemons)
-        {
-            if (poke.Name.Contains(name))
-            {
-                filteredPokemons.Add(poke);
-            }
-        }*/
-        return filteredPokemons;
+        var pokemon = repo.GetPokemonByName(name);        
+        return pokemon;
 
     }
-    /*Pokemon p = new Pokemon();
-    Pokemon CheckName(string p)
+
+    public Pokemon SearchPokemonById(int id)
     {
-        p.Name.Contains(p);
+        var pokemon = repo.GetPokemonById(id);
+        return pokemon;
+    }
+
+    public Pokemon Update(Pokemon p)
+    {
+        repo.Update(p);
         return p;
-    }*/
+    }
 }

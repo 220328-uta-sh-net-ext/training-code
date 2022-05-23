@@ -19,11 +19,15 @@ public interface IPokemonLogic:IPokemonSearch
     Pokemon AddPokemon(Pokemon p);
 
     /// <summary>
-    /// We will give the list of pokemons that are related to searched name
+    /// We will give a pokemons that are related to searched name
     /// </summary>
     /// <param name="name">This name parameter is used to filter pokemons</param>
     /// <returns>Give the list of filtered pokemons via name</returns>
-    List<Pokemon> SearchPokemon(string name);
+    Pokemon SearchPokemon(string name);
+    Pokemon SearchPokemonById(int id);
+
+    Pokemon Update(Pokemon p);
+    void Remove(int id);
 
 }
 public interface IPokemonSearch
