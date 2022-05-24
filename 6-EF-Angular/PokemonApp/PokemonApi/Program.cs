@@ -16,7 +16,15 @@ var builder = WebApplication.CreateBuilder(args);
 
 //to access the appSettings.json file JWT token info we will use thi variable
 ConfigurationManager Config=builder.Configuration;
-
+var pokemonPolicy = "allowedOrigins";
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: pokemonPolicy,
+            policy =>
+            {
+                policy.WithOrigins("http://127.0.0.1:5500").AllowAnyHeader().AllowAnyMethod();
+            });
+});
 // Add services to the container.
 //boiler plate code to configure security with JWT 
 builder.Services.AddAuthentication(options => {
@@ -37,6 +45,7 @@ builder.Services.AddAuthentication(options => {
         ValidateAudience = false
     };
 });
+
 builder.Services.AddMemoryCache();
 builder.Services.AddControllers(options =>
     options.RespectBrowserAcceptHeader = true
@@ -62,6 +71,7 @@ if (app.Environment.IsDevelopment()||app.Environment.IsProduction())
 }
 
 app.UseHttpsRedirection();
+app.UseCors(pokemonPolicy);
 app.UseAuthentication();//this needs for authentication using JWT
 app.UseAuthorization();
 

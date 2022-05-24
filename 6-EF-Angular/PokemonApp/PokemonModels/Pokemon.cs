@@ -26,6 +26,8 @@ public class Pokemon// table name
     public int? Attack { get; set; }
     public int? Defense { get; set; }
     public int? Health { get; set; }
+    //[Range(2,100)]
+    //public string Type { get; set; }
 
     List<Ability> _abilities;//navigation property
     public List<Ability> Abilities

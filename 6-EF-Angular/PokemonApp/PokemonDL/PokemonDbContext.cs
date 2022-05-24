@@ -16,7 +16,7 @@ namespace PokemonDL
         }
         public DbSet<Pokemon> Pokemons { get; set; } // table 1
         public DbSet<Ability> Abilities { get; set; }
-        
+
         //only use it if the EF cli yelling with error of No Database Context found
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         //{

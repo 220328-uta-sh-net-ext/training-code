@@ -6,6 +6,7 @@ using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Data.SqlClient;
 using Microsoft.AspNetCore.Authorization;
 using PokemonApi.Repository;
+using Microsoft.AspNetCore.Cors;
 
 namespace PokemonApi.Controllers
 {
@@ -13,6 +14,7 @@ namespace PokemonApi.Controllers
     [Route("api/[controller]")]
     //anything in the [] is known as decorator/attribute : its like processing the before the class or method
     [ApiController]
+    [EnableCors("pokemonPolicy")]
     public class PokemonController : ControllerBase// Controller base class has the logic to interact with HTTP and communication with client
     {
         private readonly IJWTManagerRepository repository;
@@ -49,6 +51,7 @@ namespace PokemonApi.Controllers
         }
 
         [HttpGet("name")]
+        //[DisableCors]
         [ProducesResponseType(200, Type = typeof(Pokemon))]
         [ProducesResponseType(404)]        
         public ActionResult<Pokemon> Get([FromQuery]string name)// primitive type so model binder will look for these values as querystring
@@ -59,6 +62,7 @@ namespace PokemonApi.Controllers
             return Ok(poke);
         }
         [HttpPost]
+      
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public ActionResult Post([FromBody] Pokemon poke)// Complex type so model binder will look for these values from request body
