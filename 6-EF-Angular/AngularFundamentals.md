@@ -71,6 +71,8 @@ To start your application use `ng serve --open` or `ng serve -o`
 
 # Create our angular application
 
+
+
 # Angular Modules
 
 In angular a module is a group of components that are related, and can be combined with other modules to create an entire application
@@ -131,6 +133,13 @@ You declare these properties inside of the export of the component class
 The easiest way to create a component is `ng generate component c-name` or `ng g c c-name` this will generate all the relevant files for a component
 
 # Create our first components
+
+## Hands On
+
+- Create a new Angular Application
+- Create a main component to hold your other components
+- Create a component for each member of your group with name, background, and something interesting
+- Display all those components in the main container component
 
 # Component Lifecycle Methods
 
