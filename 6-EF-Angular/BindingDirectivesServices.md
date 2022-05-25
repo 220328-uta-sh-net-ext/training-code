@@ -107,3 +107,11 @@ To create a service use `ng g s name` this will create a name.service.ts file wi
 
 # Service example
 
+# Hands On:
+- Take the code you wrote yesterday
+- Create an array of people objects with
+    - Name
+    - Background
+    - Something interesting
+- Using Angular components and directives, dynamically create components with the array above
+- Style Points for making it look nice

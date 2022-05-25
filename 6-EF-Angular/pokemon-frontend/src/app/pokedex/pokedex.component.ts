@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IPokemon } from '../IPokemon';
+import { PokemonService } from '../pokemon.service';
 
 @Component({
   selector: 'pokedex',
@@ -8,36 +9,7 @@ import { IPokemon } from '../IPokemon';
 })
 export class PokedexComponent implements OnInit {
 
-  pokemon:IPokemon[] =[
-    {
-      name:"Pikachu",
-      level: 5,
-      attack: 10,
-      defense: 6,
-      health: 6
-    },
-    {
-      name:"Mew",
-      level: 10,
-      attack: 18,
-      defense: 18,
-      health: 18
-    },
-    {
-      name:"Mudkip",
-      level: 7,
-      attack: 12,
-      defense: 8,
-      health: 9
-    },
-    {
-      name:"Sandshrew",
-      level: 15,
-      attack: 25,
-      defense: 13,
-      health: 16
-    }
-  ]
+  pokemon:IPokemon[] =[]
 
   singlePokemon:IPokemon = {
     name:"",
@@ -70,12 +42,24 @@ export class PokedexComponent implements OnInit {
     // console.log(this.pokemon)
 
     this.singlePokemon = $event;
-    this.pokemon.push(this.singlePokemon);
+    // this.pokemon.push(this.singlePokemon);
+    this.addPokemon(this.singlePokemon);
   }
 
-  constructor() { }
+  // Utilizing the addPokemon method from the service to add to our "database"
+  addPokemon(poke:IPokemon):void{
+    this.pokemon = this.pokemonService.addPokemon(poke)
+  }
+
+  // We use constructor dependency injection to pull the pokemon serve
+  constructor(private pokemonService: PokemonService) { }
 
   ngOnInit(): void {
+    // On initialization we use the getPokemon method from the service
+    // To populate our array with the data pulled from the service
+    this.pokemon = this.pokemonService.getPokemon()
   }
+  
 
 }
+
