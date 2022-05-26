@@ -48,7 +48,7 @@ describe('PokedexComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PokedexComponent ],
+      declarations: [ PokedexComponent , NewPokemonComponent ],
       // Create imports to import modules
       imports : [
         RouterTestingModule,
@@ -87,49 +87,28 @@ describe('PokedexComponent', () => {
   })
 
   // Create a test for the addPokemon method where we send a pokemon object from new pokemon
-  // it('should call addPokemon() from pokemonService when it receives a pokemon', () =>{
-  //   // Basically the same test as before so far
-  //   let service = fixture.debugElement.injector.get(PokemonService);
-  //   let serviceSpy = spyOn(service, 'addPokemon').and.callThrough();
-
-  //   // Pull the new pokemon tag and store it so we can emit info from it
-  //   const newPokemon = fixture.debugElement.query(By.directive(NewPokemonComponent));
-
-  //   // Emit send pokemon event and the event object
-  //   newPokemon.triggerEventHandler('sendPokemon', {
-  //     id : 0,
-  //     name: "",
-  //     level: 0,
-  //     attack: 0,
-  //     defense: 0,
-  //     health: 0,
-  //     abilities: []
-  //   });
-
-  //   // Look for changes
-  //   fixture.detectChanges();
-
-  //   // Check the spy
-  //   expect(serviceSpy).toHaveBeenCalled();
-  // })
-
-  it('should call the addPokemon() function from pokemonService when it receives a pokemon', () =>{
+  it('should call addPokemon() from pokemonService when it receives a pokemon', () =>{
+    // Basically the same test as before so far
     let service = fixture.debugElement.injector.get(PokemonService);
-
     let serviceSpy = spyOn(service, 'addPokemon').and.callThrough();
 
+    // Pull the new pokemon tag and store it so we can emit info from it
     const newPokemon = fixture.debugElement.query(By.directive(NewPokemonComponent));
 
+    // Emit send pokemon event and the event object
     newPokemon.triggerEventHandler('sendPokemon', {
-      name:0,
-      level:0,
-      attack:0,
-      defense:0,
-      health:0,
+      name: "",
+      level: 0,
+      attack: 0,
+      defense: 0,
+      health: 0,
       abilities:[]
     });
 
+    // Look for changes
     fixture.detectChanges();
+
+    // Check the spy
     expect(serviceSpy).toHaveBeenCalled();
   })
 
