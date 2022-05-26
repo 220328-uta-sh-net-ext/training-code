@@ -8,6 +8,10 @@ import { PokedexComponent } from './pokedex/pokedex.component';
 import { PokemonComponent } from './pokemon/pokemon.component';
 import { NewPokemonComponent } from './new-pokemon/new-pokemon.component';
 import { FormsModule } from '@angular/forms';
+import { SquarePipe } from './square.pipe';
+import { AppRoutingModule } from './app-routing.module';
+import { LoginComponent } from './login/login.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,11 +20,16 @@ import { FormsModule } from '@angular/forms';
     NavbarComponent,
     PokedexComponent,
     PokemonComponent,
-    NewPokemonComponent
+    NewPokemonComponent,
+    SquarePipe,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule,
+    // Add in HttpClient Module
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

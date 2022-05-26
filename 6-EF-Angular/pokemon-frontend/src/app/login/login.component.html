@@ -1,0 +1,17 @@
+<h1 style="margin-top: 100px;"> Welcome to the pokemon database</h1>
+<p>Please Login to Continue</p>
+<h3 *ngIf = 'error'> Username or Password Incorrect</h3>
+<!-- Creating a form to submit login information -->
+<form id = "login" (ngSubmit)="onSubmit()">
+    <div class = "input-div">
+        <label for="username"> Username:</label>
+        <input id="username" name="username" type = "text" required [(ngModel)] = "userName">
+    </div>
+    <div class = "input-div">
+        <label for="password"> Password:</label>
+        <input id="password" name="password" type = "password" required [(ngModel)] = "password">
+    </div>
+
+    <input type = "submit" value = "Login"/>
+
+</form>
