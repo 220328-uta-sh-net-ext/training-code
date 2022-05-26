@@ -12,6 +12,7 @@ import { SquarePipe } from './square.pipe';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
+import { SecretComponent } from './secret/secret.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
     PokemonComponent,
     NewPokemonComponent,
     SquarePipe,
-    LoginComponent
+    LoginComponent,
+    SecretComponent
   ],
   imports: [
     BrowserModule,

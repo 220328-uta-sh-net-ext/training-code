@@ -4,6 +4,8 @@ import { HomePageComponent } from "./home-page/home-page.component";
 import { RouterModule } from "@angular/router";
 import { PokedexComponent } from "./pokedex/pokedex.component";
 import { LoginComponent } from "./login/login.component";
+import { SecretComponent } from "./secret/secret.component";
+import { SecretGuard } from "./secret.guard";
 
 // Let's declare some routes for routing
 const routes = [
@@ -11,7 +13,9 @@ const routes = [
     {path: 'home', component: HomePageComponent},
     {path : 'pokedex', component: PokedexComponent},
     //Create new path for login
-    {path: 'login', component: LoginComponent}
+    {path: 'login', component: LoginComponent},
+    // Add route with route guard for secret
+    {path: 'secret', component:SecretComponent, canActivate:[SecretGuard]}
 ]
 
 //Start Building NgModule to create routing

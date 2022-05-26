@@ -46,7 +46,7 @@
 
         <!-- Let's refactor one more time -->
         <!-- Let's use @Input to pass in data -->
-        <pokemon *ngFor = "let poke1 of pokemon" [poke] = "poke1"></pokemon>
+        <pokemon *ngFor = "let poke1 of (pokemon | async)" [poke] = "poke1"></pokemon>
     </div>
 
     <!-- Simple Property and Event Binding -->
