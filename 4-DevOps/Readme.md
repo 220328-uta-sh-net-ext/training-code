@@ -278,3 +278,51 @@
 * Artifacts
     * Essentially, it is a market place for many packages
     * Ex: NuGet
+
+    ## Adding code analysis by sonar cloud to your pipeline
+
+1. Log in to your sonar cloud account using **github** (because it's free)
+2. Create a project:
+   1. Choose the organization
+   2. Select the repo
+   3. A project should be set up for you
+   - Remember the project key and name that you set your project to!
+3. Install sonar cloud to your azure devops account
+   - Go to this [link](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarcloud)
+4. Create a service connection to sonar cloud in azure devops:
+   1. Navigate to project settings on the left menu
+   2. Under the pipelines section, click on service connections
+   3. Select add new service connection
+   4. Choose sonar cloud
+   5. Input your personal access token to sonar cloud
+   - To generate a personal access token to sonar cloud:
+     1. Log in to sonar cloud
+     2. Click on your profile icon on the upper right corner
+     3. Select my acccount
+     4. On the account page, select security
+     5. Select generate new token
+     6. Copy the generated token
+   6. Verify the token, name your service connection, and save it
+5. Back to your pipeline editor, add a prepare analysis config task before any of the other tasks in your build pipeline
+   - When setting up this task:
+     1. Select the service connection to your sonar cloud account
+     2. Input in your project key and name
+        - To find your project key:
+          - Go under the administration menu in your project and select the update key
+          - If you're unable to access this menu and you're part of an org try using the naming convention OrgName_ProjectName
+6. Add a run code analysis task after the test step of the build pipeline
+7. Add a publish code analysis task after the run code analysis task
+8. Save your pipeline and watch sonar cloud judge your code!
+   Note: If you are self-hosting the build agents, make sure you have at least the minimum SonarQube-supported version of Java installed.
+   (Sonarqube)[https://www.sonarqube.org/downloads/]
+
+## Publishing code coverage results
+
+**Note:** make sure you have sonar cloud analysis set up in your pipeline to see the results!
+
+1. On your dotnet test task add `arguments: --configuration $(buildConfiguration) --collect "Code Coverage"` under the inputs
+2. Set the publish code coverage results after the dotnet test task
+3. Search for the publish code coverage results task on the assitant to the right of the pipeline editor
+4. Select cobutura as the code coverage tool
+5. Set the summary file location to be: `**/coburtura/coverage.xml`
+6. Save your piepline and wait to see how much of your code is tested!
