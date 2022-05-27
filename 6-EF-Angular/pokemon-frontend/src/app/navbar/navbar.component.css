@@ -1,0 +1,53 @@
+.navbar{
+    background-color: #eb4034;
+    height : 80px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 1;
+}
+
+.nav-list{
+    list-style: none;
+    width: 100%;
+    margin: auto;
+}
+
+.nav-item{
+    float: left;
+    display: block;
+    height: 80px;
+    line-height: 80px;
+}
+
+.nav-link{
+    color:black;
+    text-align: center;
+    text-decoration: none;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
+
+#logo{
+    height: 60px;
+    width: 60px;
+    border-radius: 100%;
+    object-fit: cover;
+    position: relative;
+    top: 12%;
+}
+
+#add-button{
+    background-color: #bd1004;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 4px;
+    font-size: 1rem;
+}

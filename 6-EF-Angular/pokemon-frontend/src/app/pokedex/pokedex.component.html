@@ -1,0 +1,62 @@
+<div id = "pokedex-main">
+    <h1> Pokemon Available in the Database</h1>
+    <div id = "pokemon-container">
+        <!-- <div class = "pokemon">
+            <!-- Use string interpolation to add values from variables in component 
+            <h2>{{pokemon[0].name}}</h2>
+            <h4>Level: {{pokemon[0].level}}</h4>
+            <h4>Attack: {{pokemon[0].attack}}</h4>
+            <h4>Defense: {{pokemon[0].defense}}</h4>
+            <h4>Health: {{pokemon[0].health}}</h4>
+        </div>
+        <div class = "pokemon">
+            <!-- Use string interpolation to add values from variables in component 
+            <h2>{{pokemon[1].name}}</h2>
+            <h4>Level: {{pokemon[1].level}}</h4>
+            <h4>Attack: {{pokemon[1].attack}}</h4>
+            <h4>Defense: {{pokemon[1].defense}}</h4>
+            <h4>Health: {{pokemon[1].health}}</h4>
+        </div>
+        <div class = "pokemon">
+            <!-- Use string interpolation to add values from variables in component 
+            <h2>{{pokemon[2].name}}</h2>
+            <h4>Level: {{pokemon[2].level}}</h4>
+            <h4>Attack: {{pokemon[2].attack}}</h4>
+            <h4>Defense: {{pokemon[2].defense}}</h4>
+            <h4>Health: {{pokemon[2].health}}</h4>
+        </div>
+        <div class = "pokemon">
+            <!-- Use string interpolation to add values from variables in component 
+            <h2>{{pokemon[3].name}}</h2>
+            <h4>Level: {{pokemon[3].level}}</h4>
+            <h4>Attack: {{pokemon[3].attack}}</h4>
+            <h4>Defense: {{pokemon[3].defense}}</h4>
+            <h4>Health: {{pokemon[3].health}}</h4> 
+        </div> -->
+
+
+        <!-- Let's use a structural directive to refactor our code -->
+        <!-- <div class = "pokemon" *ngFor = "let poke of pokemon">
+            <h2>{{poke.name}}</h2>
+            <h4>Level: {{poke.level}}</h4>
+            <h4>Attack: {{poke.attack}}</h4>
+            <h4>Defense: {{poke.defense}}</h4>
+            <h4>Health: {{poke.health}}</h4>
+        </div> -->
+
+        <!-- Let's refactor one more time -->
+        <!-- Let's use @Input to pass in data -->
+        <pokemon *ngFor = "let poke1 of (pokemon | async)" [poke] = "poke1"></pokemon>
+    </div>
+
+    <!-- Simple Property and Event Binding -->
+    <button (click) = "showOrHidePokemonForm()"> {{buttonText}}</button>
+
+    <!-- Let's put in the new-pokemon component that we created -->
+    <new-pokemon [hidden] = "hide" (sendPokemon)="getPokemonFromNewPokemon($event)"></new-pokemon>
+
+    <!-- <div [hidden] = "hide">
+        <p>Something hidden</p>
+    </div> -->
+
+</div>

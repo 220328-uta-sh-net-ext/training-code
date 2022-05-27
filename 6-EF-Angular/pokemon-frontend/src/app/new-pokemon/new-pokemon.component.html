@@ -1,0 +1,29 @@
+<form name = "new-pokemon">
+    <div>
+        <label for ="name"> Pokemon Name:</label>
+        <!-- Inside of our form we'll use [(ngModel)] to send user input to our ts file's variables-->
+        <input [(ngModel)] = "pokemonName" name = "name" type = "text" required />
+    </div>
+    <div>
+        <label for ="level"> Level:</label>
+        <!-- Inside of our form we'll use [(ngModel)] to send user input to our ts file's variables-->
+        <input [(ngModel)] = "pokemonLevel" name = "level" type = "number" required />
+    </div>
+    <div>
+        <label for ="attack"> Attack:</label>
+        <!-- Inside of our form we'll use [(ngModel)] to send user input to our ts file's variables-->
+        <input [(ngModel)] = "pokemonAttack" name = "attack" type = "number" required />
+    </div>
+    <div>
+        <label for ="defense"> Defense:</label>
+        <!-- Inside of our form we'll use [(ngModel)] to send user input to our ts file's variables-->
+        <input [(ngModel)] = "pokemonDefense" name = "defense" type = "number" required />
+    </div>
+    <div>
+        <label for ="health"> Health:</label>
+        <!-- Inside of our form we'll use [(ngModel)] to send user input to our ts file's variables-->
+        <input [(ngModel)] = "pokemonHealth" name = "health" type = "number" required />
+    </div>
+</form>
+
+<button (click) = "onSubmit()">Submit New Pokemon</button>

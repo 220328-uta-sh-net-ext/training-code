@@ -1,0 +1,25 @@
+<div class = "navbar">
+    <ul class = "nav-list">
+        <li class = "nav-item">
+            <!-- Changing href for routerlink now that we have routing -->
+            <a class = "nav-link" routerLink="home">
+                <img id = "logo" src = "https://comicvine.gamespot.com/a/uploads/scale_small/2/22300/451004-untitled.jpg" height="60" width="60">
+            </a>
+        </li>
+        <li class = "nav-item">
+            <a class = "nav-link" routerLink="pokedex">
+                All Pokemon
+            </a>
+        </li>
+        <!-- Adding new secret Item -->
+        <li class = "nav-item">
+            <a class = "nav-link" routerLink="secret">
+                Secret
+            </a>
+        </li>
+        <!-- Changing to login -->
+        <li class="nav-item">
+            <button id="add-button" (click) = "navigateLogin()">Login</button>
+        </li>
+    </ul>
+</div>

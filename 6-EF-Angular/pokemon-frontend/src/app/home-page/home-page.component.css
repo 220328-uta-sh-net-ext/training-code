@@ -1,0 +1,11 @@
+.home-page{
+    margin-top: 100px;
+    display:flex;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+}
+
+.home-message{
+    width: 80%;
+}

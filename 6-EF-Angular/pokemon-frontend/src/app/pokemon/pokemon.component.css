@@ -1,0 +1,18 @@
+.pokemon{
+    margin: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border: solid black 2px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.selected{
+    border : solid 2px #eb4034;
+}
+
+.not-selected{
+    border: solid 2px lightgray;
+}

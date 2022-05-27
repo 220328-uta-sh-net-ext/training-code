@@ -1,0 +1,19 @@
+<!-- We've seen ngFor now lets look at ngIf and ngClass -->
+<div *ngIf = "selected; else elseBlock">
+    <div [ngClass]="['pokemon', 'selected']" (click) = "selectPokemon()">
+            <h2>{{poke.name}}</h2>
+            <h4>Level: {{poke.level }}</h4>
+            <h4>Attack: {{poke.attack}}</h4>
+            <h4>Defense: {{poke.defense}}</h4>
+            <h4>Health: {{poke.health}}</h4>
+    </div>
+</div>
+<ng-template #elseBlock>
+    <div [ngClass]="['pokemon', 'not-selected']" (click) = "selectPokemon()">
+        <h2>{{poke.name}}</h2>
+        <h4>Level: {{poke.level }}</h4>
+        <h4>Attack: {{poke.attack}}</h4>
+        <h4>Defense: {{poke.defense}}</h4>
+        <h4>Health: {{poke.health}}</h4>
+    </div>
+</ng-template>
