@@ -43,3 +43,5 @@ This repo contains code base, materials and references with regards to training.
 
 ### [Pull Requests](https://guides.github.com/activities/hello-world/#:~:text=Pull%20Requests%20are%20the%20heart,merge%20them%20into%20their%20branch.&text=You%20can%20even%20open%20pull,repository%20and%20merge%20them%20yourself.)
 * If you want to suggest improvements to documents or code base, pull requests are welcomed.
+
+### [SQL Game](https://mystery.knightlab.com/): learn to play with SQL

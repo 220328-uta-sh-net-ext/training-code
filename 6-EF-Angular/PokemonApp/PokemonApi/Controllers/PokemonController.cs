@@ -50,7 +50,7 @@ namespace PokemonApi.Controllers
             return Ok(pokemons);
         }
 
-        [HttpGet("name")]
+        [HttpGet("Search")]
         //[DisableCors]
         [ProducesResponseType(200, Type = typeof(Pokemon))]
         [ProducesResponseType(404)]        
@@ -62,7 +62,7 @@ namespace PokemonApi.Controllers
             return Ok(poke);
         }
         [HttpPost]
-      
+        [Authorize]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public ActionResult Post([FromBody] Pokemon poke)// Complex type so model binder will look for these values from request body
@@ -73,6 +73,7 @@ namespace PokemonApi.Controllers
             return CreatedAtAction("Get",poke);
         }
         [HttpPut]
+        [Authorize]
         public ActionResult Put([FromBody]Pokemon poke, [FromQuery]string name) //non-Default
         {
             if (name == null)
@@ -98,6 +99,7 @@ namespace PokemonApi.Controllers
         }
 
         [HttpDelete]
+        [Authorize]
         public ActionResult Delete(int id)
         {
             if (id == null)

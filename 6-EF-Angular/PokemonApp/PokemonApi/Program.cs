@@ -22,7 +22,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy(name: pokemonPolicy,
             policy =>
             {
-                policy.WithOrigins("http://127.0.0.1:5500").AllowAnyHeader().AllowAnyMethod();
+                policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();//WithOrigins("http://127.0.0.1:5500", "http://localhost:4200").AllowAnyHeader().AllowAnyMethod();
             });
 });
 // Add services to the container.
