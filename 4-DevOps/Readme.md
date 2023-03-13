@@ -242,7 +242,7 @@
 * Essentially, it is the automated process of delivering the new changes in the main branch to the people
 * However, there is a **release manager that will check on everything before deployment**
 
-## Continous Delivery
+## Continous Deployment
 * In its essence, it is the combination of both Continuous Integration and Continuous Delivery
 * The main difference is there is essentially no human component involved in the entire process. Once you do a merge with the main, it will start deploying it after all the testing are done and passed
     * So no release manager and everything is managed/tested by computers
